@@ -16,6 +16,9 @@ export interface AllocationCalculationResult {
   statusTextVi: string;
   statusTextEn: string;
   badgeColor: 'emerald' | 'amber' | 'slate' | 'rose';
+  isValid: boolean;
+  validationErrorsVi: string[];
+  validationErrorsEn: string[];
   formulaBreakdown: {
     pAvgFormula: string;
     eAvgFormula: string;
@@ -61,25 +64,55 @@ export function calculateAllocation(params: {
     ? [2022, 2023, 2024] 
     : [2023, 2024, 2025];
 
+  const validationErrorsVi: string[] = [];
+  const validationErrorsEn: string[] = [];
+  const addError = (vi: string, en: string) => {
+    validationErrorsVi.push(vi);
+    validationErrorsEn.push(en);
+  };
+  const validateNonNegative = (labelVi: string, labelEn: string, value: number | null) => {
+    if (value !== null && (!Number.isFinite(value) || value < 0)) {
+      addError(`${labelVi} phải là số hữu hạn không âm.`, `${labelEn} must be a finite, non-negative number.`);
+    }
+  };
+
+  [prodY3, prodY2, prodY1].forEach((value, index) =>
+    validateNonNegative(`Sản lượng năm ${windowYears[index]}`, `Production for ${windowYears[index]}`, value)
+  );
+  [emisY3, emisY2, emisY1].forEach((value, index) =>
+    validateNonNegative(`Phát thải năm ${windowYears[index]}`, `Emissions for ${windowYears[index]}`, value)
+  );
+  if (g !== null && (!Number.isFinite(g) || g <= -100)) {
+    addError('Tỷ lệ tăng trưởng g phải là số hữu hạn lớn hơn -100%.', 'Growth rate g must be finite and greater than -100%.');
+  }
+  if (r !== null && (!Number.isFinite(r) || r < 0 || r > 100)) {
+    addError('Tỷ lệ giảm phát thải r phải nằm trong khoảng 0% đến 100%.', 'Reduction rate r must be between 0% and 100%.');
+  }
+  if (benchmarkOverride !== null && (!Number.isFinite(benchmarkOverride) || benchmarkOverride <= 0)) {
+    addError('Benchmark B phải là số hữu hạn lớn hơn 0.', 'Benchmark B must be a finite number greater than 0.');
+  }
+  validateNonNegative('Hạn ngạch chính thức', 'Official allocation', officialAllocation);
+  const isValid = validationErrorsVi.length === 0;
+
   // 1. P_avg
-  const has3YearsProd = prodY3 !== null && prodY2 !== null && prodY1 !== null;
-  const pAvg = has3YearsProd ? (prodY3 + prodY2 + prodY1) / 3 : null;
+  const has3YearsProd = [prodY3, prodY2, prodY1].every(value => value !== null && Number.isFinite(value) && value >= 0);
+  const pAvg = isValid && has3YearsProd ? ((prodY3 as number) + (prodY2 as number) + (prodY1 as number)) / 3 : null;
 
   // 2. E_avg
-  const has3YearsEmis = emisY3 !== null && emisY2 !== null && emisY1 !== null;
-  const eAvg = has3YearsEmis ? (emisY3 + emisY2 + emisY1) / 3 : null;
+  const has3YearsEmis = [emisY3, emisY2, emisY1].every(value => value !== null && Number.isFinite(value) && value >= 0);
+  const eAvg = isValid && has3YearsEmis ? ((emisY3 as number) + (emisY2 as number) + (emisY1 as number)) / 3 : null;
 
   // 3. Benchmark B
-  const isBenchmarkOverride = benchmarkOverride !== null && benchmarkOverride > 0;
+  const isBenchmarkOverride = isValid && benchmarkOverride !== null && Number.isFinite(benchmarkOverride) && benchmarkOverride > 0;
   const benchmarkB = isBenchmarkOverride ? benchmarkOverride : null;
 
   // 4. Factor T = (1 + g) * (1 - r)
   // Strict rule: do not assume 0% if missing
-  const hasGR = g !== null && r !== null;
+  const hasGR = isValid && g !== null && r !== null;
   const factorT = hasGR ? (1 + g / 100) * (1 - r / 100) : null;
 
   // 5. Calculated Allowance A = P_avg * B * T
-  const canCalculateA = pAvg !== null && benchmarkB !== null && factorT !== null;
+  const canCalculateA = isValid && pAvg !== null && eAvg !== null && benchmarkB !== null && factorT !== null && factorT >= 0;
   const calculatedA = canCalculateA ? pAvg * benchmarkB * factorT : null;
 
   // 6. Difference vs Official
@@ -96,7 +129,12 @@ export function calculateAllocation(params: {
   let statusTextEn = '';
   let badgeColor: 'emerald' | 'amber' | 'slate' | 'rose' = 'slate';
 
-  if (!has3YearsProd || !has3YearsEmis) {
+  if (!isValid) {
+    status = 'INVALID_INPUT';
+    statusTextVi = validationErrorsVi.join(' ');
+    statusTextEn = validationErrorsEn.join(' ');
+    badgeColor = 'rose';
+  } else if (!has3YearsProd || !has3YearsEmis) {
     status = 'MISSING_HISTORICAL';
     statusTextVi = 'Thiếu dữ liệu sản lượng hoặc phát thải lịch sử 3 năm (' + windowYears.join(', ') + ')';
     statusTextEn = 'Missing 3-year historical production or emissions data (' + windowYears.join(', ') + ')';
@@ -132,7 +170,7 @@ export function calculateAllocation(params: {
     : '(E_y3 + E_y2 + E_y1) / 3 [Đang chờ nhập 3 năm]';
 
   const tFormula = hasGR 
-    ? `(1 + ${g}%) × (1 - ${r}%) = ${(1 + (g || 0)/100).toFixed(4)} × ${(1 - (r || 0)/100).toFixed(4)} = ${factorT?.toFixed(4)}`
+    ? `(1 + ${g}%) × (1 - ${r}%) = ${(1 + (g as number)/100).toFixed(4)} × ${(1 - (r as number)/100).toFixed(4)} = ${factorT?.toFixed(4)}`
     : '(1 + g) × (1 - r) [Thiếu tham số chính sách]';
 
   const aFormula = canCalculateA
@@ -155,6 +193,9 @@ export function calculateAllocation(params: {
     statusTextVi,
     statusTextEn,
     badgeColor,
+    isValid,
+    validationErrorsVi,
+    validationErrorsEn,
     formulaBreakdown: {
       pAvgFormula,
       eAvgFormula,

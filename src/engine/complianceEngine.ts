@@ -23,7 +23,7 @@ export interface ComplianceCalculationResult {
 
   // Surrender & Available
   requiredSurrender: number | null;
-  availableAllowances: number;
+  availableAllowances: number | null;
   
   // Position
   complianceGap: number | null; // Available - Required (Positive = Surplus, Negative = Deficit)
@@ -31,6 +31,9 @@ export interface ComplianceCalculationResult {
   statusTextVi: string;
   statusTextEn: string;
   badgeColor: 'emerald' | 'rose' | 'amber' | 'slate';
+  isValid: boolean;
+  validationErrorsVi: string[];
+  validationErrorsEn: string[];
   
   surrenderDeadline: string;
   legalBasis: {
@@ -59,36 +62,62 @@ export function calculateCompliance(params: {
     borrowedAllowances = 0,
   } = params;
 
-  const rawCredits = creditsUsed || 0;
-  const rawTrades = netAllowanceTrades || 0;
-  const rawBorrowed = borrowedAllowances || 0;
+  const validationErrorsVi: string[] = [];
+  const validationErrorsEn: string[] = [];
+  const addError = (vi: string, en: string) => {
+    validationErrorsVi.push(vi);
+    validationErrorsEn.push(en);
+  };
+  const validateNonNegative = (labelVi: string, labelEn: string, value: number | null) => {
+    if (value !== null && (!Number.isFinite(value) || value < 0)) {
+      addError(`${labelVi} phải là số hữu hạn không âm.`, `${labelEn} must be a finite, non-negative number.`);
+    }
+  };
+
+  validateNonNegative('Tổng hạn ngạch giai đoạn', 'Phase allocation total', phaseAllocationTotal);
+  validateNonNegative('Phát thải trực tiếp 2025', 'Direct emissions 2025', directEmis2025);
+  validateNonNegative('Phát thải trực tiếp 2026', 'Direct emissions 2026', directEmis2026);
+  validateNonNegative('Tín chỉ sử dụng', 'Credits used', creditsUsed);
+  validateNonNegative('Hạn ngạch vay mượn', 'Borrowed allowances', borrowedAllowances);
+  if (netAllowanceTrades !== null && !Number.isFinite(netAllowanceTrades)) {
+    addError('Giao dịch hạn ngạch ròng phải là số hữu hạn.', 'Net allowance trades must be finite.');
+  }
+  const isValid = validationErrorsVi.length === 0;
+
+  const safePhaseTotal = Number.isFinite(phaseAllocationTotal) && phaseAllocationTotal >= 0 ? phaseAllocationTotal : 0;
+  const rawCredits = creditsUsed !== null && Number.isFinite(creditsUsed) && creditsUsed >= 0 ? creditsUsed : 0;
+  const rawTrades = netAllowanceTrades !== null && Number.isFinite(netAllowanceTrades) ? netAllowanceTrades : 0;
+  const rawBorrowed = borrowedAllowances !== null && Number.isFinite(borrowedAllowances) && borrowedAllowances >= 0 ? borrowedAllowances : 0;
+  const isApplicable = isInQd699 && safePhaseTotal > 0;
 
   // Caps
-  const creditCap30Percent = phaseAllocationTotal * 0.30;
-  const isCreditExceeded = rawCredits > creditCap30Percent;
-  const eligibleCredits = Math.min(rawCredits, creditCap30Percent);
+  const creditCap30Percent = safePhaseTotal * 0.30;
+  const isCreditExceeded = isApplicable && rawCredits > creditCap30Percent;
+  const eligibleCredits = isApplicable ? Math.min(rawCredits, creditCap30Percent) : 0;
 
-  const borrowingCap15Percent = phaseAllocationTotal * 0.15;
-  const isBorrowingExceeded = rawBorrowed > borrowingCap15Percent;
-  const eligibleBorrowed = Math.min(rawBorrowed, borrowingCap15Percent);
+  const borrowingCap15Percent = safePhaseTotal * 0.15;
+  const isBorrowingExceeded = isApplicable && rawBorrowed > borrowingCap15Percent;
+  const eligibleBorrowed = isApplicable ? Math.min(rawBorrowed, borrowingCap15Percent) : 0;
 
   // Direct emissions
-  const hasDirectEmissions = directEmis2025 !== null && directEmis2026 !== null;
-  const directEmisTotal = hasDirectEmissions 
-    ? (directEmis2025 || 0) + (directEmis2026 || 0) 
+  const hasDirectEmissions = isValid && directEmis2025 !== null && directEmis2026 !== null;
+  const directEmisTotal = hasDirectEmissions
+    ? directEmis2025 + directEmis2026
     : null;
 
   // Surrender & Available
   // Article 19(5)(a): Surrender must be at least direct emissions minus carbon credits used
-  const requiredSurrender = directEmisTotal !== null
+  const requiredSurrender = isApplicable && directEmisTotal !== null
     ? Math.max(0, directEmisTotal - eligibleCredits)
     : null;
 
-  const availableAllowances = phaseAllocationTotal + rawTrades + eligibleBorrowed;
+  const availableAllowances = isApplicable && isValid
+    ? safePhaseTotal + rawTrades + eligibleBorrowed
+    : null;
 
   // Gap = Available - Required
   const complianceGap = requiredSurrender !== null
-    ? availableAllowances - requiredSurrender
+    ? (availableAllowances as number) - requiredSurrender
     : null;
 
   // Status
@@ -97,7 +126,12 @@ export function calculateCompliance(params: {
   let statusTextEn = '';
   let badgeColor: 'emerald' | 'rose' | 'amber' | 'slate' = 'slate';
 
-  if (!isInQd699 || phaseAllocationTotal <= 0) {
+  if (!isValid) {
+    status = 'INVALID_INPUT';
+    statusTextVi = validationErrorsVi.join(' ');
+    statusTextEn = validationErrorsEn.join(' ');
+    badgeColor = 'rose';
+  } else if (!isApplicable) {
     status = 'NOT_APPLICABLE';
     statusTextVi = 'KHÔNG ÁP DỤNG — Cơ sở không có hạn ngạch chính thức trong QĐ 699';
     statusTextEn = 'NOT APPLICABLE — No QD699 quota allocation assigned';
@@ -136,7 +170,7 @@ export function calculateCompliance(params: {
 
   return {
     isInQd699,
-    phaseAllocationTotal,
+    phaseAllocationTotal: safePhaseTotal,
     directEmis2025,
     directEmis2026,
     directEmisTotal,
@@ -157,6 +191,9 @@ export function calculateCompliance(params: {
     statusTextVi,
     statusTextEn,
     badgeColor,
+    isValid,
+    validationErrorsVi,
+    validationErrorsEn,
     surrenderDeadline: '31/12/2027',
     legalBasis: {
       title: 'Văn bản hợp nhất 48/VBHN-BNNMT, Điều 19 & Quyết định 699/QĐ-BNNMT',

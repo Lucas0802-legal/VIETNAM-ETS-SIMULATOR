@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useMemo, ReactNode } from 'react';
+import React, { createContext, useContext, useEffect, useRef, useState, useMemo, ReactNode } from 'react';
 import facilitiesData from '../data/facilities.json';
 import legalRulesData from '../data/legalRules.json';
 import regulatoryScopeData from '../data/regulatoryScope.json';
@@ -8,6 +8,7 @@ import { assessInventoryObligation, InventoryAssessmentResult } from '../engine/
 import { calculateAllocation, AllocationCalculationResult } from '../engine/allocationEngine';
 import { calculateCompliance, ComplianceCalculationResult } from '../engine/complianceEngine';
 import { evaluateDataQuality, DataQualityReport } from '../engine/dataQualityEngine';
+import { normalizeSearchText } from '../utils/search';
 
 interface SimulatorContextType {
   state: SimulatorState;
@@ -16,6 +17,7 @@ interface SimulatorContextType {
   regulatoryRules: RegulatoryRule[];
   presets: PresetScenario[];
   selectedFacility: Facility | null;
+  manualQuotaMatches: Facility[];
   
   // Engine Results
   inventoryResult: InventoryAssessmentResult;
@@ -54,7 +56,7 @@ const defaultState: SimulatorState = {
   sector: 'Thermal power',
   is_manual: false,
 
-  inventory_list_match: 'Yes',
+  inventory_list_match: 'Unknown',
   annual_ghg: 1050000,
   annual_toe: 280000,
   waste_capacity: null,
@@ -78,10 +80,46 @@ const defaultState: SimulatorState = {
 };
 
 const SimulatorContext = createContext<SimulatorContextType | undefined>(undefined);
+const STORAGE_KEY = 'vietnam-ets-simulator:draft:v1';
+const SCREEN_STORAGE_KEY = 'vietnam-ets-simulator:screen:v1';
+
+const clearFacilityInputs = (state: SimulatorState): SimulatorState => ({
+  ...state,
+  annual_ghg: null,
+  annual_toe: null,
+  waste_capacity: null,
+  prod_y3: null,
+  prod_y2: null,
+  prod_y1: null,
+  emis_y3: null,
+  emis_y2: null,
+  emis_y1: null,
+  g: null,
+  r: null,
+  benchmark_override: null,
+  direct_emis_2025: null,
+  direct_emis_2026: null,
+  credits_used: 0,
+  net_allowance_trades: 0,
+  borrowed_allowances: 0,
+});
+
+const loadStoredState = (): SimulatorState => {
+  if (typeof window === 'undefined') return defaultState;
+  try {
+    const saved = window.localStorage.getItem(STORAGE_KEY);
+    return saved ? { ...defaultState, ...JSON.parse(saved) } : defaultState;
+  } catch {
+    return defaultState;
+  }
+};
 
 export const SimulatorProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [state, setState] = useState<SimulatorState>(defaultState);
-  const [currentScreen, setCurrentScreen] = useState<number>(1);
+  const [state, setState] = useState<SimulatorState>(loadStoredState);
+  const [currentScreen, setCurrentScreen] = useState<number>(() => {
+    const saved = Number(window.localStorage.getItem(SCREEN_STORAGE_KEY));
+    return Number.isInteger(saved) && saved >= 1 && saved <= 8 ? saved : 1;
+  });
   const [activeLegalRule, setActiveLegalRule] = useState<LegalRule | null>(null);
   const [isLegalDrawerOpen, setIsLegalDrawerOpen] = useState<boolean>(false);
   const [isPrintModalOpen, setIsPrintModalOpen] = useState<boolean>(false);
@@ -91,12 +129,33 @@ export const SimulatorProvider: React.FC<{ children: ReactNode }> = ({ children 
   const legalRules = useMemo(() => legalRulesData as LegalRule[], []);
   const regulatoryRules = useMemo(() => regulatoryScopeData as RegulatoryRule[], []);
   const presets = useMemo(() => defaultPresetsData as PresetScenario[], []);
+  const lastOfficialFacilityId = useRef(state.is_manual ? 'F001' : state.facility_id || 'F001');
+
+  useEffect(() => {
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }, [state]);
+
+  useEffect(() => {
+    window.localStorage.setItem(SCREEN_STORAGE_KEY, String(currentScreen));
+  }, [currentScreen]);
 
   // Selected Facility
   const selectedFacility = useMemo(() => {
     if (state.is_manual || !state.facility_id) return null;
     return facilities.find(f => f.id === state.facility_id) || null;
   }, [facilities, state.is_manual, state.facility_id]);
+
+  const manualQuotaMatches = useMemo(() => {
+    if (!state.is_manual) return [];
+    const taxId = state.manual_tax_id.replace(/\D/g, '');
+    const name = normalizeSearchText(state.manual_facility_name.trim());
+    if (!taxId && !name) return [];
+    return facilities.filter(facility => {
+      const facilityTaxId = facility.tax_id.replace(/\D/g, '');
+      const facilityName = normalizeSearchText(facility.name);
+      return (!!taxId && facilityTaxId === taxId) || (!!name && facilityName === name);
+    });
+  }, [facilities, state.is_manual, state.manual_facility_name, state.manual_tax_id]);
 
   // Inventory Engine Assessment
   const inventoryResult = useMemo(() => {
@@ -149,48 +208,113 @@ export const SimulatorProvider: React.FC<{ children: ReactNode }> = ({ children 
 
   // Data Quality Engine Evaluation
   const dataQualityReport = useMemo(() => {
-    return evaluateDataQuality(state, !!selectedFacility);
-  }, [state, selectedFacility]);
+    return evaluateDataQuality(state, !!selectedFacility, {
+      allocation: allocationResult.status,
+      compliance: complianceResult.status,
+      inventory: inventoryResult.overallStatus,
+    });
+  }, [state, selectedFacility, allocationResult.status, complianceResult.status, inventoryResult.overallStatus]);
 
   // Actions
   const updateField = <K extends keyof SimulatorState>(field: K, value: SimulatorState[K]) => {
-    setState(prev => ({ ...prev, [field]: value }));
+    setState(prev => {
+      if (field === 'allocation_year' && prev.allocation_year !== value) {
+        return {
+          ...prev,
+          allocation_year: value as SimulatorState['allocation_year'],
+          prod_y3: null,
+          prod_y2: null,
+          prod_y1: null,
+          emis_y3: null,
+          emis_y2: null,
+          emis_y1: null,
+          g: null,
+          r: null,
+          benchmark_override: null,
+        };
+      }
+      return { ...prev, [field]: value };
+    });
   };
 
   const selectFacility = (id: string) => {
     const fac = facilities.find(f => f.id === id);
     if (fac) {
-      setState(prev => ({
+      lastOfficialFacilityId.current = fac.id;
+      setState(prev => {
+        if (!prev.is_manual && prev.facility_id === fac.id) return prev;
+        return clearFacilityInputs({
         ...prev,
         facility_id: fac.id,
         is_manual: false,
+        manual_facility_name: '',
+        manual_tax_id: '',
         sector: fac.sector,
         facility_type: fac.sector === 'Thermal power' ? 'Thermal power' : 'Industrial production',
-        inventory_list_match: 'Yes',
-      }));
+        inventory_list_match: 'Unknown',
+      });
+      });
     }
   };
 
   const setManualMode = (isManual: boolean) => {
-    setState(prev => ({
-      ...prev,
-      is_manual: isManual,
-      facility_id: isManual ? '' : 'F001',
-      inventory_list_match: isManual ? 'Unknown' : 'Yes',
-    }));
+    setState(prev => {
+      if (prev.is_manual === isManual) return prev;
+      if (isManual) {
+        if (prev.facility_id) lastOfficialFacilityId.current = prev.facility_id;
+        return clearFacilityInputs({
+          ...prev,
+          is_manual: true,
+          facility_id: '',
+          manual_facility_name: '',
+          manual_tax_id: '',
+          sector: 'Other',
+          facility_type: 'Other',
+          inventory_list_match: 'Unknown',
+        });
+      }
+
+      const facility = facilities.find(f => f.id === lastOfficialFacilityId.current) ?? facilities[0];
+      return clearFacilityInputs({
+        ...prev,
+        is_manual: false,
+        facility_id: facility.id,
+        manual_facility_name: '',
+        manual_tax_id: '',
+        sector: facility.sector,
+        facility_type: facility.sector === 'Thermal power' ? 'Thermal power' : 'Industrial production',
+        inventory_list_match: 'Unknown',
+      });
+    });
   };
 
   const loadPreset = (presetId: string) => {
     const preset = presets.find(p => p.id === presetId);
     if (!preset) return;
 
-    setState(prev => ({
-      ...prev,
-      ...preset,
-    }));
+    const presetState = Object.fromEntries(
+      Object.entries(preset).filter(([key]) => key in defaultState)
+    ) as Partial<SimulatorState>;
+    const facility = presetState.facility_id
+      ? facilities.find(f => f.id === presetState.facility_id)
+      : null;
+    if (facility) lastOfficialFacilityId.current = facility.id;
+    setState({
+      ...defaultState,
+      ...presetState,
+      sector: facility?.sector ?? presetState.sector ?? 'Other',
+      facility_type: facility
+        ? (facility.sector === 'Thermal power' ? 'Thermal power' : 'Industrial production')
+        : presetState.facility_type ?? 'Other',
+      manual_facility_name: presetState.is_manual ? presetState.manual_facility_name ?? '' : '',
+      manual_tax_id: presetState.is_manual ? presetState.manual_tax_id ?? '' : '',
+    });
   };
 
   const resetSimulation = () => {
+    window.localStorage.removeItem(STORAGE_KEY);
+    window.localStorage.removeItem(SCREEN_STORAGE_KEY);
+    lastOfficialFacilityId.current = 'F001';
     setState(defaultState);
     setCurrentScreen(1);
   };
@@ -223,6 +347,7 @@ export const SimulatorProvider: React.FC<{ children: ReactNode }> = ({ children 
         regulatoryRules,
         presets,
         selectedFacility,
+        manualQuotaMatches,
         inventoryResult,
         allocationResult,
         complianceResult,

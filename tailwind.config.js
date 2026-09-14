@@ -7,30 +7,54 @@ export default {
   theme: {
     extend: {
       colors: {
-        slate: {
-          850: '#151f32',
-          950: '#090d16',
+        brand: {
+          DEFAULT: '#116C5B',
+          dark: '#0B5148',
         },
-        navy: {
-          50: '#f0f5fa',
-          100: '#e1ebf4',
-          200: '#c3d7e9',
-          300: '#94badd',
-          400: '#5f97cd',
-          500: '#3b7bbe',
-          600: '#2c62a3',
-          700: '#244e83',
-          800: '#21436e',
-          900: '#0f172a',
-          950: '#090d18',
+        eco: {
+          DEFAULT: '#16853D',
+          light: '#5BA12F',
+          soft: '#ABC7B3',
+        },
+        canvas: '#EEF6F3',
+        surface: '#FFFFFF',
+        hairline: '#B7CDC8',
+        ink: {
+          DEFAULT: '#1F3738',
+          muted: '#5A706B',
+        },
+        navy: '#0B3855',
+        // Neutrals re-tinted toward the brand's teal-green so surfaces,
+        // borders and muted text read as one system.
+        slate: {
+          50: '#F7FBF9',
+          100: '#EEF6F3',
+          200: '#DCEAE5',
+          300: '#B7CDC8',
+          400: '#8AA49E',
+          500: '#5A706B',
+          600: '#4A5F5B',
+          700: '#35504B',
+          800: '#26403C',
+          850: '#1D3432',
+          900: '#1F3738',
+          950: '#152726',
         },
         emerald: {
-          600: '#059669',
-          700: '#047857',
+          50: '#EAF5EE',
+          100: '#D6EBDD',
+          200: '#ABC7B3',
+          300: '#8CBB98',
+          400: '#5BA12F',
+          500: '#2E9450',
+          600: '#16853D',
+          700: '#116C5B',
+          800: '#0B5148',
+          900: '#0A423B',
         },
       },
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        sans: ['Montserrat', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
         mono: ['JetBrains Mono', 'Menlo', 'Consolas', 'monospace'],
       },
       boxShadow: {

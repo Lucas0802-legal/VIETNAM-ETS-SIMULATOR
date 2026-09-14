@@ -2,13 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-primary: #116C5B;
+  --color-primary-dark: #0B5148;
+  --color-secondary: #16853D;
+  --color-accent: #5BA12F;
+
+  --color-background: #EEF6F3;
+  --color-surface: #FFFFFF;
+  --color-border: #B7CDC8;
+  --color-soft-green: #ABC7B3;
+
+  --color-text-primary: #1F3738;
+  --color-text-secondary: #5A706B;
+  --color-navy: #0B3855;
+}
+
 @layer base {
   body {
-    @apply bg-slate-100 text-slate-900 antialiased min-h-screen font-sans;
+    @apply bg-canvas text-ink antialiased min-h-screen font-sans;
+  }
+
+  ::selection {
+    background-color: var(--color-soft-green);
+    color: var(--color-text-primary);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
   }
 }
 
 @media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
   body {
     background: white !important;
   }
@@ -17,5 +47,9 @@
   }
   .print\:p-0 {
     padding: 0 !important;
+  }
+  .print\:break-inside-avoid {
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 }

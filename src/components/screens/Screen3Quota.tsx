@@ -4,9 +4,6 @@ import {
   CheckCircle2, 
   AlertCircle, 
   ArrowRight, 
-  Building2, 
-  FileText, 
-  Scale, 
   Info 
 } from 'lucide-react';
 import { useSimulator } from '../../context/SimulatorContext';
@@ -16,8 +13,10 @@ import { LegalButton } from '../legal/LegalButton';
 export const Screen3Quota: React.FC = () => {
   const { 
     selectedFacility, 
+    manualQuotaMatches,
     state, 
-    setCurrentScreen 
+    setCurrentScreen,
+    selectFacility,
   } = useSimulator();
   const { t } = useLanguage();
 
@@ -36,12 +35,6 @@ export const Screen3Quota: React.FC = () => {
           <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
             {t('Cơ sở có thuộc diện được phân bổ hạn ngạch phát thải 2025–2026?', 'Is this facility included in the 2025–2026 quota allocation scheme?')}
           </h2>
-          <p className="text-xs text-slate-500 mt-1 max-w-2xl">
-            {t(
-              'Căn cứ Điều 12 Nghị định 06 (sửa đổi) và Quyết định số 699/QĐ-BNNMT ngày 27/02/2026 của Bộ Nông nghiệp & Môi trường.',
-              'Pursuant to Article 12 Decree 06 and Decision 699/QĐ-BNNMT dated 27/02/2026.'
-            )}
-          </p>
         </div>
 
         <div className="flex items-center gap-2 shrink-0">
@@ -65,7 +58,7 @@ export const Screen3Quota: React.FC = () => {
                 {selectedFacility.name}
               </h3>
               <p className="text-xs text-slate-600">
-                {t('Mã cơ sở:', 'Facility ID:')} <span className="font-mono font-bold text-slate-800">{selectedFacility.id}</span> • {t('Lĩnh vực:', 'Sector:')} <strong className="text-slate-800">{selectedFacility.sector_vi}</strong> • {t('Mã số thuế:', 'Tax ID:')} <span className="font-mono text-slate-800">{selectedFacility.tax_id}</span>
+                {t('Mã cơ sở:', 'Facility ID:')} <span className="font-mono font-bold text-slate-800">{selectedFacility.id}</span> • {t('Lĩnh vực:', 'Sector:')} <strong className="text-slate-800">{t(selectedFacility.sector_vi, selectedFacility.sector)}</strong> • {t('Mã số thuế:', 'Tax ID:')} <span className="font-mono text-slate-800">{selectedFacility.tax_id}</span>
               </p>
             </div>
 
@@ -88,7 +81,7 @@ export const Screen3Quota: React.FC = () => {
               <div className="text-2xl font-extrabold text-slate-900 font-mono">
                 {selectedFacility.allocation_2025.toLocaleString()}
               </div>
-              <div className="text-[11px] text-slate-400 mt-0.5">tCO2e ({selectedFacility.product_vi})</div>
+              <div className="text-[11px] text-slate-400 mt-0.5">tCO2e ({t(selectedFacility.product_vi, selectedFacility.product)})</div>
             </div>
 
             <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-xs">
@@ -98,10 +91,10 @@ export const Screen3Quota: React.FC = () => {
               <div className="text-2xl font-extrabold text-slate-900 font-mono">
                 {selectedFacility.allocation_2026.toLocaleString()}
               </div>
-              <div className="text-[11px] text-slate-400 mt-0.5">tCO2e ({selectedFacility.product_vi})</div>
+              <div className="text-[11px] text-slate-400 mt-0.5">tCO2e ({t(selectedFacility.product_vi, selectedFacility.product)})</div>
             </div>
 
-            <div className="bg-slate-900 rounded-xl p-4 text-white shadow-xs border border-slate-800">
+            <div className="bg-brand rounded-xl p-4 text-white shadow-xs border border-brand-dark">
               <div className="text-xs font-semibold text-slate-300 mb-1">
                 {t('Tổng hạn ngạch Giai đoạn 2025–2026', 'Phase Allocation Total')}
               </div>
@@ -110,20 +103,6 @@ export const Screen3Quota: React.FC = () => {
               </div>
               <div className="text-[11px] text-slate-400 mt-0.5 font-mono">tCO2e {t('(Dùng cho Tuân thủ)', '(For Compliance)')}</div>
             </div>
-          </div>
-
-          {/* National Pilot Context Note */}
-          <div className="bg-white/80 rounded-xl border border-slate-200 p-4 text-xs text-slate-700 space-y-1">
-            <div className="font-bold text-slate-900 flex items-center gap-1.5">
-              <Layers className="w-4 h-4 text-slate-600" />
-              {t('Bối cảnh Tổng hạn ngạch Quốc gia (Quyết định 263/QĐ-TTg):', 'National Cap Context (Decision 263/QĐ-TTg):')}
-            </div>
-            <p className="text-slate-600 leading-relaxed">
-              {t(
-                'Thủ tướng Chính phủ đã phê duyệt tổng hạn ngạch KNK thí điểm: Năm 2025 là 243,082,392 tCO2e; Năm 2026 là 268,391,454 tCO2e cho 34 nhà máy nhiệt điện, 25 cơ sở sản xuất sắt thép và 51 nhà máy sản xuất clanhke xi măng. Cơ sở này chiếm một tỷ trọng cụ thể trong trần phát thải quốc gia.',
-                'Prime Minister approved pilot national caps: 2025 is 243,082,392 tCO2e; 2026 is 268,391,454 tCO2e across 34 thermal, 25 steel, and 51 cement facilities. This facility holds a binding share of this national cap.'
-              )}
-            </p>
           </div>
         </div>
       ) : (
@@ -135,17 +114,35 @@ export const Screen3Quota: React.FC = () => {
             </div>
 
             <div className="space-y-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-600 text-white font-bold text-xs shadow-xs">
-                {t('KẾT LUẬN CHÍNH THỨC', 'OFFICIAL CONCLUSION')}
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-600 text-white font-bold text-xs shadow-xs">
+                {t('CHƯA XÁC MINH VỚI DANH MỤC', 'NOT YET VERIFIED AGAINST THE LIST')}
               </span>
               <h3 className="text-xl font-extrabold text-slate-900">
-                {t('Không tìm thấy cơ sở trong danh sách phân bổ hạn ngạch hiện tại (QĐ 699)', 'No current official quota allocation found in Decision 699')}
+                {manualQuotaMatches.length > 0
+                  ? t('Thông tin tự khai có thể trùng với cơ sở trong QĐ 699', 'Manual details may match a facility in Decision 699')
+                  : t('Chưa xác nhận cơ sở trong danh sách phân bổ hiện tại', 'Facility has not been confirmed in the current allocation list')}
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
                 {state.is_manual
-                  ? t(`Cơ sở tự khai "${state.manual_facility_name || 'Cơ sở tự do'}" không nằm trong danh mục 110 nhà máy thí điểm của Quyết định 699/QĐ-BNNMT.`, `Manual facility "${state.manual_facility_name || 'Manual'}" is not in the 110 pilot facilities under Decision 699.`)
+                  ? t(`Chế độ tự khai không tự động đưa ra kết luận phủ định cho "${state.manual_facility_name || 'Cơ sở tự do'}". Hãy chọn một kết quả đối chiếu chính thức nếu phù hợp.`, `Manual mode does not issue a negative official conclusion for "${state.manual_facility_name || 'Manual'}". Select an official match when appropriate.`)
                   : t('Cơ sở đang tra cứu không có tên trong danh sách phân bổ hạn ngạch đợt 1.', 'The facility is not listed in the first phase quota allocation.')}
               </p>
+
+              {manualQuotaMatches.length > 0 && (
+                <div className="space-y-2 pt-2">
+                  {manualQuotaMatches.map(facility => (
+                    <button
+                      key={facility.id}
+                      type="button"
+                      onClick={() => selectFacility(facility.id)}
+                      className="w-full min-h-11 rounded-xl border border-amber-300 bg-white px-3 py-2 text-left text-xs hover:bg-amber-50"
+                    >
+                      <span className="font-bold text-slate-900">[{facility.id}] {facility.name}</span>
+                      <span className="block text-slate-500 mt-0.5">{facility.tax_id}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
@@ -182,9 +179,9 @@ export const Screen3Quota: React.FC = () => {
         <button
           type="button"
           onClick={() => setCurrentScreen(4)}
-          className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-slate-900 text-white font-semibold text-xs hover:bg-slate-800 shadow-xs transition-all shrink-0 cursor-pointer"
+          className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-brand text-white font-semibold text-xs hover:bg-brand-dark shadow-xs transition-all shrink-0 cursor-pointer"
         >
-          <span>{t('Mở Mô phỏng Công thức (Allocation Sim)', 'Open Allocation Simulator')}</span>
+          <span>{t('Mở Mô phỏng Công thức', 'Open Allocation Simulator')}</span>
           <ArrowRight className="w-3.5 h-3.5" />
         </button>
       </div>

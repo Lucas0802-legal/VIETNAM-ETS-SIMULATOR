@@ -6,6 +6,7 @@ import { assessInventoryObligation } from './src/engine/inventoryEngine';
 import { calculateAllocation } from './src/engine/allocationEngine';
 import { calculateCompliance } from './src/engine/complianceEngine';
 import { evaluateDataQuality } from './src/engine/dataQualityEngine';
+import { buildCsv } from './src/utils/csv';
 import type { SimulatorState } from './src/types';
 
 export interface TestCaseResult {
@@ -165,11 +166,11 @@ export function runAllTestCases(): { total: number; passed: number; failed: numb
   record(
     'TC-09',
     'Screen 2: Inventory',
-    'Cơ sở thuộc QĐ 699 tự động xác lập nghĩa vụ kiểm kê (YES)',
+    'Đối chiếu danh mục hiện hành được xác nhận riêng thì xác lập nghĩa vụ kiểm kê (YES)',
     invF001.overallStatus === 'YES',
     'YES',
     invF001.overallStatus,
-    'VBHN 48 Điều 6 & QĐ 699'
+    'VBHN 48 Điều 6 & danh mục có hiệu lực tại ngày đánh giá'
   );
 
   const invPreSept25 = assessInventoryObligation({
@@ -511,7 +512,6 @@ export function runAllTestCases(): { total: number; passed: number; failed: numb
     'Spec trang 6, mục 7: Carbon credits exceed permitted limit'
   );
 
-  const borrowingCap = phaseAlloc * 0.15; // 325,508.85
   const compExcessBorrow = calculateCompliance({
     isInQd699: true,
     phaseAllocationTotal: phaseAlloc,
@@ -587,7 +587,7 @@ export function runAllTestCases(): { total: number; passed: number; failed: numb
   record(
     'TC-32',
     'Screen 7: Data Quality',
-    'Điểm sẵn sàng dữ liệu đạt 100% khi nhập đầy đủ cả 6 trường',
+    'Mức độ điền đủ dữ liệu đạt 100% khi cả 6 chiều đã có dữ liệu',
     qualityFull.overallScorePercent === 100,
     '100%',
     `${qualityFull.overallScorePercent}%`,
@@ -619,6 +619,109 @@ export function runAllTestCases(): { total: number; passed: number; failed: numb
     '>= 4 presets',
     `${presets.length} presets`,
     'Bộ kịch bản demo phục vụ chấm thi'
+  );
+
+  const invalidReduction = calculateAllocation({
+    allocationYear: 2025,
+    prodY3: 100,
+    prodY2: 100,
+    prodY1: 100,
+    emisY3: 100,
+    emisY2: 100,
+    emisY1: 100,
+    g: 3,
+    r: 150,
+    benchmarkOverride: 1,
+    officialAllocation: 100,
+    sector: 'Cement',
+  });
+  record(
+    'TC-36',
+    'Input Validation',
+    'Từ chối r ngoài miền 0–100% và không xuất hạn ngạch âm',
+    invalidReduction.status === 'INVALID_INPUT' && invalidReduction.calculatedA === null,
+    'INVALID_INPUT, A=null',
+    `${invalidReduction.status}, A=${invalidReduction.calculatedA}`,
+    'Guardrail dữ liệu đầu vào'
+  );
+
+  const missingHistoricalEmissions = calculateAllocation({
+    allocationYear: 2025,
+    prodY3: 100,
+    prodY2: 100,
+    prodY1: 100,
+    emisY3: 100,
+    emisY2: null,
+    emisY1: 100,
+    g: 3,
+    r: 2,
+    benchmarkOverride: 1,
+    officialAllocation: 100,
+    sector: 'Cement',
+  });
+  record(
+    'TC-37',
+    'Input Validation',
+    'Thiếu một năm phát thải lịch sử thì không xuất A',
+    missingHistoricalEmissions.status === 'MISSING_HISTORICAL' && missingHistoricalEmissions.calculatedA === null,
+    'MISSING_HISTORICAL, A=null',
+    `${missingHistoricalEmissions.status}, A=${missingHistoricalEmissions.calculatedA}`,
+    'Phụ lục I — cửa sổ lịch sử 3 năm'
+  );
+
+  const invalidCompliance = calculateCompliance({
+    isInQd699: true,
+    phaseAllocationTotal: 1000,
+    directEmis2025: -1,
+    directEmis2026: 0,
+    creditsUsed: Number.NaN,
+    netAllowanceTrades: 0,
+    borrowedAllowances: 0,
+  });
+  record(
+    'TC-38',
+    'Input Validation',
+    'Từ chối phát thải âm và NaN thay vì chuyển thành 0',
+    invalidCompliance.status === 'INVALID_INPUT' && invalidCompliance.complianceGap === null,
+    'INVALID_INPUT, gap=null',
+    `${invalidCompliance.status}, gap=${invalidCompliance.complianceGap}`,
+    'Guardrail dữ liệu đầu vào'
+  );
+
+  const quotaHistoryIsNotCurrentList = assessInventoryObligation({
+    assessmentDate: '2026-09-26',
+    currentDate: '2026-09-26',
+    isInQd699: true,
+    inventoryListMatch: 'Unknown',
+    facilityType: 'Thermal power',
+    annualGhg: null,
+    annualToe: null,
+    wasteCapacity: null,
+  });
+  record(
+    'TC-39',
+    'Inventory Boundary',
+    'Không suy ra danh mục kiểm kê hiện tại chỉ từ QĐ 699',
+    quotaHistoryIsNotCurrentList.overallStatus === 'UNDETERMINED',
+    'UNDETERMINED',
+    quotaHistoryIsNotCurrentList.overallStatus,
+    'Workbook FACILITIES cột ghi chú phạm vi lịch sử'
+  );
+
+  const csv = buildCsv([
+    ['Facility Name', 'Audit "ABC" #1'],
+    ['Zero', 0],
+    ['Missing', null],
+    ['Formula-like text', '=1+1'],
+  ]);
+  record(
+    'TC-35',
+    'Screen 8: CSV Export',
+    'CSV giữ số 0, escape dấu nháy/# và trung hòa chuỗi công thức',
+    csv.includes('"Audit ""ABC"" #1"') && csv.includes('"Zero","0"') && csv.includes('"Missing",""') && csv.includes('"Formula-like text","\'=1+1"'),
+    'CSV RFC-style escaping and formula guard',
+    csv,
+    'CSV interoperability and spreadsheet safety'
   );
 
   const passedCount = results.filter(r => r.passed).length;
@@ -655,9 +758,10 @@ if (isNodeCli) {
   console.log('\n================================================================');
   console.log(`TỔNG KẾT KIỂM THỬ: ${summary.passed}/${summary.total} TEST CASES ĐẠT CHUẨN (${Math.round((summary.passed/summary.total)*100)}%)`);
   if (summary.failed === 0) {
-    console.log('KẾT QUẢ: TOÀN BỘ CÁC CHỨC NĂNG & QUY TẮC PHÁP LÝ HOẠT ĐỘNG HOÀN HẢO!');
+    console.log('KẾT QUẢ: TẤT CẢ CÁC CA KIỂM THỬ ĐÃ TRIỂN KHAI ĐỀU ĐẠT.');
   } else {
     console.log(`KẾT QUẢ: CÓ ${summary.failed} TEST CASE THẤT BẠI.`);
+    (globalThis as any).process.exitCode = 1;
   }
   console.log('================================================================');
 }

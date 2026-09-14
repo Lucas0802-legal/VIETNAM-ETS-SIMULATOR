@@ -3,15 +3,14 @@ import {
   CheckSquare, 
   ArrowRight, 
   CheckCircle2, 
-  AlertTriangle, 
   HelpCircle, 
   XCircle, 
   ShieldCheck,
-  FileSpreadsheet,
   AlertCircle
 } from 'lucide-react';
 import { useSimulator } from '../../context/SimulatorContext';
 import { useLanguage } from '../../context/LanguageContext';
+import { DATA_READINESS_VI } from '../../utils/labels';
 
 export const Screen7Quality: React.FC = () => {
   const { dataQualityReport, setCurrentScreen } = useSimulator();
@@ -44,12 +43,12 @@ export const Screen7Quality: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-              {t('Chỉ số Sẵn sàng Dữ liệu Toàn diện', 'Overall Data Readiness Score')}
+              {t('Mức độ điền đủ dữ liệu', 'Data Completeness')}
             </span>
             <div className="text-3xl font-extrabold text-slate-900 font-mono mt-1">
               {dataQualityReport.overallScorePercent}%
               <span className="text-xs font-normal text-slate-500 font-sans ml-2">
-                ({dataQualityReport.readyCount}/{dataQualityReport.totalDimensions} {t('tiêu chí đạt chuẩn READY', 'criteria READY')})
+                ({dataQualityReport.completeCount}/{dataQualityReport.totalDimensions} {t('chiều có dữ liệu', 'dimensions populated')})
               </span>
             </div>
           </div>
@@ -58,7 +57,9 @@ export const Screen7Quality: React.FC = () => {
             <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
               <div
                 className={`h-full rounded-full transition-all duration-500 ${
-                  dataQualityReport.overallScorePercent >= 80
+                  dataQualityReport.validityStatus === 'INVALID'
+                    ? 'bg-rose-500'
+                    : dataQualityReport.overallScorePercent >= 80
                     ? 'bg-emerald-500'
                     : dataQualityReport.overallScorePercent >= 50
                       ? 'bg-amber-500'
@@ -70,8 +71,33 @@ export const Screen7Quality: React.FC = () => {
           </div>
         </div>
 
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div className={`rounded-xl border p-3 ${dataQualityReport.validityStatus === 'INVALID' ? 'bg-rose-50 border-rose-200 text-rose-800' : 'bg-slate-50 border-slate-200 text-slate-700'}`}>
+            <span className="font-bold">{t('Tính hợp lệ:', 'Validity:')}</span>{' '}
+            {dataQualityReport.validityStatus === 'VALID'
+              ? t('Hợp lệ trong phạm vi kiểm tra', 'Valid within implemented checks')
+              : dataQualityReport.validityStatus === 'INVALID'
+                ? t('Có lỗi cần sửa trước khi sử dụng kết quả', 'Errors must be fixed before using results')
+                : t('Chưa đủ dữ liệu để kết luận', 'Insufficient data for a conclusion')}
+          </div>
+          <div className="rounded-xl border border-amber-200 bg-amber-50 p-3 text-amber-900">
+            <span className="font-bold">{t('Xác minh nguồn:', 'Source verification:')}</span>{' '}
+            {dataQualityReport.verificationStatus === 'UNVERIFIED'
+              ? t('Chưa xác minh', 'Unverified')
+              : t('Một phần', 'Partial')}
+          </div>
+        </div>
+
+        {dataQualityReport.validityIssuesVi.length > 0 && (
+          <ul className="rounded-xl border border-rose-200 bg-rose-50 p-3 text-xs text-rose-800 list-disc pl-7">
+            {(language === 'vi' ? dataQualityReport.validityIssuesVi : dataQualityReport.validityIssuesEn).map(issue => (
+              <li key={issue}>{issue}</li>
+            ))}
+          </ul>
+        )}
+
         <div className="text-xs text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-100 flex items-center gap-2">
-          <ShieldCheck className="w-4 h-4 text-blue-600 shrink-0" />
+          <ShieldCheck className="w-4 h-4 text-brand shrink-0" />
           <span>
             {t(
               'Nguyên tắc bảo vệ dữ liệu: Tuyệt đối không tự ý bịa đặt số liệu phát thải của nhà máy hay mặc định tham số g/r = 0% để ép ra kết quả.',
@@ -112,7 +138,7 @@ export const Screen7Quality: React.FC = () => {
                   </p>
 
                   <div className="text-[11px] text-slate-400 font-medium">
-                    {t('Cơ sở tham chiếu:', 'Reference Basis:')} {dim.legalNote}
+                    {t('Cơ sở tham chiếu:', 'Reference Basis:')} {t(dim.legalNoteVi, dim.legalNoteEn)}
                   </div>
                 </div>
 
@@ -121,16 +147,16 @@ export const Screen7Quality: React.FC = () => {
                     isReady
                       ? 'bg-emerald-100 text-emerald-800 border border-emerald-200'
                       : isPartial
-                        ? 'bg-blue-100 text-blue-800 border border-blue-200'
+                        ? 'bg-emerald-100 text-brand-dark border border-emerald-200'
                         : isUnverified
                           ? 'bg-amber-100 text-amber-800 border border-amber-200'
                           : 'bg-rose-100 text-rose-800 border border-rose-200'
                   }`}>
                     {isReady && <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />}
-                    {isPartial && <AlertCircle className="w-3.5 h-3.5 text-blue-600" />}
+                    {isPartial && <AlertCircle className="w-3.5 h-3.5 text-brand" />}
                     {isUnverified && <HelpCircle className="w-3.5 h-3.5 text-amber-600" />}
                     {!isReady && !isPartial && !isUnverified && <XCircle className="w-3.5 h-3.5 text-rose-600" />}
-                    <span>{dim.status}</span>
+                    <span>{t(DATA_READINESS_VI[dim.status] ?? dim.status, dim.status)}</span>
                   </span>
                 </div>
               </div>
@@ -152,7 +178,7 @@ export const Screen7Quality: React.FC = () => {
         <button
           type="button"
           onClick={() => setCurrentScreen(8)}
-          className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-slate-900 text-white font-semibold text-xs hover:bg-slate-800 shadow-xs transition-all cursor-pointer"
+          className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-brand text-white font-semibold text-xs hover:bg-brand-dark shadow-xs transition-all cursor-pointer"
         >
           <span>{t('Tiếp theo: Báo cáo Tổng kết & Xuất tệp', 'Next: Executive Summary & Export')}</span>
           <ArrowRight className="w-3.5 h-3.5" />

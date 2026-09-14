@@ -1,23 +1,15 @@
 import React from 'react';
 import { 
-  FileSpreadsheet, 
   Printer, 
   Download, 
-  Building2, 
-  CheckCircle2, 
-  TrendingUp, 
-  TrendingDown, 
-  Clock, 
   ShieldCheck, 
-  ExternalLink,
   RotateCcw,
-  Layers,
-  FileBadge,
   FileCheck2
 } from 'lucide-react';
 import { useSimulator } from '../../context/SimulatorContext';
 import { useLanguage } from '../../context/LanguageContext';
-import { LegalButton } from '../legal/LegalButton';
+import { COMPLIANCE_STATUS_VI } from '../../utils/labels';
+import { downloadCsv } from '../../utils/csv';
 
 export const Screen8Summary: React.FC = () => {
   const { 
@@ -30,71 +22,68 @@ export const Screen8Summary: React.FC = () => {
     setIsPrintModalOpen,
     resetSimulation 
   } = useSimulator();
-  const { language, t } = useLanguage();
+  const { t } = useLanguage();
 
   // Export CSV function
   const handleExportCSV = () => {
+    const missing = t('Thiếu dữ liệu', 'N/A');
+    const valueOrMissing = (value: number | null) => value === null ? missing : value;
     const rows = [
-      ['VIETNAM ETS SIMULATOR - EXECUTIVE SUMMARY REPORT', ''],
-      ['Assessment Date', state.assessment_date],
-      ['Facility ID', selectedFacility?.id || 'MANUAL'],
-      ['Facility Name', selectedFacility?.name || state.manual_facility_name],
-      ['Tax ID', selectedFacility?.tax_id || state.manual_tax_id],
-      ['Sector', selectedFacility?.sector || state.sector],
+      [t('VIETNAM ETS SIMULATOR - BÁO CÁO TỔNG HỢP', 'VIETNAM ETS SIMULATOR - EXECUTIVE SUMMARY REPORT'), ''],
+      [t('Ngày đánh giá', 'Assessment Date'), state.assessment_date],
+      [t('Mã cơ sở', 'Facility ID'), selectedFacility?.id ?? 'MANUAL'],
+      [t('Tên cơ sở', 'Facility Name'), selectedFacility?.name ?? state.manual_facility_name],
+      [t('Mã số thuế', 'Tax ID'), selectedFacility?.tax_id ?? state.manual_tax_id],
+      [t('Lĩnh vực', 'Sector'), selectedFacility ? t(selectedFacility.sector_vi, selectedFacility.sector) : state.sector],
       ['', ''],
-      ['MODULE 1: INVENTORY OBLIGATION', ''],
-      ['Inventory Status', inventoryResult.overallStatus],
-      ['Applicable List', inventoryResult.applicableList],
-      ['Annual GHG (tCO2e)', state.annual_ghg || 'N/A'],
-      ['Annual Energy (TOE)', state.annual_toe || 'N/A'],
+      [t('PHÂN HỆ 1: NGHĨA VỤ KIỂM KÊ', 'MODULE 1: INVENTORY OBLIGATION'), ''],
+      [t('Trạng thái kiểm kê', 'Inventory Status'), inventoryResult.overallStatus],
+      [t('Danh mục áp dụng', 'Applicable List'), inventoryResult.applicableList],
+      [t('Phát thải KNK hằng năm (tCO2e)', 'Annual GHG (tCO2e)'), valueOrMissing(state.annual_ghg)],
+      [t('Năng lượng hằng năm (TOE)', 'Annual Energy (TOE)'), valueOrMissing(state.annual_toe)],
       ['', ''],
-      ['MODULE 2: ETS QUOTA OBLIGATION', ''],
-      ['In Decision 699 List', selectedFacility ? 'YES' : 'NO'],
-      ['Official Allocation 2025 (tCO2e)', selectedFacility?.allocation_2025 || 0],
-      ['Official Allocation 2026 (tCO2e)', selectedFacility?.allocation_2026 || 0],
-      ['Phase Allocation Total (tCO2e)', selectedFacility?.allocation_total || 0],
+      [t('PHÂN HỆ 2: NGHĨA VỤ HẠN NGẠCH ETS', 'MODULE 2: ETS QUOTA OBLIGATION'), ''],
+      [t('Có trong QĐ 699', 'In Decision 699 List'), selectedFacility ? t('CÓ', 'YES') : t('CHƯA XÁC MINH', 'UNVERIFIED')],
+      [t('Hạn ngạch chính thức 2025 (tCO2e)', 'Official Allocation 2025 (tCO2e)'), selectedFacility?.allocation_2025 ?? missing],
+      [t('Hạn ngạch chính thức 2026 (tCO2e)', 'Official Allocation 2026 (tCO2e)'), selectedFacility?.allocation_2026 ?? missing],
+      [t('Tổng hạn ngạch giai đoạn (tCO2e)', 'Phase Allocation Total (tCO2e)'), selectedFacility?.allocation_total ?? missing],
       ['', ''],
-      ['MODULE 3: ALLOCATION SIMULATION (METHOD 01)', ''],
-      ['Simulation Year', state.allocation_year],
-      ['Average Historical Production (P_avg)', allocationResult.pAvg || 'N/A'],
-      ['Average Historical Emissions (E_avg)', allocationResult.eAvg || 'N/A'],
-      ['Sector Benchmark (B)', allocationResult.benchmarkB || 'N/A'],
-      ['Growth target g (%)', state.g || 'N/A'],
-      ['Reduction target r (%)', state.r || 'N/A'],
-      ['Adjustment Factor T', allocationResult.factorT || 'N/A'],
-      ['Calculated Allocation A (tCO2e)', allocationResult.calculatedA || 'N/A'],
-      ['Difference vs Official (tCO2e)', allocationResult.difference || 'N/A'],
-      ['Difference %', allocationResult.differencePercent ? `${allocationResult.differencePercent.toFixed(2)}%` : 'N/A'],
+      [t('PHÂN HỆ 3: MÔ PHỎNG PHÂN BỔ (PHƯƠNG PHÁP 01)', 'MODULE 3: ALLOCATION SIMULATION (METHOD 01)'), ''],
+      [t('Trạng thái tính toán', 'Calculation Status'), allocationResult.status],
+      [t('Năm mô phỏng', 'Simulation Year'), state.allocation_year],
+      [t('Sản lượng lịch sử bình quân (P_avg)', 'Average Historical Production (P_avg)'), valueOrMissing(allocationResult.pAvg)],
+      [t('Phát thải lịch sử bình quân (E_avg)', 'Average Historical Emissions (E_avg)'), valueOrMissing(allocationResult.eAvg)],
+      [t('Benchmark ngành (B)', 'Sector Benchmark (B)'), valueOrMissing(allocationResult.benchmarkB)],
+      [t('Mục tiêu tăng trưởng g (%)', 'Growth target g (%)'), valueOrMissing(state.g)],
+      [t('Mục tiêu giảm phát thải r (%)', 'Reduction target r (%)'), valueOrMissing(state.r)],
+      [t('Hệ số điều chỉnh T', 'Adjustment Factor T'), valueOrMissing(allocationResult.factorT)],
+      [t('Hạn ngạch mô phỏng A (tCO2e)', 'Calculated Allocation A (tCO2e)'), valueOrMissing(allocationResult.calculatedA)],
+      [t('Chênh lệch so với chính thức (tCO2e)', 'Difference vs Official (tCO2e)'), valueOrMissing(allocationResult.difference)],
+      [t('Chênh lệch (%)', 'Difference %'), allocationResult.differencePercent === null ? missing : `${allocationResult.differencePercent.toFixed(2)}%`],
       ['', ''],
-      ['MODULE 4: COMPLIANCE POSITION', ''],
-      ['Verified Direct Emissions 2025 (tCO2e)', state.direct_emis_2025 || 0],
-      ['Verified Direct Emissions 2026 (tCO2e)', state.direct_emis_2026 || 0],
-      ['Direct Emissions Total (tCO2e)', complianceResult.directEmisTotal || 0],
-      ['Carbon Credits Used (tCO2e)', complianceResult.creditsUsed],
-      ['Eligible Credits (tCO2e)', complianceResult.eligibleCredits],
-      ['30% Credit Cap (tCO2e)', complianceResult.creditCap30Percent],
-      ['Net Allowance Trades (tCO2e)', complianceResult.netAllowanceTrades],
-      ['Borrowed Allowances (tCO2e)', complianceResult.borrowedAllowances],
-      ['15% Borrowing Cap (tCO2e)', complianceResult.borrowingCap15Percent],
-      ['Required Surrender (tCO2e)', complianceResult.requiredSurrender || 'N/A'],
-      ['Available Allowances (tCO2e)', complianceResult.availableAllowances],
-      ['Compliance Gap (tCO2e)', complianceResult.complianceGap || 'N/A'],
-      ['Compliance Position Status', complianceResult.status],
-      ['Surrender Deadline', complianceResult.surrenderDeadline],
+      [t('PHÂN HỆ 4: VỊ THẾ TUÂN THỦ', 'MODULE 4: COMPLIANCE POSITION'), ''],
+      [t('Phát thải trực tiếp 2025 (tCO2e)', 'Verified Direct Emissions 2025 (tCO2e)'), valueOrMissing(state.direct_emis_2025)],
+      [t('Phát thải trực tiếp 2026 (tCO2e)', 'Verified Direct Emissions 2026 (tCO2e)'), valueOrMissing(state.direct_emis_2026)],
+      [t('Tổng phát thải trực tiếp (tCO2e)', 'Direct Emissions Total (tCO2e)'), valueOrMissing(complianceResult.directEmisTotal)],
+      [t('Tín chỉ đã sử dụng (tCO2e)', 'Carbon Credits Used (tCO2e)'), complianceResult.creditsUsed],
+      [t('Tín chỉ đủ điều kiện (tCO2e)', 'Eligible Credits (tCO2e)'), complianceResult.eligibleCredits],
+      [t('Trần tín chỉ 30% (tCO2e)', '30% Credit Cap (tCO2e)'), complianceResult.creditCap30Percent],
+      [t('Giao dịch hạn ngạch ròng (tCO2e)', 'Net Allowance Trades (tCO2e)'), complianceResult.netAllowanceTrades],
+      [t('Hạn ngạch vay mượn (tCO2e)', 'Borrowed Allowances (tCO2e)'), complianceResult.borrowedAllowances],
+      [t('Trần vay mượn 15% (tCO2e)', '15% Borrowing Cap (tCO2e)'), complianceResult.borrowingCap15Percent],
+      [t('Nghĩa vụ phải nộp (tCO2e)', 'Required Surrender (tCO2e)'), valueOrMissing(complianceResult.requiredSurrender)],
+      [t('Hạn ngạch khả dụng (tCO2e)', 'Available Allowances (tCO2e)'), valueOrMissing(complianceResult.availableAllowances)],
+      [t('Chênh lệch tuân thủ (tCO2e)', 'Compliance Gap (tCO2e)'), valueOrMissing(complianceResult.complianceGap)],
+      [t('Trạng thái vị thế', 'Compliance Position Status'), complianceResult.status],
+      [t('Hạn nộp bù', 'Surrender Deadline'), complianceResult.surrenderDeadline],
       ['', ''],
-      ['MODULE 5: DATA READINESS & AUDIT', ''],
-      ['Data Readiness Score', `${dataQualityReport.overallScorePercent}%`],
-      ['Ready Dimensions', `${dataQualityReport.readyCount}/${dataQualityReport.totalDimensions}`],
+      [t('PHÂN HỆ 5: ĐỘ ĐẦY ĐỦ, HỢP LỆ VÀ XÁC MINH DỮ LIỆU', 'MODULE 5: DATA COMPLETENESS, VALIDITY & VERIFICATION'), ''],
+      [t('Mức độ điền đủ dữ liệu', 'Data Completeness'), `${dataQualityReport.overallScorePercent}%`],
+      [t('Trạng thái hợp lệ', 'Validity Status'), dataQualityReport.validityStatus],
+      [t('Mức độ xác minh nguồn', 'Source Verification'), dataQualityReport.verificationStatus],
     ];
 
-    const csvContent = 'data:text/csv;charset=utf-8,\uFEFF' + rows.map(e => e.map(cell => `"${cell}"`).join(',')).join('\n');
-    const encodedUri = encodeURI(csvContent);
-    const link = document.createElement('a');
-    link.setAttribute('href', encodedUri);
-    link.setAttribute('download', `ETS_Summary_${selectedFacility?.id || 'Manual'}_${state.assessment_date}.csv`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    downloadCsv(`ETS_Summary_${selectedFacility?.id ?? 'Manual'}_${state.assessment_date}.csv`, rows);
   };
 
   return (
@@ -145,7 +134,7 @@ export const Screen8Summary: React.FC = () => {
         {/* Dossier Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-5">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center font-extrabold font-mono text-sm border border-slate-800 shadow-xs">
+            <div className="w-12 h-12 rounded-xl bg-brand text-white flex items-center justify-center font-extrabold font-mono text-sm border border-brand-dark shadow-xs">
               {selectedFacility?.id || 'F-NEW'}
             </div>
             <div>
@@ -153,7 +142,7 @@ export const Screen8Summary: React.FC = () => {
                 {selectedFacility?.name || state.manual_facility_name || t('Cơ sở tự nhập', 'Manual Facility')}
               </h3>
               <p className="text-xs text-slate-500 mt-0.5">
-                {t('Lĩnh vực:', 'Sector:')} <strong className="text-slate-800">{selectedFacility?.sector_vi || state.sector}</strong> • {t('Mã số thuế:', 'Tax ID:')} <span className="font-mono text-slate-800">{selectedFacility?.tax_id || state.manual_tax_id || 'N/A'}</span>
+                {t('Lĩnh vực:', 'Sector:')} <strong className="text-slate-800">{selectedFacility ? t(selectedFacility.sector_vi, selectedFacility.sector) : state.sector}</strong> • {t('Mã số thuế:', 'Tax ID:')} <span className="font-mono text-slate-800">{selectedFacility?.tax_id || state.manual_tax_id || 'N/A'}</span>
               </p>
             </div>
           </div>
@@ -199,7 +188,7 @@ export const Screen8Summary: React.FC = () => {
             <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
               {t('3. Mô phỏng (A)', '3. Simulated (A)')}
             </div>
-            <div className="text-sm font-extrabold text-blue-700 font-mono">
+            <div className="text-sm font-extrabold text-brand font-mono">
               {allocationResult.calculatedA !== null ? `${allocationResult.calculatedA.toLocaleString(undefined, { maximumFractionDigits: 0 })} tCO2e` : '—'}
             </div>
             <div className="text-[11px] text-slate-500">
@@ -227,7 +216,7 @@ export const Screen8Summary: React.FC = () => {
             }`}>
               {complianceResult.status === 'SURPLUS' && `+${complianceResult.complianceGap?.toLocaleString()} tCO2e`}
               {complianceResult.status === 'DEFICIT' && `${complianceResult.complianceGap?.toLocaleString()} tCO2e`}
-              {complianceResult.status !== 'SURPLUS' && complianceResult.status !== 'DEFICIT' && (complianceResult.status || 'N/A')}
+              {complianceResult.status !== 'SURPLUS' && complianceResult.status !== 'DEFICIT' && t(COMPLIANCE_STATUS_VI[complianceResult.status] ?? 'N/A', complianceResult.status || 'N/A')}
             </div>
             <div className="text-[11px] text-slate-500">
               {t('Hạn nộp:', 'Deadline:')} {complianceResult.surrenderDeadline}
@@ -239,7 +228,7 @@ export const Screen8Summary: React.FC = () => {
         {/* Detailed Table breakdown */}
         <div className="border border-slate-200 rounded-xl overflow-hidden text-xs">
           <div className="bg-slate-50 px-4 py-3 font-bold text-slate-800 border-b border-slate-200">
-            {t('Chi tiết Bảng cân đối Tuân thủ Hạn ngạch (Surrender Balance Sheet)', 'Surrender Balance Sheet Details')}
+            {t('Chi tiết Bảng cân đối Tuân thủ Hạn ngạch', 'Surrender Balance Sheet Details')}
           </div>
           
           <div className="divide-y divide-slate-100">
@@ -262,9 +251,9 @@ export const Screen8Summary: React.FC = () => {
               </span>
             </div>
 
-            <div className="px-4 py-2.5 flex justify-between bg-blue-50/50 font-bold">
-              <span className="text-blue-950">{t('TỔNG HẠN NGẠCH KHẢ DỤNG (Available Allowances)', 'TOTAL AVAILABLE ALLOWANCES')}</span>
-              <span className="font-mono text-blue-700">{complianceResult.availableAllowances.toLocaleString()} tCO2e</span>
+            <div className="px-4 py-2.5 flex justify-between bg-emerald-50/50 font-bold">
+              <span className="text-blue-950">{t('TỔNG HẠN NGẠCH KHẢ DỤNG', 'TOTAL AVAILABLE ALLOWANCES')}</span>
+              <span className="font-mono text-brand">{complianceResult.availableAllowances !== null ? `${complianceResult.availableAllowances.toLocaleString()} tCO2e` : '—'}</span>
             </div>
 
             <div className="px-4 py-2.5 flex justify-between">
@@ -282,7 +271,7 @@ export const Screen8Summary: React.FC = () => {
             </div>
 
             <div className="px-4 py-2.5 flex justify-between bg-slate-100 font-bold">
-              <span className="text-slate-900">{t('NGHĨA VỤ NỘP BÙ THỰC TẾ (Required Surrender)', 'REQUIRED SURRENDER')}</span>
+              <span className="text-slate-900">{t('NGHĨA VỤ NỘP BÙ THỰC TẾ', 'REQUIRED SURRENDER')}</span>
               <span className="font-mono text-slate-900">
                 {complianceResult.requiredSurrender !== null ? `${complianceResult.requiredSurrender.toLocaleString()} tCO2e` : '—'}
               </span>

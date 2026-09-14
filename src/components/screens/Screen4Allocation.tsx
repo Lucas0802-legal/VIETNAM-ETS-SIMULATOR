@@ -5,12 +5,7 @@ import {
   AlertTriangle, 
   CheckCircle2, 
   HelpCircle, 
-  Info, 
-  TrendingUp, 
-  Percent, 
   Sliders, 
-  Layers, 
-  FileCheck 
 } from 'lucide-react';
 import { useSimulator } from '../../context/SimulatorContext';
 import { useLanguage } from '../../context/LanguageContext';
@@ -66,7 +61,7 @@ export const Screen4Allocation: React.FC = () => {
               onClick={() => updateField('allocation_year', 2025)}
               className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                 state.allocation_year === 2025
-                  ? 'bg-white text-blue-700 shadow-xs'
+                  ? 'bg-white text-brand shadow-xs'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -77,7 +72,7 @@ export const Screen4Allocation: React.FC = () => {
               onClick={() => updateField('allocation_year', 2026)}
               className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                 state.allocation_year === 2026
-                  ? 'bg-white text-blue-700 shadow-xs'
+                  ? 'bg-white text-brand shadow-xs'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -91,13 +86,13 @@ export const Screen4Allocation: React.FC = () => {
           <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold ${
             allocationResult.status === 'READY'
               ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
-              : allocationResult.status === 'MISSING_GR'
+              : allocationResult.status === 'MISSING_GR' || allocationResult.status === 'INVALID_INPUT'
                 ? 'bg-rose-100 text-rose-800 border border-rose-300'
                 : 'bg-amber-100 text-amber-800 border border-amber-300'
           }`}>
             {allocationResult.status === 'READY' && <CheckCircle2 className="w-4 h-4 text-emerald-600" />}
-            {allocationResult.status === 'MISSING_GR' && <AlertTriangle className="w-4 h-4 text-rose-600" />}
-            {allocationResult.status !== 'READY' && allocationResult.status !== 'MISSING_GR' && <HelpCircle className="w-4 h-4 text-amber-600" />}
+            {(allocationResult.status === 'MISSING_GR' || allocationResult.status === 'INVALID_INPUT') && <AlertTriangle className="w-4 h-4 text-rose-600" />}
+            {allocationResult.status !== 'READY' && allocationResult.status !== 'MISSING_GR' && allocationResult.status !== 'INVALID_INPUT' && <HelpCircle className="w-4 h-4 text-amber-600" />}
             <span>{language === 'vi' ? allocationResult.statusTextVi : allocationResult.statusTextEn}</span>
           </span>
         </div>
@@ -110,7 +105,7 @@ export const Screen4Allocation: React.FC = () => {
         <div className="bg-white rounded-2xl border border-slate-200 p-4 shadow-xs space-y-2">
           <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center justify-between">
             <span>{t('1. Sản lượng TB', '1. Avg Production')}</span>
-            <span className="font-mono text-blue-600 font-bold">P̄</span>
+            <span className="font-mono text-brand font-bold">P̄</span>
           </div>
           <div className="text-xl font-extrabold text-slate-900 font-mono truncate">
             {allocationResult.pAvg !== null ? allocationResult.pAvg.toLocaleString(undefined, { maximumFractionDigits: 1 }) : '—'}
@@ -124,7 +119,7 @@ export const Screen4Allocation: React.FC = () => {
         <div className="bg-white rounded-2xl border border-slate-200 p-4 shadow-xs space-y-2">
           <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center justify-between">
             <span>{t('2. Phát thải TB', '2. Avg Emissions')}</span>
-            <span className="font-mono text-blue-600 font-bold">Ē</span>
+            <span className="font-mono text-brand font-bold">Ē</span>
           </div>
           <div className="text-xl font-extrabold text-slate-900 font-mono truncate">
             {allocationResult.eAvg !== null ? allocationResult.eAvg.toLocaleString(undefined, { maximumFractionDigits: 1 }) : '—'}
@@ -140,7 +135,7 @@ export const Screen4Allocation: React.FC = () => {
         }`}>
           <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center justify-between">
             <span>{t('3. Định mức Ngành', '3. Benchmark')}</span>
-            <span className="font-mono text-blue-600 font-bold">B</span>
+            <span className="font-mono text-brand font-bold">B</span>
           </div>
           <div className="text-xl font-extrabold text-slate-900 font-mono truncate">
             {allocationResult.benchmarkB !== null ? allocationResult.benchmarkB : '—'}
@@ -156,7 +151,7 @@ export const Screen4Allocation: React.FC = () => {
         }`}>
           <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center justify-between">
             <span>{t('4. Hệ số Điều chỉnh', '4. Factor T')}</span>
-            <span className="font-mono text-blue-600 font-bold">T</span>
+            <span className="font-mono text-brand font-bold">T</span>
           </div>
           <div className="text-xl font-extrabold text-slate-900 font-mono truncate">
             {allocationResult.factorT !== null ? allocationResult.factorT.toFixed(4) : '—'}
@@ -167,7 +162,7 @@ export const Screen4Allocation: React.FC = () => {
         </div>
 
         {/* Step 5: Calculated Allowance A */}
-        <div className="bg-slate-900 rounded-2xl p-4 text-white shadow-xs border border-slate-800 space-y-2">
+        <div className="bg-brand rounded-2xl p-4 text-white shadow-xs border border-brand-dark space-y-2">
           <div className="text-[11px] font-bold text-slate-300 uppercase tracking-wider flex items-center justify-between">
             <span>{t('5. Hạn ngạch Tính toán', '5. Calculated A')}</span>
             <span className="font-mono font-bold text-emerald-400">A</span>
@@ -196,39 +191,41 @@ export const Screen4Allocation: React.FC = () => {
                 {t('Sản lượng (P) và Phát thải (E) phục vụ tính mức trung bình P̄ và Ē.', 'Production (P) and Emissions (E) to compute averages.')}
               </p>
             </div>
-            <span className="text-xs font-mono font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-lg">
+            <span className="text-xs font-mono font-bold text-brand bg-emerald-50 px-2.5 py-1 rounded-lg">
               {selectedFacility?.product_unit || 'Đơn vị sản phẩm'}
             </span>
           </div>
 
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {/* Year y-3 */}
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 space-y-2">
               <div className="text-xs font-bold text-slate-700 text-center">
                 {t(`Năm ${windowYears[0]} (y-3)`, `Year ${windowYears[0]} (y-3)`)}
               </div>
               <div>
-                <label className="text-[10px] font-semibold text-slate-500 block mb-1">
+                <label htmlFor="prod-y3" className="text-[10px] font-semibold text-slate-500 block mb-1">
                   {t('Sản lượng (P)', 'Production (P)')}
                 </label>
                 <input
+                  id="prod-y3"
                   type="number"
                   placeholder="0"
                   value={state.prod_y3 ?? ''}
                   onChange={(e) => updateField('prod_y3', e.target.value ? parseFloat(e.target.value) : null)}
-                  className="w-full px-2.5 py-1.5 rounded-lg border border-slate-300 text-xs font-mono font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full px-2.5 py-1.5 rounded-lg border border-slate-300 text-xs font-mono font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-brand"
                 />
               </div>
               <div>
-                <label className="text-[10px] font-semibold text-slate-500 block mb-1">
+                <label htmlFor="emis-y3" className="text-[10px] font-semibold text-slate-500 block mb-1">
                   {t('Phát thải (E)', 'Emissions (E)')}
                 </label>
                 <input
+                  id="emis-y3"
                   type="number"
                   placeholder="0"
                   value={state.emis_y3 ?? ''}
                   onChange={(e) => updateField('emis_y3', e.target.value ? parseFloat(e.target.value) : null)}
-                  className="w-full px-2.5 py-1.5 rounded-lg border border-slate-300 text-xs font-mono font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full px-2.5 py-1.5 rounded-lg border border-slate-300 text-xs font-mono font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-brand"
                 />
               </div>
             </div>
@@ -239,27 +236,29 @@ export const Screen4Allocation: React.FC = () => {
                 {t(`Năm ${windowYears[1]} (y-2)`, `Year ${windowYears[1]} (y-2)`)}
               </div>
               <div>
-                <label className="text-[10px] font-semibold text-slate-500 block mb-1">
+                <label htmlFor="prod-y2" className="text-[10px] font-semibold text-slate-500 block mb-1">
                   {t('Sản lượng (P)', 'Production (P)')}
                 </label>
                 <input
+                  id="prod-y2"
                   type="number"
                   placeholder="0"
                   value={state.prod_y2 ?? ''}
                   onChange={(e) => updateField('prod_y2', e.target.value ? parseFloat(e.target.value) : null)}
-                  className="w-full px-2.5 py-1.5 rounded-lg border border-slate-300 text-xs font-mono font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full px-2.5 py-1.5 rounded-lg border border-slate-300 text-xs font-mono font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-brand"
                 />
               </div>
               <div>
-                <label className="text-[10px] font-semibold text-slate-500 block mb-1">
+                <label htmlFor="emis-y2" className="text-[10px] font-semibold text-slate-500 block mb-1">
                   {t('Phát thải (E)', 'Emissions (E)')}
                 </label>
                 <input
+                  id="emis-y2"
                   type="number"
                   placeholder="0"
                   value={state.emis_y2 ?? ''}
                   onChange={(e) => updateField('emis_y2', e.target.value ? parseFloat(e.target.value) : null)}
-                  className="w-full px-2.5 py-1.5 rounded-lg border border-slate-300 text-xs font-mono font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full px-2.5 py-1.5 rounded-lg border border-slate-300 text-xs font-mono font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-brand"
                 />
               </div>
             </div>
@@ -270,27 +269,29 @@ export const Screen4Allocation: React.FC = () => {
                 {t(`Năm ${windowYears[2]} (y-1)`, `Year ${windowYears[2]} (y-1)`)}
               </div>
               <div>
-                <label className="text-[10px] font-semibold text-slate-500 block mb-1">
+                <label htmlFor="prod-y1" className="text-[10px] font-semibold text-slate-500 block mb-1">
                   {t('Sản lượng (P)', 'Production (P)')}
                 </label>
                 <input
+                  id="prod-y1"
                   type="number"
                   placeholder="0"
                   value={state.prod_y1 ?? ''}
                   onChange={(e) => updateField('prod_y1', e.target.value ? parseFloat(e.target.value) : null)}
-                  className="w-full px-2.5 py-1.5 rounded-lg border border-slate-300 text-xs font-mono font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full px-2.5 py-1.5 rounded-lg border border-slate-300 text-xs font-mono font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-brand"
                 />
               </div>
               <div>
-                <label className="text-[10px] font-semibold text-slate-500 block mb-1">
+                <label htmlFor="emis-y1" className="text-[10px] font-semibold text-slate-500 block mb-1">
                   {t('Phát thải (E)', 'Emissions (E)')}
                 </label>
                 <input
+                  id="emis-y1"
                   type="number"
                   placeholder="0"
                   value={state.emis_y1 ?? ''}
                   onChange={(e) => updateField('emis_y1', e.target.value ? parseFloat(e.target.value) : null)}
-                  className="w-full px-2.5 py-1.5 rounded-lg border border-slate-300 text-xs font-mono font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full px-2.5 py-1.5 rounded-lg border border-slate-300 text-xs font-mono font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-brand"
                 />
               </div>
             </div>
@@ -301,7 +302,7 @@ export const Screen4Allocation: React.FC = () => {
         <div className="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-6 shadow-xs space-y-4">
           <div className="border-b border-slate-100 pb-3">
             <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
-              <Sliders className="w-4 h-4 text-blue-600" />
+              <Sliders className="w-4 h-4 text-brand" />
               {t('Tham số Chính sách & Benchmark', 'Policy & Benchmark Parameters')}
             </h3>
             <p className="text-xs text-slate-500">
@@ -316,7 +317,7 @@ export const Screen4Allocation: React.FC = () => {
                 <span className="font-bold text-slate-700">
                   {t('Mục tiêu tăng trưởng ngành (g):', 'Growth target (g):')}
                 </span>
-                <span className="font-mono font-bold text-blue-700">
+                <span className="font-mono font-bold text-brand">
                   {state.g !== null ? `${state.g}%` : t('Chưa có (Trống)', 'Unverified')}
                 </span>
               </div>
@@ -326,7 +327,7 @@ export const Screen4Allocation: React.FC = () => {
                 placeholder={t('Nhập % hoặc dùng kịch bản', 'Enter % or scenario')}
                 value={state.g ?? ''}
                 onChange={(e) => updateField('g', e.target.value ? parseFloat(e.target.value) : null)}
-                className="w-full px-3 py-2 rounded-lg border border-slate-300 font-mono text-xs focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full px-3 py-2 rounded-lg border border-slate-300 font-mono text-xs focus:outline-none focus:ring-1 focus:ring-brand"
               />
             </div>
 
@@ -345,7 +346,7 @@ export const Screen4Allocation: React.FC = () => {
                 placeholder={t('Nhập % hoặc dùng kịch bản', 'Enter % or scenario')}
                 value={state.r ?? ''}
                 onChange={(e) => updateField('r', e.target.value ? parseFloat(e.target.value) : null)}
-                className="w-full px-3 py-2 rounded-lg border border-slate-300 font-mono text-xs focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full px-3 py-2 rounded-lg border border-slate-300 font-mono text-xs focus:outline-none focus:ring-1 focus:ring-brand"
               />
             </div>
 
@@ -359,7 +360,7 @@ export const Screen4Allocation: React.FC = () => {
                   </span>
                 </span>
                 <span className="font-mono text-xs text-slate-600">
-                  tCO2e/đơn vị SP
+                  {t('tCO2e/đơn vị SP', 'tCO2e/unit')}
                 </span>
               </div>
               <input
@@ -386,7 +387,7 @@ export const Screen4Allocation: React.FC = () => {
           <div className="flex items-center justify-between border-b border-slate-100 pb-3">
             <div>
               <h3 className="text-sm font-bold text-slate-900">
-                {t('So sánh Hạn ngạch Tính toán (A) với Hạn ngạch Phân bổ Thực tế (QĐ 699)', 'Comparison: Simulated Allowance A vs Official Allocation (Decision 699)')}
+                {t('So sánh Hạn ngạch Tính toán (A) với Hạn ngạch Phân bổ Thực tế', 'Comparison: Simulated Allowance A vs Official Allocation')}
               </h3>
               <p className="text-xs text-slate-500">
                 {t('Phục vụ phân tích, kiểm thử và tái hiện phương pháp luận của cơ quan quản lý.', 'Used for methodology reproduction, scenario testing, and validation.')}
@@ -402,7 +403,7 @@ export const Screen4Allocation: React.FC = () => {
               <div className="text-xs text-slate-500 mb-1">
                 {t('Hạn ngạch Tính toán (A)', 'Calculated Allowance (A)')}
               </div>
-              <div className="text-2xl font-extrabold text-blue-700 font-mono">
+              <div className="text-2xl font-extrabold text-brand font-mono">
                 {allocationResult.calculatedA?.toLocaleString(undefined, { maximumFractionDigits: 0 })}
               </div>
               <div className="text-[10px] text-slate-400">tCO2e</div>
@@ -415,14 +416,14 @@ export const Screen4Allocation: React.FC = () => {
               <div className="text-2xl font-extrabold text-slate-900 font-mono">
                 {allocationResult.officialAllocation?.toLocaleString()}
               </div>
-              <div className="text-[10px] text-slate-400">tCO2e (Ràng buộc pháp lý)</div>
+              <div className="text-[10px] text-slate-400">tCO2e {t('(Ràng buộc pháp lý)', '(Legally binding)')}</div>
             </div>
 
             <div className={`rounded-xl p-4 border ${
               (allocationResult.difference || 0) >= 0 ? 'bg-emerald-50/50 border-emerald-200' : 'bg-rose-50/50 border-rose-200'
             }`}>
               <div className="text-xs text-slate-500 mb-1">
-                {t('Chênh lệch (Difference)', 'Variance')}
+                {t('Chênh lệch', 'Variance')}
               </div>
               <div className={`text-2xl font-extrabold font-mono ${
                 (allocationResult.difference || 0) >= 0 ? 'text-emerald-700' : 'text-rose-700'
@@ -451,9 +452,9 @@ export const Screen4Allocation: React.FC = () => {
         <button
           type="button"
           onClick={() => setCurrentScreen(5)}
-          className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-slate-900 text-white font-semibold text-xs hover:bg-slate-800 shadow-xs transition-all cursor-pointer"
+          className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-brand text-white font-semibold text-xs hover:bg-brand-dark shadow-xs transition-all cursor-pointer"
         >
-          <span>{t('Tiếp theo: Tính toán Vị thế Tuân thủ (Compliance Gap)', 'Next: Simulate Compliance Position')}</span>
+          <span>{t('Tiếp theo: Tính toán Vị thế Tuân thủ', 'Next: Simulate Compliance Position')}</span>
           <ArrowRight className="w-3.5 h-3.5" />
         </button>
       </div>

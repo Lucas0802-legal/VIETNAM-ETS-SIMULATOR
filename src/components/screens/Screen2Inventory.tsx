@@ -7,7 +7,6 @@ import {
   XCircle, 
   ArrowRight, 
   ShieldAlert, 
-  Info, 
   Calendar, 
   Activity, 
   Gauge, 
@@ -35,7 +34,7 @@ export const Screen2Inventory: React.FC = () => {
         <div>
           <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-semibold mb-2 border border-slate-200">
             <ClipboardCheck className="w-3.5 h-3.5 text-slate-600" />
-            {t('Bước 2 trong 8: Thẩm định Nghĩa vụ Kiểm kê Khí nhà kính (GHG Inventory)', 'Step 2 of 8: GHG Inventory Obligation Assessment')}
+            {t('Bước 2 trong 8: Thẩm định Nghĩa vụ Kiểm kê Khí nhà kính', 'Step 2 of 8: GHG Inventory Obligation Assessment')}
           </div>
           <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
             {t('Cơ sở có thuộc diện phải thực hiện Kiểm kê Khí nhà kính?', 'Does this facility have a GHG inventory obligation?')}
@@ -109,27 +108,27 @@ export const Screen2Inventory: React.FC = () => {
           {/* Applicable List Info Box */}
           <div className="bg-white rounded-xl border border-slate-200 p-4 shrink-0 w-full md:w-72 shadow-2xs space-y-2">
             <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-              <Calendar className="w-3.5 h-3.5 text-blue-600" />
+              <Calendar className="w-3.5 h-3.5 text-brand" />
               {t('Danh mục kiểm kê áp dụng', 'Applicable Inventory List')}
             </div>
             <div className="text-sm font-bold text-slate-900">
               {inventoryResult.applicableList}
             </div>
             <div className="text-[11px] text-slate-500">
-              {inventoryResult.listEffectivePeriod}
+              {t(inventoryResult.listEffectivePeriod, inventoryResult.listEffectivePeriodEn)}
             </div>
           </div>
         </div>
       </div>
 
       {/* Critical Legal Distinction Callout */}
-      <div className="bg-blue-50/70 border border-blue-200 rounded-2xl p-5 flex items-start gap-4">
-        <ShieldAlert className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
-        <div className="text-xs text-blue-900 space-y-1">
+      <div className="bg-emerald-50/70 border border-emerald-200 rounded-2xl p-5 flex items-start gap-4">
+        <ShieldAlert className="w-5 h-5 text-brand shrink-0 mt-0.5" />
+        <div className="text-xs text-brand-dark space-y-1">
           <div className="font-bold text-sm">
             {t('Quy tắc then chốt: Kiểm kê KNK không đồng nghĩa với có hạn ngạch ETS!', 'Key Rule: Inventory duty does NOT mean ETS quota obligation!')}
           </div>
-          <p className="leading-relaxed text-blue-800">
+          <p className="leading-relaxed text-brand-dark">
             {t(
               'Một doanh nghiệp có thể phát thải trên 3,000 tCO2e và bắt buộc phải nộp báo cáo kiểm kê KNK cho Sở TN&MT, nhưng trong giai đoạn thí điểm 2025–2026, CHỈ CÓ 110 cơ sở thuộc 3 lĩnh vực (Nhiệt điện than, Sản xuất Thép, và Xi măng) trong Quyết định 699/QĐ-BNNMT mới được phân bổ hạn ngạch phát thải chính thức.',
               'A facility may emit over 3,000 tCO2e and have a mandatory duty to conduct GHG inventories, but during the 2025–2026 pilot phase, ONLY 110 facilities across 3 designated sectors in Decision 699 are assigned official emission quotas.'
@@ -143,7 +142,7 @@ export const Screen2Inventory: React.FC = () => {
         <div className="border-b border-slate-100 pb-4 flex items-center justify-between">
           <div>
             <h3 className="text-base font-bold text-slate-900">
-              {t('Đối chiếu Tiêu chí Định lượng (Điều 6)', 'Article 6 Quantitative Criteria Checklist')}
+              {t('Đối chiếu Tiêu chí Định lượng', 'Quantitative Criteria Checklist')}
             </h3>
             <p className="text-xs text-slate-500 mt-0.5">
               {t('Hệ thống kiểm tra các ngưỡng phát thải và tiêu thụ năng lượng theo luật định.', 'Simulator checks statutory emission and energy consumption thresholds.')}
@@ -188,7 +187,7 @@ export const Screen2Inventory: React.FC = () => {
                 onChange={(e) => updateField('annual_ghg', e.target.value ? parseFloat(e.target.value) : null)}
                 className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm font-mono font-semibold text-slate-900 focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 focus:outline-none"
               />
-              <span className="absolute right-3 top-2.5 text-xs text-slate-400 font-mono">tCO2e/năm</span>
+              <span className="absolute right-3 top-2.5 text-xs text-slate-400 font-mono">{t('tCO2e/năm', 'tCO2e/yr')}</span>
             </div>
 
             <div className="text-[11px] text-slate-500 flex items-center justify-between">
@@ -226,7 +225,7 @@ export const Screen2Inventory: React.FC = () => {
                 onChange={(e) => updateField('annual_toe', e.target.value ? parseFloat(e.target.value) : null)}
                 className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm font-mono font-semibold text-slate-900 focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 focus:outline-none"
               />
-              <span className="absolute right-3 top-2.5 text-xs text-slate-400 font-mono">TOE/năm</span>
+              <span className="absolute right-3 top-2.5 text-xs text-slate-400 font-mono">{t('TOE/năm', 'TOE/yr')}</span>
             </div>
 
             <div className="text-[11px] text-slate-500 flex items-center justify-between">
@@ -251,7 +250,7 @@ export const Screen2Inventory: React.FC = () => {
                 {t('Công suất xử lý Chất thải rắn', 'Solid Waste Capacity')}
               </span>
               <span className="text-[10px] font-semibold font-mono bg-slate-100 text-slate-700 px-1.5 py-0.5 rounded border border-slate-200">
-                ≥ 65,000 tấn
+                ≥ 65,000 {t('tấn', 'tonnes')}
               </span>
             </div>
 
@@ -264,7 +263,7 @@ export const Screen2Inventory: React.FC = () => {
                 onChange={(e) => updateField('waste_capacity', e.target.value ? parseFloat(e.target.value) : null)}
                 className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm font-mono font-semibold text-slate-900 focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 focus:outline-none"
               />
-              <span className="absolute right-3 top-2.5 text-xs text-slate-400 font-mono">tấn/năm</span>
+              <span className="absolute right-3 top-2.5 text-xs text-slate-400 font-mono">{t('tấn/năm', 't/yr')}</span>
             </div>
 
             <div className="text-[11px] text-slate-500 flex items-center justify-between">
@@ -300,11 +299,11 @@ export const Screen2Inventory: React.FC = () => {
                 onClick={() => updateField('inventory_list_match', choice)}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   state.inventory_list_match === choice
-                    ? 'bg-slate-900 text-white shadow-xs'
+                    ? 'bg-brand text-white shadow-xs'
                     : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
                 }`}
               >
-                {choice === 'Yes' ? t('Có trong danh mục (Yes)', 'Yes (Listed)') : choice === 'No' ? t('Không có (No)', 'No (Not listed)') : t('Chưa tra cứu (Unknown)', 'Unknown')}
+                {choice === 'Yes' ? t('Có trong danh mục', 'Yes (Listed)') : choice === 'No' ? t('Không có trong danh mục', 'No (Not listed)') : t('Chưa tra cứu', 'Unknown')}
               </button>
             ))}
           </div>
@@ -323,7 +322,7 @@ export const Screen2Inventory: React.FC = () => {
           <button
             type="button"
             onClick={() => setCurrentScreen(3)}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 text-white font-semibold text-xs hover:bg-slate-800 shadow-xs transition-all cursor-pointer"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand text-white font-semibold text-xs hover:bg-brand-dark shadow-xs transition-all cursor-pointer"
           >
             <span>{t('Tiếp theo: Kiểm tra Nghĩa vụ Hạn ngạch ETS', 'Next: Check ETS Quota Obligation')}</span>
             <ArrowRight className="w-3.5 h-3.5" />

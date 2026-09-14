@@ -21,9 +21,9 @@ export const LegalButton: React.FC<LegalButtonProps> = ({
   const { openLegalDrawer } = useSimulator();
   const { t } = useLanguage();
 
-  const sizeClasses = size === 'sm' 
-    ? 'px-2.5 py-1 text-xs gap-1.5' 
-    : 'px-3.5 py-1.5 text-sm gap-2';
+  const sizeClasses = size === 'sm'
+    ? 'min-h-11 px-2.5 py-1 text-xs gap-1.5'
+    : 'min-h-11 px-3.5 py-1.5 text-sm gap-2';
 
   return (
     <button

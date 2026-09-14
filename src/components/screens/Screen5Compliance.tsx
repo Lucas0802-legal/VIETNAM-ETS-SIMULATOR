@@ -9,8 +9,6 @@ import {
   Coins, 
   ArrowLeftRight, 
   Clock, 
-  ShieldAlert, 
-  Info 
 } from 'lucide-react';
 import { useSimulator } from '../../context/SimulatorContext';
 import { useLanguage } from '../../context/LanguageContext';
@@ -25,7 +23,7 @@ export const Screen5Compliance: React.FC = () => {
     selectedFacility,
     setCurrentScreen 
   } = useSimulator();
-  const { language, t } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <div className="space-y-6">
@@ -35,17 +33,11 @@ export const Screen5Compliance: React.FC = () => {
         <div>
           <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-semibold mb-2 border border-slate-200">
             <Scale className="w-3.5 h-3.5 text-slate-600" />
-            {t('Bước 5 trong 8: Mô phỏng Vị thế Tuân thủ (Compliance Position)', 'Step 5 of 8: Compliance Position & Surrender Gap')}
+            {t('Bước 5 trong 8: Mô phỏng Vị thế Tuân thủ', 'Step 5 of 8: Compliance Position & Surrender Gap')}
           </div>
           <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
             {t('Hạn ngạch hiện có đủ hay thiếu so với phát thải thực tế?', 'Do you have sufficient allowances to cover actual emissions?')}
           </h2>
-          <p className="text-xs text-slate-500 mt-1 max-w-2xl">
-            {t(
-              'Căn cứ Điều 19 Văn bản hợp nhất 48/VBHN-BNNMT về nghĩa vụ nộp bù hạn ngạch, trần bù trừ tín chỉ carbon (30%) và trần vay mượn hạn ngạch (15%).',
-              'Pursuant to Article 19 Decree 48 regarding allowance surrender, 30% carbon credit offset cap, and 15% borrowing cap.'
-            )}
-          </p>
         </div>
 
         <div className="flex items-center gap-2 shrink-0">
@@ -59,7 +51,7 @@ export const Screen5Compliance: React.FC = () => {
       <div className={`rounded-2xl border p-6 sm:p-8 shadow-sm transition-all ${
         complianceResult.status === 'SURPLUS'
           ? 'bg-emerald-50/50 border-emerald-300'
-          : complianceResult.status === 'DEFICIT'
+          : complianceResult.status === 'DEFICIT' || complianceResult.status.startsWith('INVALID_')
             ? 'bg-rose-50/50 border-rose-300'
             : 'bg-slate-50 border-slate-300'
       }`}>
@@ -69,7 +61,7 @@ export const Screen5Compliance: React.FC = () => {
               {complianceResult.status === 'SURPLUS' && (
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-600 text-white font-bold text-xs shadow-xs">
                   <TrendingUp className="w-4 h-4" />
-                  {t('VỊ THẾ DƯ THỪA HẠN NGẠCH (SURPLUS)', 'COMPLIANCE SURPLUS')}
+                  {t('VỊ THẾ DƯ THỪA HẠN NGẠCH', 'COMPLIANCE SURPLUS')}
                 </span>
               )}
               {complianceResult.status === 'DEFICIT' && (
@@ -88,6 +80,17 @@ export const Screen5Compliance: React.FC = () => {
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-600 text-white font-bold text-xs shadow-xs">
                   <AlertCircle className="w-4 h-4" />
                   {t('CHƯA NHẬP ĐỦ PHÁT THẢI THỰC TẾ', 'INCOMPLETE EMISSIONS DATA')}
+                </span>
+              )}
+              {(complianceResult.status === 'INVALID_CREDITS'
+                || complianceResult.status === 'INVALID_BORROWING'
+                || complianceResult.status === 'INVALID_INPUT'
+                || complianceResult.status === 'NOT_APPLICABLE') && (
+                <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-white font-bold text-xs shadow-xs ${
+                  complianceResult.status === 'NOT_APPLICABLE' ? 'bg-slate-600' : 'bg-rose-600'
+                }`}>
+                  <AlertCircle className="w-4 h-4" />
+                  {t(complianceResult.statusTextVi, complianceResult.statusTextEn)}
                 </span>
               )}
 
@@ -113,6 +116,9 @@ export const Screen5Compliance: React.FC = () => {
               {complianceResult.status === 'MISSING_DIRECT_EMISSIONS' && (
                 <span className="text-slate-400 text-2xl">—</span>
               )}
+              {(complianceResult.status.startsWith('INVALID_') || complianceResult.status === 'NOT_APPLICABLE') && (
+                <span className="text-slate-400 text-2xl">—</span>
+              )}
             </div>
 
             <p className="text-xs sm:text-sm text-slate-700 leading-relaxed max-w-2xl">
@@ -128,20 +134,22 @@ export const Screen5Compliance: React.FC = () => {
                 'Vui lòng nhập số liệu phát thải trực tiếp đã được thẩm định của cả hai năm 2025 và 2026 bên dưới để tính toán chênh lệch tuân thủ.',
                 'Please enter verified direct emissions for both 2025 and 2026 below to compute the compliance gap.'
               )}
+              {(complianceResult.status.startsWith('INVALID_') || complianceResult.status === 'NOT_APPLICABLE')
+                && t(complianceResult.statusTextVi, complianceResult.statusTextEn)}
             </p>
           </div>
 
           {/* Surrender Deadline Box */}
           <div className="bg-white rounded-xl border border-slate-200 p-4 shrink-0 w-full lg:w-72 shadow-2xs space-y-2">
             <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5 text-blue-600" />
+              <Clock className="w-3.5 h-3.5 text-brand" />
               {t('Thời hạn nộp bù hạn ngạch', 'Surrender Deadline')}
             </div>
             <div className="text-base font-extrabold text-slate-900">
               {complianceResult.surrenderDeadline}
             </div>
             <div className="text-[11px] text-slate-500">
-              {t('Trước 31/12 của năm liền sau giai đoạn phân bổ (Điều 19.5.b)', 'Before Dec 31 of following year (Art 19.5.b)')}
+              {t('Trước 31/12 của năm liền sau giai đoạn phân bổ', 'Before Dec 31 of following year')}
             </div>
           </div>
         </div>
@@ -153,15 +161,15 @@ export const Screen5Compliance: React.FC = () => {
             <div className="text-lg font-bold text-slate-900 font-mono">
               {complianceResult.phaseAllocationTotal.toLocaleString()}
             </div>
-            <div className="text-[10px] text-slate-400">tCO2e (Giai đoạn)</div>
+            <div className="text-[10px] text-slate-400">tCO2e {t('(Giai đoạn)', '(Phase)')}</div>
           </div>
 
           <div className="bg-white rounded-xl p-3 border border-slate-200">
             <div className="text-[11px] text-slate-500">{t('Hạn ngạch khả dụng', 'Available Allowances')}</div>
-            <div className="text-lg font-bold text-blue-700 font-mono">
-              {complianceResult.availableAllowances.toLocaleString()}
+            <div className="text-lg font-bold text-brand font-mono">
+              {complianceResult.availableAllowances !== null ? complianceResult.availableAllowances.toLocaleString() : '—'}
             </div>
-            <div className="text-[10px] text-slate-400">A + Trades + Borrowing</div>
+            <div className="text-[10px] text-slate-400">{t('A + Giao dịch + Vay mượn', 'A + Trades + Borrowing')}</div>
           </div>
 
           <div className="bg-white rounded-xl p-3 border border-slate-200">
@@ -169,17 +177,17 @@ export const Screen5Compliance: React.FC = () => {
             <div className="text-lg font-bold text-slate-900 font-mono">
               {complianceResult.requiredSurrender !== null ? complianceResult.requiredSurrender.toLocaleString() : '—'}
             </div>
-            <div className="text-[10px] text-slate-400">E_direct - Credits</div>
+            <div className="text-[10px] text-slate-400">{t('Phát thải trực tiếp − Tín chỉ', 'E_direct − Credits')}</div>
           </div>
 
           <div className="bg-white rounded-xl p-3 border border-slate-200">
-            <div className="text-[11px] text-slate-500">{t('Chênh lệch (Gap)', 'Compliance Gap')}</div>
+            <div className="text-[11px] text-slate-500">{t('Chênh lệch', 'Compliance Gap')}</div>
             <div className={`text-lg font-bold font-mono ${
               (complianceResult.complianceGap || 0) >= 0 ? 'text-emerald-700' : 'text-rose-700'
             }`}>
               {complianceResult.complianceGap !== null ? `${complianceResult.complianceGap >= 0 ? '+' : ''}${complianceResult.complianceGap.toLocaleString()}` : '—'}
             </div>
-            <div className="text-[10px] text-slate-400">Available - Required</div>
+            <div className="text-[10px] text-slate-400">{t('Khả dụng − Phải nộp', 'Available − Required')}</div>
           </div>
         </div>
       </div>
@@ -211,7 +219,7 @@ export const Screen5Compliance: React.FC = () => {
                   placeholder="0"
                   value={state.direct_emis_2025 ?? ''}
                   onChange={(e) => updateField('direct_emis_2025', e.target.value ? parseFloat(e.target.value) : null)}
-                  className="w-full px-3 py-2 rounded-lg border border-slate-300 font-mono text-sm font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full px-3 py-2 rounded-lg border border-slate-300 font-mono text-sm font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-brand"
                 />
                 <span className="absolute right-3 top-2.5 text-xs text-slate-400 font-mono">tCO2e</span>
               </div>
@@ -228,7 +236,7 @@ export const Screen5Compliance: React.FC = () => {
                   placeholder="0"
                   value={state.direct_emis_2026 ?? ''}
                   onChange={(e) => updateField('direct_emis_2026', e.target.value ? parseFloat(e.target.value) : null)}
-                  className="w-full px-3 py-2 rounded-lg border border-slate-300 font-mono text-sm font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full px-3 py-2 rounded-lg border border-slate-300 font-mono text-sm font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-brand"
                 />
                 <span className="absolute right-3 top-2.5 text-xs text-slate-400 font-mono">tCO2e</span>
               </div>
@@ -246,7 +254,7 @@ export const Screen5Compliance: React.FC = () => {
           <div className="pt-2 border-t border-slate-100">
             <label className="text-xs font-bold text-slate-700 flex items-center justify-between mb-1">
               <span className="flex items-center gap-1.5">
-                <ArrowLeftRight className="w-3.5 h-3.5 text-blue-600" />
+                <ArrowLeftRight className="w-3.5 h-3.5 text-brand" />
                 {t('Giao dịch Hạn ngạch Ròng trên sàn (+Mua / -Bán):', 'Net Allowance Trades (+Buy / -Sell):')}
               </span>
               <span className="font-mono text-slate-600 font-bold">
@@ -258,10 +266,10 @@ export const Screen5Compliance: React.FC = () => {
               placeholder="VD: +10000 (mua) hoặc -5000 (bán)"
               value={state.net_allowance_trades ?? ''}
               onChange={(e) => updateField('net_allowance_trades', e.target.value ? parseFloat(e.target.value) : 0)}
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 font-mono text-xs focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="w-full px-3 py-2 rounded-lg border border-slate-300 font-mono text-xs focus:outline-none focus:ring-1 focus:ring-brand"
             />
             <span className="text-[10px] text-slate-400 mt-1 block">
-              {t('Giao dịch làm tăng/giảm hạn ngạch khả dụng (Available Allowances), không làm thay đổi nghĩa vụ nộp bù.', 'Trades adjust available allowances without changing surrender requirement.')}
+              {t('Giao dịch làm tăng/giảm hạn ngạch khả dụng, không làm thay đổi nghĩa vụ nộp bù.', 'Trades adjust available allowances without changing surrender requirement.')}
             </span>
           </div>
         </div>
@@ -274,7 +282,7 @@ export const Screen5Compliance: React.FC = () => {
             <div className="flex items-center justify-between">
               <div>
                 <h4 className="text-xs font-bold text-slate-900">
-                  {t('1. Tín chỉ Carbon sử dụng để Bù trừ (Điều 19.8)', '1. Carbon Credits Used for Offset (Art 19.8)')}
+                  {t('1. Tín chỉ Carbon sử dụng để Bù trừ', '1. Carbon Credits Used for Offset')}
                 </h4>
                 <p className="text-[11px] text-slate-500">
                   {t('Tối đa không quá 30% tổng số hạn ngạch được phân bổ.', 'Capped at 30% of total allocated allowances.')}
@@ -292,7 +300,7 @@ export const Screen5Compliance: React.FC = () => {
                 className={`w-full px-3 py-2 rounded-lg border font-mono text-sm font-semibold focus:outline-none focus:ring-1 ${
                   complianceResult.isCreditExceeded
                     ? 'border-red-500 text-red-700 bg-red-50/30 focus:ring-red-500'
-                    : 'border-slate-300 text-slate-800 focus:ring-blue-500'
+                    : 'border-slate-300 text-slate-800 focus:ring-brand'
                 }`}
               />
               <span className="absolute right-3 top-2.5 text-xs text-slate-400 font-mono">tCO2e</span>
@@ -303,7 +311,7 @@ export const Screen5Compliance: React.FC = () => {
               labelEn="Carbon Offset Limit"
               currentValue={complianceResult.creditsUsed}
               maxCap={complianceResult.creditCap30Percent}
-              capPercentText="Trần 30%"
+              capPercentText={t('Trần 30%', '30% cap')}
             />
           </div>
 
@@ -312,7 +320,7 @@ export const Screen5Compliance: React.FC = () => {
             <div className="flex items-center justify-between">
               <div>
                 <h4 className="text-xs font-bold text-slate-900">
-                  {t('2. Vay mượn Hạn ngạch từ Kỳ sau (Điều 19.6)', '2. Borrowing from Next Phase (Art 19.6)')}
+                  {t('2. Vay mượn Hạn ngạch từ Kỳ sau', '2. Borrowing from Next Phase')}
                 </h4>
                 <p className="text-[11px] text-slate-500">
                   {t('Tối đa không quá 15% tổng hạn ngạch (áp dụng đến hết năm 2030).', 'Capped at 15% of phase allocation through end-2030.')}
@@ -330,7 +338,7 @@ export const Screen5Compliance: React.FC = () => {
                 className={`w-full px-3 py-2 rounded-lg border font-mono text-sm font-semibold focus:outline-none focus:ring-1 ${
                   complianceResult.isBorrowingExceeded
                     ? 'border-red-500 text-red-700 bg-red-50/30 focus:ring-red-500'
-                    : 'border-slate-300 text-slate-800 focus:ring-blue-500'
+                    : 'border-slate-300 text-slate-800 focus:ring-brand'
                 }`}
               />
               <span className="absolute right-3 top-2.5 text-xs text-slate-400 font-mono">tCO2e</span>
@@ -341,7 +349,7 @@ export const Screen5Compliance: React.FC = () => {
               labelEn="Phase Borrowing Limit"
               currentValue={complianceResult.borrowedAllowances}
               maxCap={complianceResult.borrowingCap15Percent}
-              capPercentText="Trần 15%"
+              capPercentText={t('Trần 15%', '15% cap')}
             />
           </div>
 
@@ -362,7 +370,8 @@ export const Screen5Compliance: React.FC = () => {
         <button
           type="button"
           onClick={() => setCurrentScreen(6)}
-          className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-slate-900 text-white font-semibold text-xs hover:bg-slate-800 shadow-xs transition-all cursor-pointer"
+          disabled={complianceResult.status.startsWith('INVALID_')}
+          className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-brand text-white font-semibold text-xs hover:bg-brand-dark shadow-xs transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <span>{t('Tiếp theo: Minh bạch Căn cứ Pháp lý', 'Next: Legal Library & Auditability')}</span>
           <ArrowRight className="w-3.5 h-3.5" />

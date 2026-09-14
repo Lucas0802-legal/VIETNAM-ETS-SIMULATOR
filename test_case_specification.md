@@ -1,13 +1,13 @@
 # BẢNG ĐẶC TẢ TEST CASE CHUẨN DOANH NGHIỆP — VIETNAM ETS SIMULATOR
 **Dự án:** Vietnam ETS Simulator Web Prototype  
 **Mục tiêu:** Kiểm toán toàn diện 8 màn hình, động cơ tính toán toán học, các ranh giới pháp lý (guardrails) và bộ dữ liệu 110 cơ sở Quyết định 699/QĐ-BNNMT.  
-**Tỷ lệ Pass:** 35 / 35 Test Cases (100%)  
+**Tỷ lệ Pass:** 40 / 40 Test Cases (100%)
 **Lệnh chạy tự động qua Terminal:** `npm test`  
-**Chạy trực tiếp trên giao diện web:** Bấm nút **🧪 Kiểm thử (35/35)** tại thanh điều hướng trên cùng.
+**Chạy trực tiếp trên giao diện web:** Bấm nút **Bộ kiểm thử** tại thanh điều hướng trên cùng.
 
 ---
 
-## I. MA TRẬN 35 TEST CASES CHI TIẾT
+## I. MA TRẬN 40 KẾT QUẢ KIỂM THỬ CHI TIẾT
 
 | Mã TC | Phân hệ / Màn hình | Tên Kịch bản Thẩm định | Dữ liệu Đầu vào (Inputs) | Kết quả Kỳ vọng (Expected) | Căn cứ Pháp lý / Excel Logic | Trạng thái |
 | :--- | :--- | :--- | :--- | :--- | :--- | :---: |
@@ -43,10 +43,14 @@
 | **TC-29** | Screen 5: Compliance | **Validation:** Vượt trần 15% vay mượn | Nhập vay mượn $= 400,000$ ($> 325.5K$) | Trạng thái: `INVALID_BORROWING`, hiển thị thanh đo đỏ | Spec trang 6 mục 7 & Điều 19.6 | ✅ PASS |
 | **TC-30** | Screen 5: Compliance | Xác nhận Hạn nộp bù hạn ngạch | Chu kỳ 2025–2026 | Hạn nộp: `31/12/2027` (Trước 31/12 năm sau chu kỳ) | VBHN 48 Điều 19(5)(b) | ✅ PASS |
 | **TC-31** | Screen 7: Data Quality | Kiểm toán 6 chiều chất lượng dữ liệu | Toàn bộ các trường trong State | Đánh giá đủ 6 chiều: Danh tính, Kiểm kê, Lịch sử, B, g/r, Phát thải | Spec trang 8: Screen 7 | ✅ PASS |
-| **TC-32** | Screen 7: Data Quality | Tính Điểm sẵn sàng dữ liệu (%) | Đầy đủ 6/6 trường | Điểm sẵn sàng $= 100\%$ | Động cơ DataQualityEngine | ✅ PASS |
+| **TC-32** | Screen 7: Data Quality | Tính mức độ điền đủ dữ liệu (%) | Có dữ liệu ở 6/6 chiều | Độ điền đủ $= 100\%$; tính hợp lệ và xác minh hiển thị riêng | Động cơ DataQualityEngine | ✅ PASS |
 | **TC-33** | Screen 7: Data Quality | Minh bạch thiếu sót thay vì báo Error | Khuyết sản lượng lịch sử, khuyết B | Chỉ rõ thiếu sản lượng 3 năm & chưa có benchmark ngành | Spec trang 8: Nói rõ thiếu cái gì | ✅ PASS |
 | **TC-34** | Presets | Nạp 4 Kịch bản mẫu demo | Kịch bản 1, 2, 3, 4 | Nạp chính xác dữ liệu Nhiệt điện, Thép, Xi măng, Cơ sở tự do | 4 Presets demo cuộc thi | ✅ PASS |
-| **TC-35** | Screen 8: Summary | Cấu trúc Báo cáo xuất file CSV & In | Bấm Xuất CSV / In PDF | Xuất đầy đủ 5 phân hệ dữ liệu, chuẩn in A4 không lỗi CSS | Spec trang 8 & 11 | ✅ PASS |
+| **TC-35** | Screen 8: Summary | Chuỗi CSV an toàn và giữ số 0 | Ký tự `"`, `#`, chuỗi giống công thức, số 0 và null | Escape đúng, giữ 0, null để trống, trung hòa công thức | CSV interoperability | ✅ PASS |
+| **TC-36** | Input Validation | Từ chối tỷ lệ giảm phát thải ngoài miền | `r = 150%` | `INVALID_INPUT`, không xuất A | Guardrail dữ liệu đầu vào | ✅ PASS |
+| **TC-37** | Input Validation | Thiếu một năm phát thải lịch sử | Một giá trị E để trống | `MISSING_HISTORICAL`, không xuất A | Phụ lục I | ✅ PASS |
+| **TC-38** | Input Validation | Từ chối phát thải âm và NaN | Dữ liệu không hợp lệ | `INVALID_INPUT`, gap không được tính | Guardrail dữ liệu đầu vào | ✅ PASS |
+| **TC-39** | Inventory Boundary | Không suy ra danh mục hiện tại từ QĐ 699 | Danh mục hiện hành chưa tra cứu | `UNDETERMINED` | Ghi chú FACILITIES trong workbook lõi | ✅ PASS |
 
 ---
 
@@ -57,13 +61,13 @@ Chỉ cần mở terminal tại thư mục dự án và chạy:
 ```bash
 npm test
 ```
-Toàn bộ 35 test cases sẽ được thực thi và in ra bảng tổng kết xanh `[PASS]` trong vòng 1-2 giây.
+Toàn bộ 40 kết quả kiểm thử sẽ được thực thi và in ra bảng tổng kết trong vòng 1-2 giây.
 
 ### 2. Chạy tương tác trên Giao diện Web (Dành cho Giám khảo & Người dùng)
 1. Mở website tại: `http://localhost:5173`
-2. Tại thanh Menu trên cùng (Navbar), nhấp vào nút **🧪 Kiểm thử (35/35)**.
+2. Tại thanh Menu trên cùng (Navbar), nhấp vào nút **Bộ kiểm thử**.
 3. Modal kiểm thử tự động sẽ xuất hiện, chạy toàn bộ 35 kịch bản và hiển thị:
-   - Tỷ lệ thành công: **35/35 PASS (100%)**
+   - Tỷ lệ thành công của lần chạy hiện tại, ví dụ **40/40 PASS (100%)**
    - Phân loại theo từng phân hệ: Data Layer, Search, Inventory, Quota, Allocation, Compliance, Data Quality, Presets.
    - Thanh tìm kiếm và bộ lọc nhanh theo từng nhóm kiểm thử.
    - Kỳ vọng (Expected) so sánh với Thực tế (Actual) và Căn cứ pháp lý trích dẫn.

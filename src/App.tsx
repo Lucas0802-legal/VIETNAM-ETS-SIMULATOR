@@ -21,7 +21,7 @@ export const App: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-100">
+    <div className="min-h-screen flex flex-col bg-canvas">
       
       {/* Top Corporate Navbar */}
       <Navbar />
@@ -30,7 +30,7 @@ export const App: React.FC = () => {
       <StepNavigation />
 
       {/* Main Content Area */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 print:hidden">
         {currentScreen === 1 && <Screen1Search />}
         {currentScreen === 2 && <Screen2Inventory />}
         {currentScreen === 3 && <Screen3Quota />}
@@ -64,14 +64,14 @@ export const App: React.FC = () => {
             <button
               type="button"
               onClick={() => openLegalDrawer('L001')}
-              className="hover:text-blue-600 transition-colors cursor-pointer"
+              className="hover:text-brand transition-colors cursor-pointer"
             >
               {t('Cơ sở pháp lý: VBHN 48/VBHN-BNNMT', 'Legal Basis: 48/VBHN-BNNMT')}
             </button>
             <button
               type="button"
               onClick={() => openLegalDrawer('L011')}
-              className="hover:text-blue-600 transition-colors cursor-pointer"
+              className="hover:text-brand transition-colors cursor-pointer"
             >
               {t('Quyết định 699/QĐ-BNNMT (110 Cơ sở)', 'Decision 699 (110 Facilities)')}
             </button>
@@ -79,7 +79,7 @@ export const App: React.FC = () => {
               href="https://dcc.mae.gov.vn"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-blue-600 transition-colors flex items-center gap-1"
+              className="hover:text-brand transition-colors flex items-center gap-1"
             >
               <span>{t('Cục Biến đổi khí hậu', 'DCC Portal')}</span>
               <ExternalLink className="w-3 h-3" />

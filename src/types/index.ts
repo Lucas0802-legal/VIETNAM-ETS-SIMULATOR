@@ -23,14 +23,20 @@ export interface Facility {
 export interface LegalRule {
   id: string;
   topic: string;
+  topic_vi: string;
   rule: string;
+  rule_vi: string;
   legal_basis: string;
   article: string;
+  article_vi: string;
   issue_date: string;
   effective_status: string;
+  effective_status_vi: string;
   source_url: string;
   simulator_use: string;
+  simulator_use_vi: string;
   caution: string;
+  caution_vi: string;
 }
 
 export interface RegulatoryRule {
@@ -50,7 +56,8 @@ export type InventoryStatusType =
   | 'YES'
   | 'MEETS_CRITERIA'
   | 'UNDETERMINED'
-  | 'NO_EVIDENCE';
+  | 'NO_EVIDENCE'
+  | 'INVALID_DATE';
 
 export type ComplianceStatusType =
   | 'SURPLUS'
@@ -59,13 +66,15 @@ export type ComplianceStatusType =
   | 'MISSING_DIRECT_EMISSIONS'
   | 'NOT_APPLICABLE'
   | 'INVALID_CREDITS'
-  | 'INVALID_BORROWING';
+  | 'INVALID_BORROWING'
+  | 'INVALID_INPUT';
 
 export type CalculationStatusType =
   | 'READY'
   | 'MISSING_HISTORICAL'
   | 'BENCHMARK_UNAVAILABLE'
   | 'MISSING_GR'
+  | 'INVALID_INPUT'
   | 'NOT_READY';
 
 export type DataReadiness = 'READY' | 'PARTIAL' | 'MISSING' | 'UNVERIFIED';

@@ -6,8 +6,6 @@ import {
   Play, 
   ShieldCheck, 
   Search,
-  Filter,
-  Layers
 } from 'lucide-react';
 import { runAllTestCases, TestCaseResult } from '../../../test_full_suite';
 import { useLanguage } from '../../context/LanguageContext';
@@ -72,6 +70,9 @@ export const TestSuiteModal: React.FC<TestSuiteModalProps> = ({ isOpen, onClose 
 
   return (
     <div 
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="test-suite-title"
       className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/75 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-150"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
@@ -80,15 +81,15 @@ export const TestSuiteModal: React.FC<TestSuiteModalProps> = ({ isOpen, onClose 
       <div className="bg-white rounded-3xl shadow-2xl border border-slate-200 w-full max-w-4xl overflow-hidden flex flex-col max-h-[90vh] animate-in zoom-in-95 duration-150">
         
         {/* Modal Header */}
-        <div className="bg-slate-900 text-white px-6 py-5 flex items-center justify-between shrink-0">
+        <div className="bg-brand text-white px-6 py-5 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/30">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-base font-bold">
-                  {t('Bộ Kiểm thử Tự động 35/35 Test Cases', 'Automated Test Suite (35/35 Cases)')}
+                <h3 id="test-suite-title" className="text-base font-bold">
+                  {t('Bộ Kiểm thử Tích hợp', 'Integrated Test Suite')}
                 </h3>
                 <span className="text-[10px] font-mono bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full font-bold">
                   {testSummary ? `${testSummary.passed}/${testSummary.total} PASS` : 'READY'}
@@ -113,7 +114,7 @@ export const TestSuiteModal: React.FC<TestSuiteModalProps> = ({ isOpen, onClose 
             <button
               type="button"
               onClick={onClose}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-semibold border border-slate-700 transition-colors cursor-pointer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-dark hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-semibold border border-slate-700 transition-colors cursor-pointer"
               title={t('Đóng bảng kiểm thử (Esc)', 'Close Test Suite (Esc)')}
             >
               <X className="w-4 h-4" />
@@ -132,7 +133,7 @@ export const TestSuiteModal: React.FC<TestSuiteModalProps> = ({ isOpen, onClose 
               placeholder={t('Lọc theo mã TC, nội dung, căn cứ...', 'Filter test ID, name, legal basis...')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-3 py-1.5 rounded-lg border border-slate-300 text-xs bg-white focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="w-full pl-9 pr-3 py-1.5 rounded-lg border border-slate-300 text-xs bg-white focus:outline-none focus:ring-1 focus:ring-brand"
             />
           </div>
 
@@ -144,7 +145,7 @@ export const TestSuiteModal: React.FC<TestSuiteModalProps> = ({ isOpen, onClose 
                 onClick={() => setActiveCategory(cat)}
                 className={`px-2.5 py-1 rounded-lg text-[11px] font-bold whitespace-nowrap transition-all cursor-pointer ${
                   activeCategory === cat
-                    ? 'bg-slate-900 text-white'
+                    ? 'bg-brand text-white'
                     : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
                 }`}
               >
@@ -163,7 +164,7 @@ export const TestSuiteModal: React.FC<TestSuiteModalProps> = ({ isOpen, onClose 
             >
               <div className="space-y-1 min-w-0">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono font-bold text-xs text-blue-700 bg-blue-50 px-2 py-0.5 rounded">
+                  <span className="font-mono font-bold text-xs text-brand bg-emerald-50 px-2 py-0.5 rounded">
                     {tc.id}
                   </span>
                   <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">
@@ -207,7 +208,11 @@ export const TestSuiteModal: React.FC<TestSuiteModalProps> = ({ isOpen, onClose 
         <div className="bg-slate-50 border-t border-slate-200 px-6 py-3 flex items-center justify-between text-xs text-slate-500 shrink-0">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-emerald-600" />
-            <span>Toàn bộ 35/35 quy tắc toán học & kiểm toán tuân thủ 100% chuẩn spec cuộc thi.</span>
+            <span>
+              {testSummary
+                ? t(`Kết quả lần chạy này: ${testSummary.passed}/${testSummary.total} ca đạt.`, `Latest run: ${testSummary.passed}/${testSummary.total} cases passed.`)
+                : t('Chưa chạy kiểm thử trong phiên này.', 'No test run has completed in this session.')}
+            </span>
           </div>
           <button
             type="button"

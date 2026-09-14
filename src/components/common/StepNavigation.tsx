@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { 
   Search, 
   ClipboardCheck, 
@@ -17,6 +17,11 @@ import { useLanguage } from '../../context/LanguageContext';
 export const StepNavigation: React.FC = () => {
   const { currentScreen, setCurrentScreen, complianceResult } = useSimulator();
   const { t } = useLanguage();
+  const activeStepRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    activeStepRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }, [currentScreen]);
 
   const steps = [
     {
@@ -53,7 +58,7 @@ export const StepNavigation: React.FC = () => {
       titleVi: 'Vị thế Tuân thủ',
       titleEn: 'Compliance Gap',
       icon: Scale,
-      badge: complianceResult.status === 'SURPLUS' ? 'SURPLUS' : complianceResult.status === 'DEFICIT' ? 'DEFICIT' : undefined,
+      badge: complianceResult.status === 'SURPLUS' ? t('DƯ THỪA', 'SURPLUS') : complianceResult.status === 'DEFICIT' ? t('THIẾU HỤT', 'DEFICIT') : undefined,
       badgeColor: complianceResult.status === 'SURPLUS' ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-rose-100 text-rose-800 border border-rose-300',
     },
     {
@@ -80,7 +85,7 @@ export const StepNavigation: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white border-b border-slate-200 py-3 shadow-2xs">
+    <div className="bg-white border-b border-slate-200 py-3 shadow-2xs print:hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Navigation Bar */}
@@ -92,11 +97,12 @@ export const StepNavigation: React.FC = () => {
 
             return (
               <button
+                ref={isActive ? activeStepRef : undefined}
                 key={step.id}
                 onClick={() => setCurrentScreen(step.number)}
-                className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                className={`flex items-center gap-2 min-h-11 px-3 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                   isActive
-                    ? 'bg-slate-900 text-white shadow-xs'
+                    ? 'bg-brand text-white shadow-xs'
                     : isCompleted
                       ? 'bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-200'
                       : 'text-slate-500 hover:text-slate-800 hover:bg-slate-50'
@@ -143,7 +149,7 @@ export const StepNavigation: React.FC = () => {
               type="button"
               disabled={currentScreen <= 1}
               onClick={() => setCurrentScreen(currentScreen - 1)}
-              className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100 disabled:opacity-30 disabled:pointer-events-none transition-colors cursor-pointer font-medium"
+              className="flex items-center justify-center gap-1 min-h-11 px-3 py-1.5 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100 disabled:opacity-30 disabled:pointer-events-none transition-colors cursor-pointer font-medium"
             >
               <ChevronLeft className="w-3.5 h-3.5" />
               <span>{t('Trước', 'Prev')}</span>
@@ -153,7 +159,7 @@ export const StepNavigation: React.FC = () => {
               type="button"
               disabled={currentScreen >= 8}
               onClick={() => setCurrentScreen(currentScreen + 1)}
-              className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-900 text-white hover:bg-slate-800 disabled:opacity-30 disabled:pointer-events-none transition-colors cursor-pointer font-semibold shadow-2xs"
+              className="flex items-center justify-center gap-1 min-h-11 px-3.5 py-1.5 rounded-lg bg-brand text-white hover:bg-brand-dark disabled:opacity-30 disabled:pointer-events-none transition-colors cursor-pointer font-semibold shadow-2xs"
             >
               <span>{t('Tiếp theo', 'Next')}</span>
               <ChevronRight className="w-3.5 h-3.5" />

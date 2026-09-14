@@ -10,13 +10,12 @@ import {
   Hammer,
   Layers,
   HelpCircle,
-  FileCheck2,
   Edit3,
   Landmark,
-  ShieldCheck
 } from 'lucide-react';
 import { useSimulator } from '../../context/SimulatorContext';
 import { useLanguage } from '../../context/LanguageContext';
+import { normalizeSearchText } from '../../utils/search';
 import { LegalButton } from '../legal/LegalButton';
 import type { SectorType } from '../../types';
 
@@ -37,13 +36,14 @@ export const Screen1Search: React.FC = () => {
 
   // Filter facilities
   const filteredFacilities = useMemo(() => {
+    const q = normalizeSearchText(searchQuery);
     return facilities.filter((f) => {
-      const matchQuery = 
-        f.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        f.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        f.tax_id.includes(searchQuery) ||
-        f.address.toLowerCase().includes(searchQuery.toLowerCase());
-      
+      const matchQuery =
+        normalizeSearchText(f.id).includes(q) ||
+        normalizeSearchText(f.name).includes(q) ||
+        f.tax_id.includes(searchQuery.trim()) ||
+        normalizeSearchText(f.address).includes(q);
+
       const matchSector = selectedSector === 'All' || f.sector === selectedSector;
 
       return matchQuery && matchSector;
@@ -96,7 +96,7 @@ export const Screen1Search: React.FC = () => {
             onClick={() => setManualMode(false)}
             className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               !state.is_manual
-                ? 'bg-slate-900 text-white shadow-xs'
+                ? 'bg-brand text-white shadow-xs'
                 : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
             }`}
           >
@@ -109,12 +109,12 @@ export const Screen1Search: React.FC = () => {
             onClick={() => setManualMode(true)}
             className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               state.is_manual
-                ? 'bg-slate-900 text-white shadow-xs'
+                ? 'bg-brand text-white shadow-xs'
                 : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
             }`}
           >
             <Edit3 className="w-3.5 h-3.5" />
-            <span>{t('Cơ sở tự do (Manual Mode)', 'Manual Facility Mode')}</span>
+            <span>{t('Cơ sở tự do', 'Manual Facility Mode')}</span>
           </button>
         </div>
 
@@ -142,10 +142,11 @@ export const Screen1Search: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1.5">
+              <label htmlFor="manual-facility-name" className="block text-xs font-bold text-slate-700 mb-1.5">
                 {t('Tên cơ sở / Doanh nghiệp *', 'Facility / Company Name *')}
               </label>
               <input
+                id="manual-facility-name"
                 type="text"
                 placeholder={t('Ví dụ: Nhà máy Sản xuất ABC - Chi nhánh Bình Dương', 'e.g. ABC Manufacturing Facility')}
                 value={state.manual_facility_name}
@@ -155,10 +156,11 @@ export const Screen1Search: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1.5">
+              <label htmlFor="manual-tax-id" className="block text-xs font-bold text-slate-700 mb-1.5">
                 {t('Mã số thuế doanh nghiệp (Tax ID)', 'Tax ID')}
               </label>
               <input
+                id="manual-tax-id"
                 type="text"
                 placeholder={t('Ví dụ: 0102345678', 'e.g. 0102345678')}
                 value={state.manual_tax_id}
@@ -168,10 +170,11 @@ export const Screen1Search: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1.5">
+              <label htmlFor="manual-facility-type" className="block text-xs font-bold text-slate-700 mb-1.5">
                 {t('Loại hình cơ sở (Theo Điều 6)', 'Facility Type (Article 6 criteria)')}
               </label>
               <select
+                id="manual-facility-type"
                 value={state.facility_type}
                 onChange={(e) => updateField('facility_type', e.target.value as any)}
                 className="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 focus:outline-none bg-white"
@@ -206,7 +209,7 @@ export const Screen1Search: React.FC = () => {
             <button
               type="button"
               onClick={() => setCurrentScreen(2)}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 text-white font-semibold text-xs hover:bg-slate-800 shadow-xs transition-all cursor-pointer"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand text-white font-semibold text-xs hover:bg-brand-dark shadow-xs transition-all cursor-pointer"
             >
               <span>{t('Tiếp tục: Kiểm tra Nghĩa vụ Kiểm kê', 'Next: Check Inventory Obligation')}</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -241,9 +244,9 @@ export const Screen1Search: React.FC = () => {
                     key={sector}
                     type="button"
                     onClick={() => setSelectedSector(sector)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all cursor-pointer flex items-center gap-1.5 ${
+                    className={`min-h-11 px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all cursor-pointer flex items-center gap-1.5 ${
                       isSelected
-                        ? 'bg-slate-900 text-white shadow-xs'
+                        ? 'bg-brand text-white shadow-xs'
                         : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
                     }`}
                   >
@@ -279,10 +282,11 @@ export const Screen1Search: React.FC = () => {
                   const isSelected = selectedFacility?.id === facility.id;
 
                   return (
-                    <div
+                    <button
                       key={facility.id}
+                      type="button"
                       onClick={() => selectFacility(facility.id)}
-                      className={`p-3.5 transition-all cursor-pointer flex items-center justify-between gap-3 ${
+                      className={`w-full text-left p-3.5 transition-all cursor-pointer flex items-center justify-between gap-3 ${
                         isSelected
                           ? 'bg-slate-100/80 border-l-4 border-l-slate-900'
                           : 'hover:bg-slate-50'
@@ -292,7 +296,7 @@ export const Screen1Search: React.FC = () => {
                         <div
                           className={`w-8 h-8 rounded-lg flex items-center justify-center font-mono font-bold text-xs shrink-0 ${
                             isSelected
-                              ? 'bg-slate-900 text-white'
+                              ? 'bg-brand text-white'
                               : 'bg-slate-100 text-slate-700 border border-slate-200'
                           }`}
                         >
@@ -319,10 +323,10 @@ export const Screen1Search: React.FC = () => {
                           {facility.allocation_total.toLocaleString()} tCO2e
                         </div>
                         <div className="text-[10px] text-slate-400 font-medium">
-                          {facility.sector_vi}
+                          {t(facility.sector_vi, facility.sector)}
                         </div>
                       </div>
-                    </div>
+                    </button>
                   );
                 })
               )}
@@ -338,7 +342,7 @@ export const Screen1Search: React.FC = () => {
                 <div className="flex items-start justify-between gap-2">
                   <div>
                     <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-700 bg-slate-100 px-2 py-0.5 rounded mb-1.5 border border-slate-200 font-mono">
-                      {selectedFacility.id} • {selectedFacility.sector_vi}
+                      {selectedFacility.id} • {t(selectedFacility.sector_vi, selectedFacility.sector)}
                     </span>
                     <h3 className="text-base font-bold text-slate-950 leading-snug">
                       {selectedFacility.name}
@@ -393,7 +397,7 @@ export const Screen1Search: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="bg-slate-900 rounded-lg p-3 text-white flex items-center justify-between">
+                  <div className="bg-brand rounded-lg p-3 text-white flex items-center justify-between">
                     <span className="text-xs font-semibold text-slate-200">
                       {t('Tổng hạn ngạch chu kỳ 2025–2026', 'Phase Total')}
                     </span>
@@ -407,7 +411,7 @@ export const Screen1Search: React.FC = () => {
                 <div className="text-xs text-slate-500 flex items-center justify-between border-t border-slate-100 pt-3">
                   <span>{t('Sản phẩm căn cứ:', 'Benchmark Product:')}</span>
                   <span className="font-semibold text-slate-800">
-                    {selectedFacility.product_vi} ({selectedFacility.product_unit})
+                    {t(selectedFacility.product_vi, selectedFacility.product)} ({selectedFacility.product_unit})
                   </span>
                 </div>
 
@@ -416,7 +420,7 @@ export const Screen1Search: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setCurrentScreen(2)}
-                    className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-900 text-white font-semibold text-xs hover:bg-slate-800 shadow-xs transition-all cursor-pointer"
+                    className="w-full flex items-center justify-center gap-2 min-h-11 py-2.5 rounded-xl bg-brand text-white font-semibold text-xs hover:bg-brand-dark shadow-xs transition-all cursor-pointer"
                   >
                     <span>{t('Tiến hành Thẩm định Nghĩa vụ Kiểm kê', 'Proceed to Assessment')}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
