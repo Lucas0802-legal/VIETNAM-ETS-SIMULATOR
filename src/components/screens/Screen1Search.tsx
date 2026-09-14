@@ -41,6 +41,7 @@ export const Screen1Search: React.FC = () => {
       const matchQuery =
         normalizeSearchText(f.id).includes(q) ||
         normalizeSearchText(f.name).includes(q) ||
+        normalizeSearchText(f.name_en).includes(q) ||
         f.tax_id.includes(searchQuery.trim()) ||
         normalizeSearchText(f.address).includes(q);
 
@@ -306,7 +307,7 @@ export const Screen1Search: React.FC = () => {
                         <div className="min-w-0">
                           <div className="flex items-center gap-2">
                             <span className="text-xs font-bold text-slate-900 truncate">
-                              {facility.name}
+                              {t(facility.name, facility.name_en)}
                             </span>
                           </div>
 
@@ -345,7 +346,7 @@ export const Screen1Search: React.FC = () => {
                       {selectedFacility.id} • {t(selectedFacility.sector_vi, selectedFacility.sector)}
                     </span>
                     <h3 className="text-base font-bold text-slate-950 leading-snug">
-                      {selectedFacility.name}
+                      {t(selectedFacility.name, selectedFacility.name_en)}
                     </h3>
                   </div>
 

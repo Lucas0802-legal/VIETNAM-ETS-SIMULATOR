@@ -5,6 +5,7 @@ export type FacilityCategory = 'Thermal power' | 'Industrial production' | 'Frei
 export interface Facility {
   id: string;
   name: string;
+  name_en: string;
   sector: SectorType;
   sector_vi: string;
   product: string;

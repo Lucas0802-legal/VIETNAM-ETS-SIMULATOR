@@ -202,8 +202,7 @@ Toàn bộ nằm ở `SimulatorContext.tsx` và các engine — **phiên này ch
 | `src/components/screens/Screen3Quota.tsx` | Xóa 2 khối theo PDF |
 | `src/components/screens/Screen4Allocation.tsx` | Xóa `(QĐ 699)`, đơn vị |
 | `src/components/screens/Screen5Compliance.tsx` | Xóa điều khoản, dịch công thức |
-| `src/components/screens/Screen6Quality.tsx` | Ma trận chất lượng dữ liệu, badge `ĐẠT`, tham chiếu song ngữ |
-| `src/components/screens/Screen7Summary.tsx` | Báo cáo tổng hợp và xuất tệp |
+| `src/components/screens/Screen6Summary.tsx` | Báo cáo tổng hợp và xuất tệp; màn chất lượng dữ liệu đã được bỏ khỏi luồng |
 
 Tổng: **554 dòng thêm, 382 dòng xóa**.
 
@@ -219,7 +218,7 @@ cd /Users/maiduc/Downloads/vault/VIETNAM-ETS-SIMULATOR && git diff
 
 1. **P1 #2** (kiểm tra đầu vào) — rẻ nhất, chặn được nhiều kết quả vô nghĩa nhất
 2. **P1 #1** (dữ liệu mang sang cơ sở/năm khác) — nặng nhất, đụng `SimulatorContext`
-3. **P1 #5, #6** (CSV) — độc lập, gói gọn trong `Screen7Summary.tsx`
+3. **P1 #5, #6** (CSV) — độc lập, gói gọn trong `Screen6Summary.tsx`
 4. **P1 #7** + P2 #8 (trình bày trạng thái) — liên quan nhau
 5. **P2 #11** (`process.exit` cho test) — 2 dòng, nhưng chặn được hồi quy về sau
 6. **P1 #3, #4** (ranh giới kiểm kê vs quota) — cần đối chiếu văn bản pháp lý
@@ -258,3 +257,12 @@ Trước khi làm P1 #1–#4, nên đọc `Vietnam_ETS_Simulator_CORE.xlsx` (she
 - P2 #12: 17 MST chín chữ số và 79 hồ sơ thiếu địa chỉ/người đại diện chưa được tự sửa vì cần đối chiếu nguồn chính thức.
 - P2 #15: đã bổ sung các điểm truy cập chính, nhưng chưa triển khai focus trap đầy đủ cho mọi modal.
 - P2 #18: vẫn giữ việc xóa nút văn bản gốc theo yêu cầu khách hàng trước đó; không tự đảo ngược khi chưa có quyết định mới.
+
+---
+
+## 7. Đồng bộ danh mục song ngữ và rút luồng còn 6 màn — 15/09/2026
+
+- Đối chiếu theo STT và tên tiếng Việt với workbook `Danh_sach_110_co_so_VI_EN_QD699 (1).xlsx`: khớp 110/110 cơ sở; bổ sung trường `name_en` cho toàn bộ danh mục.
+- Giao diện tiếng Việt tiếp tục dùng `name`; giao diện tiếng Anh dùng `name_en` tại tìm kiếm, lựa chọn cơ sở, các màn nghiệp vụ, CSV và bản in.
+- Xóa toàn bộ màn “Chất lượng Dữ liệu”; báo cáo tổng hợp chuyển từ màn 7 thành màn 6. Thanh bước, nhãn bước, nút chuyển màn và khóa localStorage đã được đồng bộ theo 6 màn.
+- Giữ `dataQualityEngine` và `dataQualityReport` làm kiểm tra nội bộ cho CSV/bản in, nên việc bỏ màn hiển thị không làm mất các chỉ số độ đầy đủ, hợp lệ và xác minh dữ liệu trong báo cáo.

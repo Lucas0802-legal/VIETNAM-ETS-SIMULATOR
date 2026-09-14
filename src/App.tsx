@@ -8,8 +8,7 @@ import { Screen2Inventory } from './components/screens/Screen2Inventory';
 import { Screen3Quota } from './components/screens/Screen3Quota';
 import { Screen4Allocation } from './components/screens/Screen4Allocation';
 import { Screen5Compliance } from './components/screens/Screen5Compliance';
-import { Screen6Quality } from './components/screens/Screen6Quality';
-import { Screen7Summary } from './components/screens/Screen7Summary';
+import { Screen6Summary } from './components/screens/Screen6Summary';
 import { LegalDrawer } from './components/legal/LegalDrawer';
 import { PrintableReportModal } from './components/export/PrintableReportModal';
 import { TestSuiteModal } from './components/common/TestSuiteModal';
@@ -25,7 +24,7 @@ export const App: React.FC = () => {
       {/* Top Corporate Navbar */}
       <Navbar />
 
-      {/* 7-Step Navigation Bar */}
+      {/* 6-Step Navigation Bar */}
       <StepNavigation />
 
       {/* Main Content Area */}
@@ -35,8 +34,7 @@ export const App: React.FC = () => {
         {currentScreen === 3 && <Screen3Quota />}
         {currentScreen === 4 && <Screen4Allocation />}
         {currentScreen === 5 && <Screen5Compliance />}
-        {currentScreen === 6 && <Screen6Quality />}
-        {currentScreen === 7 && <Screen7Summary />}
+        {currentScreen === 6 && <Screen6Summary />}
       </main>
 
       {/* Global Legal Drawer */}

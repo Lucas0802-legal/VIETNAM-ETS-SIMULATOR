@@ -14,7 +14,8 @@
     "allocation_2026": 1134493,
     "allocation_total": 2170059,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Na Duong Thermal Power Company"
   },
   {
     "id": "F002",
@@ -31,7 +32,8 @@
     "allocation_2026": 2226618,
     "allocation_total": 4259076,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Vietnam Son Dong Thermal Power Company"
   },
   {
     "id": "F003",
@@ -48,7 +50,8 @@
     "allocation_2026": 6234766,
     "allocation_total": 11925864,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Uong Bi Thermal Power Company"
   },
   {
     "id": "F004",
@@ -65,7 +68,8 @@
     "allocation_2026": 12157553,
     "allocation_total": 23254974,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Quang Ninh Thermal Power Joint Stock Company"
   },
   {
     "id": "F005",
@@ -82,7 +86,8 @@
     "allocation_2026": 3927575,
     "allocation_total": 7512667,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Cam Pha Thermal Power Company - TKV"
   },
   {
     "id": "F006",
@@ -99,7 +104,8 @@
     "allocation_2026": 13354978,
     "allocation_total": 25545409,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "AES Mong Duong Power Limited Liability Company - Mong Duong II Thermal Power Plant"
   },
   {
     "id": "F007",
@@ -116,7 +122,8 @@
     "allocation_2026": 4860601,
     "allocation_total": 9297360,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Dong Trieu Thermal Power Company - TKV - Mao Khe Thermal Power Plant"
   },
   {
     "id": "F008",
@@ -133,7 +140,8 @@
     "allocation_2026": 10469322,
     "allocation_total": 20025725,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Mong Duong I Thermal Power Plant - Mong Duong Thermal Power Company"
   },
   {
     "id": "F009",
@@ -150,7 +158,8 @@
     "allocation_2026": 11217642,
     "allocation_total": 21457111,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Hai Phong Thermal Power Joint Stock Company"
   },
   {
     "id": "F010",
@@ -167,7 +176,8 @@
     "allocation_2026": 5517266,
     "allocation_total": 10553429,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Nghi Son 1 Power Plant"
   },
   {
     "id": "F011",
@@ -184,7 +194,8 @@
     "allocation_2026": 7903903,
     "allocation_total": 15118590,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Ha Tinh Petroleum Power Company"
   },
   {
     "id": "F012",
@@ -201,7 +212,8 @@
     "allocation_2026": 2802764,
     "allocation_total": 5361129,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Hung Nghiep Formosa Limited Liability Company"
   },
   {
     "id": "F013",
@@ -218,7 +230,8 @@
     "allocation_2026": 12989265,
     "allocation_total": 24845873,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Vinh Tan 1 Power Limited Liability Company (Vinh Tan 1 BOT Thermal Power Plant)"
   },
   {
     "id": "F014",
@@ -235,7 +248,8 @@
     "allocation_2026": 11536648,
     "allocation_total": 22067306,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Vinh Tan Thermal Power Company - CW Branch of Electricity Generation Corporation 3 One Member Limited Liability Company (Vinh Tan 2 Thermal Power Plant)"
   },
   {
     "id": "F015",
@@ -252,7 +266,8 @@
     "allocation_2026": 9342750,
     "allocation_total": 17870817,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Vinh Tan 4 - 4 Expansion Thermal Power Plant - Branch of Vietnam Electricity Group"
   },
   {
     "id": "F016",
@@ -269,7 +284,8 @@
     "allocation_2026": 23510,
     "allocation_total": 44970,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Phu Quy Diesel Power Plant"
   },
   {
     "id": "F017",
@@ -286,7 +302,8 @@
     "allocation_2026": 2760653,
     "allocation_total": 5280578,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Phu My 1 Thermal Power Plant - Phu My Thermal Power Company"
   },
   {
     "id": "F018",
@@ -303,7 +320,8 @@
     "allocation_2026": 1182984,
     "allocation_total": 2262812,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Phu My 2.1 and Phu My 2.1 Expansion Thermal Power Plant - Phu My Thermal Power Company"
   },
   {
     "id": "F019",
@@ -320,7 +338,8 @@
     "allocation_2026": 959689,
     "allocation_total": 1835693,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Phu My 4 Thermal Power Plant - Phu My Thermal Power Company"
   },
   {
     "id": "F020",
@@ -337,7 +356,8 @@
     "allocation_2026": 75558,
     "allocation_total": 144527,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Ba Ria Thermal Power Joint Stock Company"
   },
   {
     "id": "F021",
@@ -354,7 +374,8 @@
     "allocation_2026": 34842,
     "allocation_total": 66645,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "An Hoi Power Plant"
   },
   {
     "id": "F022",
@@ -371,7 +392,8 @@
     "allocation_2026": 446965,
     "allocation_total": 854955,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Branch of Vietnam Oil and Gas Power Corporation - Joint Stock Company - Nhon Trach Oil and Gas Power Company"
   },
   {
     "id": "F023",
@@ -388,7 +410,8 @@
     "allocation_2026": 561627,
     "allocation_total": 1074280,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "VEDAN Thermal Power Plant"
   },
   {
     "id": "F024",
@@ -405,7 +428,8 @@
     "allocation_2026": 97,
     "allocation_total": 186,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Amata Thermal Power Plant"
   },
   {
     "id": "F025",
@@ -422,7 +446,8 @@
     "allocation_2026": 1771879,
     "allocation_total": 3389251,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Nhon Trach 2 Thermal Power Plant"
   },
   {
     "id": "F026",
@@ -439,7 +464,8 @@
     "allocation_2026": 10586856,
     "allocation_total": 20250544,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Duyen Hai Thermal Power Company (Duyen Hai 1 Plant)"
   },
   {
     "id": "F027",
@@ -456,7 +482,8 @@
     "allocation_2026": 3969369,
     "allocation_total": 7592612,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Duyen Hai Thermal Power Company (Duyen Hai 3 Plant)"
   },
   {
     "id": "F028",
@@ -473,7 +500,8 @@
     "allocation_2026": 2989033,
     "allocation_total": 5717424,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Duyen Hai Thermal Power Company (Duyen Hai 3 MR Plant)"
   },
   {
     "id": "F029",
@@ -490,7 +518,8 @@
     "allocation_2026": 5696578,
     "allocation_total": 10896418,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Hung Nghiep Formosa Ha Tinh Iron and Steel Limited Liability Company"
   },
   {
     "id": "F030",
@@ -507,7 +536,8 @@
     "allocation_2026": 1102763,
     "allocation_total": 2109365,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Ca Mau Oil and Gas Power Company (Ca Mau 1 Power Plant)"
   },
   {
     "id": "F031",
@@ -524,7 +554,8 @@
     "allocation_2026": 1699164,
     "allocation_total": 3250162,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Ca Mau Oil and Gas Power Company (Ca Mau 2 Power Plant)"
   },
   {
     "id": "F032",
@@ -541,7 +572,8 @@
     "allocation_2026": 1012292,
     "allocation_total": 1936313,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "An Khanh Thermal Power Joint Stock Company"
   },
   {
     "id": "F033",
@@ -558,7 +590,8 @@
     "allocation_2026": 1358791,
     "allocation_total": 2599096,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Cao Ngan Thermal Power Company"
   },
   {
     "id": "F034",
@@ -575,7 +608,8 @@
     "allocation_2026": 6068,
     "allocation_total": 11607,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Kien Hai Power Plant Management Board"
   },
   {
     "id": "F035",
@@ -592,7 +626,8 @@
     "allocation_2026": 297830,
     "allocation_total": 553306,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Vietnam Minerals and Metallurgy Limited Liability Company"
   },
   {
     "id": "F036",
@@ -609,7 +644,8 @@
     "allocation_2026": 456006,
     "allocation_total": 847164,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Cao Bang Iron and Steel Joint Stock Company"
   },
   {
     "id": "F037",
@@ -626,7 +662,8 @@
     "allocation_2026": 38533,
     "allocation_total": 71586,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Viet Y Steelmaking Joint Stock Company"
   },
   {
     "id": "F038",
@@ -643,7 +680,8 @@
     "allocation_2026": 1052,
     "allocation_total": 1954,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Viet Nhat Advanced Steelmaking Joint Stock Company"
   },
   {
     "id": "F039",
@@ -660,7 +698,8 @@
     "allocation_2026": 2804,
     "allocation_total": 5210,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Hoa Phat Steel One Member Limited Liability Company"
   },
   {
     "id": "F040",
@@ -677,7 +716,8 @@
     "allocation_2026": 15932703,
     "allocation_total": 29599633,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Hung Nghiep Formosa Ha Tinh Iron and Steel Limited Liability Company"
   },
   {
     "id": "F041",
@@ -694,7 +734,8 @@
     "allocation_2026": 13078765,
     "allocation_total": 24297613,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Hoa Phat Dung Quat Steel Joint Stock Company"
   },
   {
     "id": "F042",
@@ -711,7 +752,8 @@
     "allocation_2026": 14971,
     "allocation_total": 27813,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Thu Duc Steel - Vnsteel Joint Stock Company"
   },
   {
     "id": "F043",
@@ -728,7 +770,8 @@
     "allocation_2026": 60622,
     "allocation_total": 112623,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Tung Ho Vietnam Steel Limited Liability Company"
   },
   {
     "id": "F044",
@@ -745,7 +788,8 @@
     "allocation_2026": 17431,
     "allocation_total": 32383,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Pomina 2 Steel Plant"
   },
   {
     "id": "F045",
@@ -762,7 +806,8 @@
     "allocation_2026": 54081,
     "allocation_total": 100471,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Southern Steel One Member Limited Liability Company"
   },
   {
     "id": "F046",
@@ -779,7 +824,8 @@
     "allocation_2026": 58930,
     "allocation_total": 109479,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Posco SS - Vina Limited Liability Company"
   },
   {
     "id": "F047",
@@ -796,7 +842,8 @@
     "allocation_2026": 51723,
     "allocation_total": 96090,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Vina Kyoei Steel Limited Liability Company"
   },
   {
     "id": "F048",
@@ -813,7 +860,8 @@
     "allocation_2026": 2390,
     "allocation_total": 4440,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "VAS An Hung Tuong Steel Limited Liability Company"
   },
   {
     "id": "F049",
@@ -830,7 +878,8 @@
     "allocation_2026": 310,
     "allocation_total": 575,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Sa Mi Na Steel Limited Liability Company"
   },
   {
     "id": "F050",
@@ -847,7 +896,8 @@
     "allocation_2026": 2983,
     "allocation_total": 5542,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Tue Minh Steel Joint Stock Company"
   },
   {
     "id": "F051",
@@ -864,7 +914,8 @@
     "allocation_2026": 287,
     "allocation_total": 533,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Vina One Steel Manufacturing Joint Stock Company"
   },
   {
     "id": "F052",
@@ -881,7 +932,8 @@
     "allocation_2026": 7696,
     "allocation_total": 14298,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "VAS Nghi Son Steel One Member Limited Liability Company"
   },
   {
     "id": "F053",
@@ -898,7 +950,8 @@
     "allocation_2026": 833,
     "allocation_total": 1548,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Iron and Steel Mechanical Joint Stock Company"
   },
   {
     "id": "F054",
@@ -915,7 +968,8 @@
     "allocation_2026": 5240036,
     "allocation_total": 9734893,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Hoa Phat Steel Joint Stock Company"
   },
   {
     "id": "F055",
@@ -932,7 +986,8 @@
     "allocation_2026": 568015,
     "allocation_total": 1055253,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Thai Nguyen Iron and Steel Joint Stock Company"
   },
   {
     "id": "F056",
@@ -949,7 +1004,8 @@
     "allocation_2026": 13944,
     "allocation_total": 25905,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Da Nang Steel Joint Stock Company"
   },
   {
     "id": "F057",
@@ -966,7 +1022,8 @@
     "allocation_2026": 18105,
     "allocation_total": 33635,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Vicasa Steel - Vnsteel Joint Stock Company"
   },
   {
     "id": "F058",
@@ -983,7 +1040,8 @@
     "allocation_2026": 3372,
     "allocation_total": 6265,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Shengli Vietnam Special Steel Limited Liability Company"
   },
   {
     "id": "F059",
@@ -1000,7 +1058,8 @@
     "allocation_2026": 275595,
     "allocation_total": 511998,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Thai Nguyen Ferrous Metallurgy Joint Stock Company"
   },
   {
     "id": "F060",
@@ -1017,7 +1076,8 @@
     "allocation_2026": 120305,
     "allocation_total": 230248,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "X18 Cement Joint Stock Company"
   },
   {
     "id": "F061",
@@ -1034,7 +1094,8 @@
     "allocation_2026": 709220,
     "allocation_total": 1357355,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Trung Son Cement Plant (Binh Minh Construction and Tourism Joint Stock Company)"
   },
   {
     "id": "F062",
@@ -1051,7 +1112,8 @@
     "allocation_2026": 403897,
     "allocation_total": 773006,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Vinh Son Cement Plant (Vinh Son Cement Limited Liability Company)"
   },
   {
     "id": "F063",
@@ -1068,7 +1130,8 @@
     "allocation_2026": 393882,
     "allocation_total": 753838,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Mai Son Cement Joint Stock Company"
   },
   {
     "id": "F064",
@@ -1085,7 +1148,8 @@
     "allocation_2026": 188058,
     "allocation_total": 359918,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Dien Bien Cement Plant"
   },
   {
     "id": "F065",
@@ -1102,7 +1166,8 @@
     "allocation_2026": 437954,
     "allocation_total": 838187,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Yen Bai Cement Plant, Yen Bai Cement and Minerals Joint Stock Company"
   },
   {
     "id": "F066",
@@ -1119,7 +1184,8 @@
     "allocation_2026": 655136,
     "allocation_total": 1253845,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Yen Binh Cement Plant, Yen Binh Cement Joint Stock Company"
   },
   {
     "id": "F067",
@@ -1136,7 +1202,8 @@
     "allocation_2026": 137899,
     "allocation_total": 263921,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Phu Tho Cement Joint Stock Company"
   },
   {
     "id": "F068",
@@ -1153,7 +1220,8 @@
     "allocation_2026": 915828,
     "allocation_total": 1752776,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "VIMCEM Song Thao Cement Joint Stock Company"
   },
   {
     "id": "F069",
@@ -1170,7 +1238,8 @@
     "allocation_2026": 135696,
     "allocation_total": 259704,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Tuyen Quang Cement Plant, Tuyen Quang Cement Joint Stock Company"
   },
   {
     "id": "F070",
@@ -1187,7 +1256,8 @@
     "allocation_2026": 698898,
     "allocation_total": 1337600,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Tan Quang Cement Plant, Tan Quang Cement Joint Stock Company - VVMI, Viet Bac Mining Industry Corporation TKV"
   },
   {
     "id": "F071",
@@ -1204,7 +1274,8 @@
     "allocation_2026": 648292,
     "allocation_total": 1240747,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Quan Trieu Cement Manufacturing Plant, Quan Trieu Cement Joint Stock Company"
   },
   {
     "id": "F072",
@@ -1221,7 +1292,8 @@
     "allocation_2026": 526121,
     "allocation_total": 1006927,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "La Hien Cement Manufacturing Plant, La Hien Cement Joint Stock Company"
   },
   {
     "id": "F073",
@@ -1238,7 +1310,8 @@
     "allocation_2026": 442833,
     "allocation_total": 847525,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Quang Son Cement Manufacturing Plant, Quang Son Cement Joint Stock Company"
   },
   {
     "id": "F074",
@@ -1255,7 +1328,8 @@
     "allocation_2026": 743232,
     "allocation_total": 1422449,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Dong Banh Cement Joint Stock Company"
   },
   {
     "id": "F075",
@@ -1272,7 +1346,8 @@
     "allocation_2026": 113875,
     "allocation_total": 217942,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Hong Phong Cement Joint Stock Company"
   },
   {
     "id": "F076",
@@ -1289,7 +1364,8 @@
     "allocation_2026": 1768581,
     "allocation_total": 3384833,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Cam Pha Cement Plant, Cam Pha Cement Joint Stock Company"
   },
   {
     "id": "F077",
@@ -1306,7 +1382,8 @@
     "allocation_2026": 1021037,
     "allocation_total": 1954132,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Quang Ninh Cement and Construction Joint Stock Company, Lam Thach Cement Plant"
   },
   {
     "id": "F078",
@@ -1323,7 +1400,8 @@
     "allocation_2026": 1083149,
     "allocation_total": 2073006,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Ha Long Cement Joint Stock Company"
   },
   {
     "id": "F079",
@@ -1340,7 +1418,8 @@
     "allocation_2026": 1286599,
     "allocation_total": 2462382,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Thang Long Cement Joint Stock Company"
   },
   {
     "id": "F080",
@@ -1357,7 +1436,8 @@
     "allocation_2026": 2684448,
     "allocation_total": 5137683,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "But Son Cement Plant, Vicem But Son Cement Joint Stock Company"
   },
   {
     "id": "F081",
@@ -1374,7 +1454,8 @@
     "allocation_2026": 146165,
     "allocation_total": 279740,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Hoang Long Cement Plant, Hoang Long Cement Joint Stock Company"
   },
   {
     "id": "F082",
@@ -1391,7 +1472,8 @@
     "allocation_2026": 7499822,
     "allocation_total": 14353681,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Thanh Thang Cement Plant, Thanh Thang Cement Joint Stock Company"
   },
   {
     "id": "F083",
@@ -1408,7 +1490,8 @@
     "allocation_2026": 900177,
     "allocation_total": 1722821,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Vissai Ha Nam Cement Plant - DC2, The Vissai Group"
   },
   {
     "id": "F084",
@@ -1425,7 +1508,8 @@
     "allocation_2026": 5797101,
     "allocation_total": 11094895,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Xuan Thanh Cement Plant, Xuan Thanh Cement Joint Stock Company"
   },
   {
     "id": "F085",
@@ -1442,7 +1526,8 @@
     "allocation_2026": 782362,
     "allocation_total": 1497339,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Clinker Plant Line 2, The Vissai Group"
   },
   {
     "id": "F086",
@@ -1459,7 +1544,8 @@
     "allocation_2026": 2955791,
     "allocation_total": 5656998,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Vicem Hoang Thach Cement One Member Limited Liability Company"
   },
   {
     "id": "F087",
@@ -1476,7 +1562,8 @@
     "allocation_2026": 390705,
     "allocation_total": 747759,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Thanh Cong III Construction Materials Manufacturing Limited Liability Company"
   },
   {
     "id": "F088",
@@ -1493,7 +1580,8 @@
     "allocation_2026": 3182009,
     "allocation_total": 6089950,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Chinfon Cement Plant, Chinfon Cement Company"
   },
   {
     "id": "F089",
@@ -1510,7 +1598,8 @@
     "allocation_2026": 1332050,
     "allocation_total": 2549370,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Hai Phong Cement Plant, Vicem Hai Phong One Member Limited Liability Company"
   },
   {
     "id": "F090",
@@ -1527,7 +1616,8 @@
     "allocation_2026": 2268250,
     "allocation_total": 4341135,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Vissai Ninh Binh Cement Plant, The Vissai Group"
   },
   {
     "id": "F091",
@@ -1544,7 +1634,8 @@
     "allocation_2026": 1359308,
     "allocation_total": 2601538,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "VICEM Tam Diep Cement Company"
   },
   {
     "id": "F092",
@@ -1561,7 +1652,8 @@
     "allocation_2026": 2746706,
     "allocation_total": 5256837,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Bim Son Cement Plant, Bim Son Cement Joint Stock Company"
   },
   {
     "id": "F093",
@@ -1578,7 +1670,8 @@
     "allocation_2026": 9313550,
     "allocation_total": 17824920,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Long Son Cement Plant, Long Son Limited Liability Company"
   },
   {
     "id": "F094",
@@ -1595,7 +1688,8 @@
     "allocation_2026": 546359,
     "allocation_total": 1045660,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Cong Thanh Cement Plant, Cong Thanh Group"
   },
   {
     "id": "F095",
@@ -1612,7 +1706,8 @@
     "allocation_2026": 4240640,
     "allocation_total": 8116032,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Nghi Son 2 Cement Plant, Nghi Son Cement Company"
   },
   {
     "id": "F096",
@@ -1629,7 +1724,8 @@
     "allocation_2026": 920308,
     "allocation_total": 1761350,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Tan Thang Cement Plant, Tan Thang Cement Company"
   },
   {
     "id": "F097",
@@ -1646,7 +1742,8 @@
     "allocation_2026": 5122432,
     "allocation_total": 9803667,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Song Lam 1 Cement Plant, The Vissai Group"
   },
   {
     "id": "F098",
@@ -1663,7 +1760,8 @@
     "allocation_2026": 554947,
     "allocation_total": 1062096,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Song Lam 2 Cement Plant, The Vissai Group"
   },
   {
     "id": "F099",
@@ -1680,7 +1778,8 @@
     "allocation_2026": 1412524,
     "allocation_total": 2703386,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Cement Plant of Vicem Hoang Mai Cement Joint Stock Company"
   },
   {
     "id": "F100",
@@ -1697,7 +1796,8 @@
     "allocation_2026": 1245186,
     "allocation_total": 2383124,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Song Gianh Cement Joint Stock Company"
   },
   {
     "id": "F101",
@@ -1714,7 +1814,8 @@
     "allocation_2026": 795955,
     "allocation_total": 1523354,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Vietnam Construction Materials Joint Stock Company"
   },
   {
     "id": "F102",
@@ -1731,7 +1832,8 @@
     "allocation_2026": 297142,
     "allocation_total": 568691,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Van Ninh Cement Plant, Vicem Hai Van Cement Joint Stock Company"
   },
   {
     "id": "F103",
@@ -1748,7 +1850,8 @@
     "allocation_2026": 388387,
     "allocation_total": 743323,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Luks Cement Company Limited"
   },
   {
     "id": "F104",
@@ -1765,7 +1868,8 @@
     "allocation_2026": 1372727,
     "allocation_total": 2627220,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Dong Lam Cement Joint Stock Company"
   },
   {
     "id": "F105",
@@ -1782,7 +1886,8 @@
     "allocation_2026": 913792,
     "allocation_total": 1748879,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Xuan Thanh Quang Nam Cement One Member Limited Liability Company"
   },
   {
     "id": "F106",
@@ -1799,7 +1904,8 @@
     "allocation_2026": 2169798,
     "allocation_total": 4152711,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Binh Phuoc Cement Plant, Vicem Ha Tien 1 Cement Joint Stock Company"
   },
   {
     "id": "F107",
@@ -1816,7 +1922,8 @@
     "allocation_2026": 1173794,
     "allocation_total": 2246488,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Tay Ninh Cement Plant, FICO Tay Ninh Cement Joint Stock Company - Building Materials Corporation No. 1"
   },
   {
     "id": "F108",
@@ -1833,7 +1940,8 @@
     "allocation_2026": 2238159,
     "allocation_total": 4283545,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Kien Luong Cement Plant, Vicem Ha Tien 1 Cement Joint Stock Company"
   },
   {
     "id": "F109",
@@ -1850,7 +1958,8 @@
     "allocation_2026": 1647533,
     "allocation_total": 3153163,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "INSEE Cement Plant, Siam City Cement (Vietnam) Limited Liability Company"
   },
   {
     "id": "F110",
@@ -1867,6 +1976,7 @@
     "allocation_2026": 1448956,
     "allocation_total": 2773113,
     "legal_source": "Decision 699/QĐ-BNNMT",
-    "is_in_qd699": true
+    "is_in_qd699": true,
+    "name_en": "Duyen Ha Limited Liability Company, Duyen Ha Cement Plant"
   }
 ]

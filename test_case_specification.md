@@ -1,6 +1,6 @@
 # BẢNG ĐẶC TẢ TEST CASE CHUẨN DOANH NGHIỆP — VIETNAM ETS SIMULATOR
 **Dự án:** Vietnam ETS Simulator Web Prototype  
-**Mục tiêu:** Kiểm toán toàn diện 7 màn hình, động cơ tính toán toán học, các ranh giới pháp lý (guardrails) và bộ dữ liệu 110 cơ sở Quyết định 699/QĐ-BNNMT.
+**Mục tiêu:** Kiểm toán toàn diện 6 màn hình, động cơ tính toán toán học, các ranh giới pháp lý (guardrails) và bộ dữ liệu song ngữ của 110 cơ sở Quyết định 699/QĐ-BNNMT.
 **Tỷ lệ Pass:** 40 / 40 Test Cases (100%)
 **Lệnh chạy tự động qua Terminal:** `npm test`  
 **Chạy trực tiếp trên giao diện web:** Bấm nút **Bộ kiểm thử** tại thanh điều hướng trên cùng.
@@ -11,7 +11,7 @@
 
 | Mã TC | Phân hệ / Màn hình | Tên Kịch bản Thẩm định | Dữ liệu Đầu vào (Inputs) | Kết quả Kỳ vọng (Expected) | Căn cứ Pháp lý / Excel Logic | Trạng thái |
 | :--- | :--- | :--- | :--- | :--- | :--- | :---: |
-| **TC-01** | Data Layer | Toàn vẹn danh mục QĐ 699 | File dữ liệu cơ sở | Đủ đúng 110 cơ sở phát thải chính thức | Quyết định 699/QĐ-BNNMT, Điều 1 & Phụ lục | ✅ PASS |
+| **TC-01** | Data Layer | Toàn vẹn danh mục QĐ 699 | File dữ liệu cơ sở | Đủ đúng 110 cơ sở và 110 tên tiếng Anh đối chiếu theo tên tiếng Việt | Quyết định 699/QĐ-BNNMT, Điều 1 & Phụ lục | ✅ PASS |
 | **TC-02** | Data Layer | Phân loại 3 ngành kinh tế | Sector tagging | 34 Nhiệt điện, 25 Thép, 51 Xi măng | QĐ 263/QĐ-TTg & QĐ 699 | ✅ PASS |
 | **TC-03A**| Data Layer | Đối soát Tổng hạn ngạch 2025 | $\sum A_{2025}$ của 110 cơ sở | 243,082,392 $\text{tCO}_2\text{e}$ | Quyết định 263/QĐ-TTg, Điều 1 | ✅ PASS |
 | **TC-03B**| Data Layer | Đối soát Tổng hạn ngạch 2026 | $\sum A_{2026}$ của 110 cơ sở | 268,391,454 $\text{tCO}_2\text{e}$ | Quyết định 263/QĐ-TTg, Điều 1 | ✅ PASS |
@@ -42,11 +42,11 @@
 | **TC-28** | Screen 5: Compliance | **Validation:** Vượt trần 30% tín chỉ | Nhập tín chỉ $= 700,000$ ($> 651K$) | Trạng thái: `INVALID_CREDITS`, hiển thị thanh đo đỏ | Spec trang 6 mục 7 | ✅ PASS |
 | **TC-29** | Screen 5: Compliance | **Validation:** Vượt trần 15% vay mượn | Nhập vay mượn $= 400,000$ ($> 325.5K$) | Trạng thái: `INVALID_BORROWING`, hiển thị thanh đo đỏ | Spec trang 6 mục 7 & Điều 19.6 | ✅ PASS |
 | **TC-30** | Screen 5: Compliance | Xác nhận Hạn nộp bù hạn ngạch | Chu kỳ 2025–2026 | Hạn nộp: `31/12/2027` (Trước 31/12 năm sau chu kỳ) | VBHN 48 Điều 19(5)(b) | ✅ PASS |
-| **TC-31** | Screen 6: Data Quality | Kiểm toán 6 chiều chất lượng dữ liệu | Toàn bộ các trường trong State | Đánh giá đủ 6 chiều: Danh tính, Kiểm kê, Lịch sử, B, g/r, Phát thải | Screen 6: Data Quality | ✅ PASS |
-| **TC-32** | Screen 6: Data Quality | Tính mức độ điền đủ dữ liệu (%) | Có dữ liệu ở 6/6 chiều | Độ điền đủ $= 100\%$; tính hợp lệ và xác minh hiển thị riêng | Động cơ DataQualityEngine | ✅ PASS |
-| **TC-33** | Screen 6: Data Quality | Minh bạch thiếu sót thay vì báo Error | Khuyết sản lượng lịch sử, khuyết B | Chỉ rõ thiếu sản lượng 3 năm & chưa có benchmark ngành | Screen 6: Nêu rõ dữ liệu thiếu | ✅ PASS |
+| **TC-31** | Data Quality Engine | Kiểm toán 6 chiều chất lượng dữ liệu | Toàn bộ các trường trong State | Đánh giá đủ 6 chiều: Danh tính, Kiểm kê, Lịch sử, B, g/r, Phát thải | Động cơ nội bộ phục vụ báo cáo | ✅ PASS |
+| **TC-32** | Data Quality Engine | Tính mức độ điền đủ dữ liệu (%) | Có dữ liệu ở 6/6 chiều | Độ điền đủ $= 100\%$; tính hợp lệ và xác minh hiển thị riêng | Động cơ DataQualityEngine | ✅ PASS |
+| **TC-33** | Data Quality Engine | Minh bạch thiếu sót thay vì báo Error | Khuyết sản lượng lịch sử, khuyết B | Chỉ rõ thiếu sản lượng 3 năm & chưa có benchmark ngành | Kiểm tra dữ liệu nội bộ | ✅ PASS |
 | **TC-34** | Presets | Nạp 4 Kịch bản mẫu demo | Kịch bản 1, 2, 3, 4 | Nạp chính xác dữ liệu Nhiệt điện, Thép, Xi măng, Cơ sở tự do | 4 Presets demo cuộc thi | ✅ PASS |
-| **TC-35** | Screen 7: Summary | Chuỗi CSV an toàn và giữ số 0 | Ký tự `"`, `#`, chuỗi giống công thức, số 0 và null | Escape đúng, giữ 0, null để trống, trung hòa công thức | CSV interoperability | ✅ PASS |
+| **TC-35** | Screen 6: Summary | Chuỗi CSV an toàn và giữ số 0 | Ký tự `"`, `#`, chuỗi giống công thức, số 0 và null | Escape đúng, giữ 0, null để trống, trung hòa công thức | CSV interoperability | ✅ PASS |
 | **TC-36** | Input Validation | Từ chối tỷ lệ giảm phát thải ngoài miền | `r = 150%` | `INVALID_INPUT`, không xuất A | Guardrail dữ liệu đầu vào | ✅ PASS |
 | **TC-37** | Input Validation | Thiếu một năm phát thải lịch sử | Một giá trị E để trống | `MISSING_HISTORICAL`, không xuất A | Phụ lục I | ✅ PASS |
 | **TC-38** | Input Validation | Từ chối phát thải âm và NaN | Dữ liệu không hợp lệ | `INVALID_INPUT`, gap không được tính | Guardrail dữ liệu đầu vào | ✅ PASS |

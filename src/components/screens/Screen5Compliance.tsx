@@ -33,7 +33,7 @@ export const Screen5Compliance: React.FC = () => {
         <div>
           <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-semibold mb-2 border border-slate-200">
             <Scale className="w-3.5 h-3.5 text-slate-600" />
-            {t('Bước 5 trong 7: Mô phỏng Vị thế Tuân thủ', 'Step 5 of 7: Compliance Position & Surrender Gap')}
+            {t('Bước 5 trong 6: Mô phỏng Vị thế Tuân thủ', 'Step 5 of 6: Compliance Position & Surrender Gap')}
           </div>
           <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
             {t('Hạn ngạch hiện có đủ hay thiếu so với phát thải thực tế?', 'Do you have sufficient allowances to cover actual emissions?')}
@@ -95,7 +95,7 @@ export const Screen5Compliance: React.FC = () => {
               )}
 
               <span className="text-xs text-slate-500 font-mono">
-                {selectedFacility ? `[${selectedFacility.id}] ${selectedFacility.name}` : (state.manual_facility_name || 'Cơ sở tự do')}
+                {selectedFacility ? `[${selectedFacility.id}] ${t(selectedFacility.name, selectedFacility.name_en)}` : (state.manual_facility_name || t('Cơ sở tự do', 'Manual Facility'))}
               </span>
             </div>
 
@@ -373,7 +373,7 @@ export const Screen5Compliance: React.FC = () => {
           disabled={complianceResult.status.startsWith('INVALID_')}
           className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-brand text-white font-semibold text-xs hover:bg-brand-dark shadow-xs transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          <span>{t('Tiếp theo: Kiểm toán Chất lượng Dữ liệu', 'Next: Data Quality Matrix')}</span>
+          <span>{t('Tiếp theo: Báo cáo Tổng hợp', 'Next: Executive Summary')}</span>
           <ArrowRight className="w-3.5 h-3.5" />
         </button>
       </div>

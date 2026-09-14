@@ -30,7 +30,7 @@ export const Screen3Quota: React.FC = () => {
         <div>
           <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-semibold mb-2 border border-slate-200">
             <Layers className="w-3.5 h-3.5 text-slate-600" />
-            {t('Bước 3 trong 7: Thẩm định Nghĩa vụ Hạn ngạch ETS Thí điểm', 'Step 3 of 7: ETS Pilot Quota Allocation Scope')}
+            {t('Bước 3 trong 6: Thẩm định Nghĩa vụ Hạn ngạch ETS Thí điểm', 'Step 3 of 6: ETS Pilot Quota Allocation Scope')}
           </div>
           <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
             {t('Cơ sở có thuộc diện được phân bổ hạn ngạch phát thải 2025–2026?', 'Is this facility included in the 2025–2026 quota allocation scheme?')}
@@ -55,7 +55,7 @@ export const Screen3Quota: React.FC = () => {
                 {t('XÁC NHẬN CÓ NGHĨA VỤ HẠN NGẠCH ETS', 'OFFICIAL ETS QUOTA OBLIGATION CONFIRMED')}
               </span>
               <h3 className="text-2xl font-extrabold text-slate-900 pt-1">
-                {selectedFacility.name}
+                {t(selectedFacility.name, selectedFacility.name_en)}
               </h3>
               <p className="text-xs text-slate-600">
                 {t('Mã cơ sở:', 'Facility ID:')} <span className="font-mono font-bold text-slate-800">{selectedFacility.id}</span> • {t('Lĩnh vực:', 'Sector:')} <strong className="text-slate-800">{t(selectedFacility.sector_vi, selectedFacility.sector)}</strong> • {t('Mã số thuế:', 'Tax ID:')} <span className="font-mono text-slate-800">{selectedFacility.tax_id}</span>
@@ -137,7 +137,7 @@ export const Screen3Quota: React.FC = () => {
                       onClick={() => selectFacility(facility.id)}
                       className="w-full min-h-11 rounded-xl border border-amber-300 bg-white px-3 py-2 text-left text-xs hover:bg-amber-50"
                     >
-                      <span className="font-bold text-slate-900">[{facility.id}] {facility.name}</span>
+                      <span className="font-bold text-slate-900">[{facility.id}] {t(facility.name, facility.name_en)}</span>
                       <span className="block text-slate-500 mt-0.5">{facility.tax_id}</span>
                     </button>
                   ))}

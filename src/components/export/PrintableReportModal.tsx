@@ -139,7 +139,7 @@ export const PrintableReportModal: React.FC = () => {
               <div>
                 <span className="text-slate-500 block">{t('Tên cơ sở / Doanh nghiệp:', 'Facility / Company name:')}</span>
                 <span className="font-bold text-sm text-slate-900">
-                  {selectedFacility?.name || state.manual_facility_name || t('Cơ sở tự do', 'Manual facility')}
+                  {selectedFacility ? t(selectedFacility.name, selectedFacility.name_en) : (state.manual_facility_name || t('Cơ sở tự do', 'Manual facility'))}
                 </span>
               </div>
               <div>

@@ -11,7 +11,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import { COMPLIANCE_STATUS_VI } from '../../utils/labels';
 import { downloadCsv } from '../../utils/csv';
 
-export const Screen7Summary: React.FC = () => {
+export const Screen6Summary: React.FC = () => {
   const { 
     state, 
     selectedFacility, 
@@ -32,7 +32,7 @@ export const Screen7Summary: React.FC = () => {
       [t('VIETNAM ETS SIMULATOR - BÁO CÁO TỔNG HỢP', 'VIETNAM ETS SIMULATOR - EXECUTIVE SUMMARY REPORT'), ''],
       [t('Ngày đánh giá', 'Assessment Date'), state.assessment_date],
       [t('Mã cơ sở', 'Facility ID'), selectedFacility?.id ?? 'MANUAL'],
-      [t('Tên cơ sở', 'Facility Name'), selectedFacility?.name ?? state.manual_facility_name],
+      [t('Tên cơ sở', 'Facility Name'), selectedFacility ? t(selectedFacility.name, selectedFacility.name_en) : state.manual_facility_name],
       [t('Mã số thuế', 'Tax ID'), selectedFacility?.tax_id ?? state.manual_tax_id],
       [t('Lĩnh vực', 'Sector'), selectedFacility ? t(selectedFacility.sector_vi, selectedFacility.sector) : state.sector],
       ['', ''],
@@ -94,7 +94,7 @@ export const Screen7Summary: React.FC = () => {
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold mb-2 border border-slate-200">
             <FileCheck2 className="w-3.5 h-3.5 text-emerald-600" />
-            {t('Phân hệ 07: Hồ sơ Tổng kết & Báo cáo Thẩm định Doanh nghiệp', 'Module 07: Executive Summary & Audit Report')}
+            {t('Phân hệ 06: Hồ sơ Tổng kết & Báo cáo Thẩm định Doanh nghiệp', 'Module 06: Executive Summary & Audit Report')}
           </div>
           <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
             {t('Báo cáo Tổng kết Vị thế ETS & Đánh giá Tuân thủ', 'ETS Executive Summary & Compliance Dossier')}
@@ -139,7 +139,7 @@ export const Screen7Summary: React.FC = () => {
             </div>
             <div>
               <h3 className="text-xl font-bold text-slate-900">
-                {selectedFacility?.name || state.manual_facility_name || t('Cơ sở tự nhập', 'Manual Facility')}
+                {selectedFacility ? t(selectedFacility.name, selectedFacility.name_en) : (state.manual_facility_name || t('Cơ sở tự nhập', 'Manual Facility'))}
               </h3>
               <p className="text-xs text-slate-500 mt-0.5">
                 {t('Lĩnh vực:', 'Sector:')} <strong className="text-slate-800">{selectedFacility ? t(selectedFacility.sector_vi, selectedFacility.sector) : state.sector}</strong> • {t('Mã số thuế:', 'Tax ID:')} <span className="font-mono text-slate-800">{selectedFacility?.tax_id || state.manual_tax_id || 'N/A'}</span>
