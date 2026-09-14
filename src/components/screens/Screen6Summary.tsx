@@ -74,7 +74,7 @@ export const Screen6Summary: React.FC = () => {
       [t('Nghĩa vụ phải nộp (tCO2e)', 'Required Surrender (tCO2e)'), valueOrMissing(complianceResult.requiredSurrender)],
       [t('Hạn ngạch khả dụng (tCO2e)', 'Available Allowances (tCO2e)'), valueOrMissing(complianceResult.availableAllowances)],
       [t('Chênh lệch tuân thủ (tCO2e)', 'Compliance Gap (tCO2e)'), valueOrMissing(complianceResult.complianceGap)],
-      [t('Trạng thái vị thế', 'Compliance Position Status'), complianceResult.status],
+      [t('Trạng thái chênh lệch', 'Compliance Gap Status'), complianceResult.status],
       [t('Hạn nộp bù', 'Surrender Deadline'), complianceResult.surrenderDeadline],
       ['', ''],
       [t('PHÂN HỆ 5: ĐỘ ĐẦY ĐỦ, HỢP LỆ VÀ XÁC MINH DỮ LIỆU', 'MODULE 5: DATA COMPLETENESS, VALIDITY & VERIFICATION'), ''],
@@ -205,7 +205,7 @@ export const Screen6Summary: React.FC = () => {
                 : 'bg-slate-50 border-slate-200'
           }`}>
             <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
-              {t('4. Vị thế Tuân thủ', '4. Compliance Gap')}
+              {t('4. Chênh lệch Tuân thủ', '4. Compliance Gap')}
             </div>
             <div className={`text-base font-black font-mono ${
               complianceResult.status === 'SURPLUS'

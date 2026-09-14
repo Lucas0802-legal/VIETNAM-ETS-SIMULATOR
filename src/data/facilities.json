@@ -15,7 +15,8 @@
     "allocation_total": 2170059,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Na Duong Thermal Power Company"
+    "name_en": "Na Duong Thermal Power Company",
+    "address_en": "Na Duong Township, Loc Binh District, Lang Son Province"
   },
   {
     "id": "F002",
@@ -33,7 +34,8 @@
     "allocation_total": 4259076,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Vietnam Son Dong Thermal Power Company"
+    "name_en": "Vietnam Son Dong Thermal Power Company",
+    "address_en": "Tay Yen Tu Township, Son Dong District, Bac Giang Province"
   },
   {
     "id": "F003",
@@ -51,7 +53,8 @@
     "allocation_total": 11925864,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Uong Bi Thermal Power Company"
+    "name_en": "Uong Bi Thermal Power Company",
+    "address_en": "Area 6, Quang Trung, Uong Bi City, Quang Ninh Province"
   },
   {
     "id": "F004",
@@ -62,14 +65,15 @@
     "product_vi": "Điện năng",
     "product_unit": "kWh",
     "tax_id": "5700434869",
-    "address": "",
+    "address": "T33K5, phường Hà Khánh, Hạ Long, tỉnh Quảng Ninh",
     "representative": "",
     "allocation_2025": 11097421,
     "allocation_2026": 12157553,
     "allocation_total": 23254974,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Quang Ninh Thermal Power Joint Stock Company"
+    "name_en": "Quang Ninh Thermal Power Joint Stock Company",
+    "address_en": "T33K5, Ha Khanh Ward, Ha Long, Quang Ninh Province"
   },
   {
     "id": "F005",
@@ -87,7 +91,8 @@
     "allocation_total": 7512667,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Cam Pha Thermal Power Company - TKV"
+    "name_en": "Cam Pha Thermal Power Company - TKV",
+    "address_en": "Group 4, Area 4A, Cam Thinh Ward, Cam Pha, Quang Ninh Province"
   },
   {
     "id": "F006",
@@ -98,14 +103,15 @@
     "product_vi": "Điện năng",
     "product_unit": "kWh",
     "tax_id": "5701384498",
-    "address": "",
+    "address": "Khu 8, phường Mông Dương, Cẩm Phả, tỉnh Quảng Ninh",
     "representative": "",
     "allocation_2025": 12190431,
     "allocation_2026": 13354978,
     "allocation_total": 25545409,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "AES Mong Duong Power Limited Liability Company - Mong Duong II Thermal Power Plant"
+    "name_en": "AES Mong Duong Power Limited Liability Company - Mong Duong II Thermal Power Plant",
+    "address_en": "Area 8, Mong Duong Ward, Cam Pha, Quang Ninh Province"
   },
   {
     "id": "F007",
@@ -123,7 +129,8 @@
     "allocation_total": 9297360,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Dong Trieu Thermal Power Company - TKV - Mao Khe Thermal Power Plant"
+    "name_en": "Dong Trieu Thermal Power Company - TKV - Mao Khe Thermal Power Plant",
+    "address_en": "Dong Son Village, Binh Khe Commune, Dong Trieu, Quang Ninh Province"
   },
   {
     "id": "F008",
@@ -141,7 +148,8 @@
     "allocation_total": 20025725,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Mong Duong I Thermal Power Plant - Mong Duong Thermal Power Company"
+    "name_en": "Mong Duong I Thermal Power Plant - Mong Duong Thermal Power Company",
+    "address_en": "Mong Duong Ward, Cam Pha, Quang Ninh Province"
   },
   {
     "id": "F009",
@@ -152,14 +160,15 @@
     "product_vi": "Điện năng",
     "product_unit": "kWh",
     "tax_id": "200493225",
-    "address": "",
+    "address": "Xã Tam Hưng, huyện Thủy Nguyên, thành phố Hải Phòng",
     "representative": "",
     "allocation_2025": 10239469,
     "allocation_2026": 11217642,
     "allocation_total": 21457111,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Hai Phong Thermal Power Joint Stock Company"
+    "name_en": "Hai Phong Thermal Power Joint Stock Company",
+    "address_en": "Tam Hung Commune, Thuy Nguyen District, Hai Phong City"
   },
   {
     "id": "F010",
@@ -177,7 +186,8 @@
     "allocation_total": 10553429,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Nghi Son 1 Power Plant"
+    "name_en": "Nghi Son 1 Power Plant",
+    "address_en": "Hai Ha Commune, Nghi Son Town, Thanh Hoa Province"
   },
   {
     "id": "F011",
@@ -195,7 +205,8 @@
     "allocation_total": 15118590,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Ha Tinh Petroleum Power Company"
+    "name_en": "Ha Tinh Petroleum Power Company",
+    "address_en": "Hai Phong Hamlet, Ky Loi Commune, Ky Anh Town, Ha Tinh Province"
   },
   {
     "id": "F012",
@@ -206,14 +217,15 @@
     "product_vi": "Điện năng",
     "product_unit": "kWh",
     "tax_id": "3600517557",
-    "address": "",
+    "address": "KCN Nhơn Trạch III _ Giai đoạn 1, thị trấn Hiệp Phước, huyện Nhơn Trạch, tỉnh Đồng Nai",
     "representative": "",
     "allocation_2025": 2558365,
     "allocation_2026": 2802764,
     "allocation_total": 5361129,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Hung Nghiep Formosa Limited Liability Company"
+    "name_en": "Hung Nghiep Formosa Limited Liability Company",
+    "address_en": "Nhon Trach III Industrial Park – Phase 1, Hiep Phuoc Township, Nhon Trach District, Dong Nai Province"
   },
   {
     "id": "F013",
@@ -224,14 +236,15 @@
     "product_vi": "Điện năng",
     "product_unit": "kWh",
     "tax_id": "3401060812",
-    "address": "",
+    "address": "Thôn Vĩnh Phúc, xã Vĩnh Tân, huyện Tuy Phong, tỉnh Bình Thuận",
     "representative": "",
     "allocation_2025": 11856608,
     "allocation_2026": 12989265,
     "allocation_total": 24845873,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Vinh Tan 1 Power Limited Liability Company (Vinh Tan 1 BOT Thermal Power Plant)"
+    "name_en": "Vinh Tan 1 Power Limited Liability Company (Vinh Tan 1 BOT Thermal Power Plant)",
+    "address_en": "Vinh Phuc Village, Vinh Tan Commune, Tuy Phong District, Binh Thuan Province"
   },
   {
     "id": "F014",
@@ -249,7 +262,8 @@
     "allocation_total": 22067306,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Vinh Tan Thermal Power Company - CW Branch of Electricity Generation Corporation 3 One Member Limited Liability Company (Vinh Tan 2 Thermal Power Plant)"
+    "name_en": "Vinh Tan Thermal Power Company - CW Branch of Electricity Generation Corporation 3 One Member Limited Liability Company (Vinh Tan 2 Thermal Power Plant)",
+    "address_en": "Vinh Phuc Village, Vinh Tan Commune, Tuy Phong District, Binh Thuan Province"
   },
   {
     "id": "F015",
@@ -267,7 +281,8 @@
     "allocation_total": 17870817,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Vinh Tan 4 - 4 Expansion Thermal Power Plant - Branch of Vietnam Electricity Group"
+    "name_en": "Vinh Tan 4 - 4 Expansion Thermal Power Plant - Branch of Vietnam Electricity Group",
+    "address_en": "Vinh Phuc Village, Vinh Tan Commune, Tuy Phong District, Binh Thuan Province"
   },
   {
     "id": "F016",
@@ -285,7 +300,8 @@
     "allocation_total": 44970,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Phu Quy Diesel Power Plant"
+    "name_en": "Phu Quy Diesel Power Plant",
+    "address_en": "Trieu Duong Village, Tam Thanh Commune, Phu Quy District, Binh Thuan Province"
   },
   {
     "id": "F017",
@@ -303,7 +319,8 @@
     "allocation_total": 5280578,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Phu My 1 Thermal Power Plant - Phu My Thermal Power Company"
+    "name_en": "Phu My 1 Thermal Power Plant - Phu My Thermal Power Company",
+    "address_en": "Phu My 1 Industrial Park, Phu My Ward, Phu My Town, Ba Ria - Vung Tau Province"
   },
   {
     "id": "F018",
@@ -321,7 +338,8 @@
     "allocation_total": 2262812,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Phu My 2.1 and Phu My 2.1 Expansion Thermal Power Plant - Phu My Thermal Power Company"
+    "name_en": "Phu My 2.1 and Phu My 2.1 Expansion Thermal Power Plant - Phu My Thermal Power Company",
+    "address_en": "Phu My 1 Industrial Park, Phu My Ward, Phu My Town, Ba Ria - Vung Tau Province"
   },
   {
     "id": "F019",
@@ -339,7 +357,8 @@
     "allocation_total": 1835693,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Phu My 4 Thermal Power Plant - Phu My Thermal Power Company"
+    "name_en": "Phu My 4 Thermal Power Plant - Phu My Thermal Power Company",
+    "address_en": "Phu My 1 Industrial Park, Phu My Ward, Phu My Town, Ba Ria - Vung Tau Province"
   },
   {
     "id": "F020",
@@ -350,14 +369,15 @@
     "product_vi": "Điện năng",
     "product_unit": "kWh",
     "tax_id": "3500701305",
-    "address": "",
+    "address": "Khu phố Hương Giang, phường Long Hương, thành phố Bà Rịa, tỉnh Bà Rịa - Vũng Tàu",
     "representative": "",
     "allocation_2025": 68969,
     "allocation_2026": 75558,
     "allocation_total": 144527,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Ba Ria Thermal Power Joint Stock Company"
+    "name_en": "Ba Ria Thermal Power Joint Stock Company",
+    "address_en": "Huong Giang Residential Quarter, Long Huong Ward, Ba Ria City, Ba Ria - Vung Tau Province"
   },
   {
     "id": "F021",
@@ -375,7 +395,8 @@
     "allocation_total": 66645,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "An Hoi Power Plant"
+    "name_en": "An Hoi Power Plant",
+    "address_en": "Road No. 16, Phu My 1 Industrial Park, Phu My Ward, Phu My Town, Ba Ria - Vung Tau Province"
   },
   {
     "id": "F022",
@@ -393,7 +414,8 @@
     "allocation_total": 854955,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Branch of Vietnam Oil and Gas Power Corporation - Joint Stock Company - Nhon Trach Oil and Gas Power Company"
+    "name_en": "Branch of Vietnam Oil and Gas Power Corporation - Joint Stock Company - Nhon Trach Oil and Gas Power Company",
+    "address_en": "Hamlet 3, Phuoc Khanh Commune, Nhon Trach District, Dong Nai Province"
   },
   {
     "id": "F023",
@@ -404,14 +426,15 @@
     "product_vi": "Điện năng",
     "product_unit": "kWh",
     "tax_id": "3600239719",
-    "address": "",
+    "address": "TP, Biên Hòa, tỉnh Đồng Nai",
     "representative": "",
     "allocation_2025": 512653,
     "allocation_2026": 561627,
     "allocation_total": 1074280,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "VEDAN Thermal Power Plant"
+    "name_en": "VEDAN Thermal Power Plant",
+    "address_en": "Bien Hoa City, Dong Nai Province"
   },
   {
     "id": "F024",
@@ -422,14 +445,15 @@
     "product_vi": "Điện năng",
     "product_unit": "kWh",
     "tax_id": "3600257958",
-    "address": "",
+    "address": "TP, Biên Hòa, tỉnh Đồng Nai",
     "representative": "",
     "allocation_2025": 89,
     "allocation_2026": 97,
     "allocation_total": 186,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Amata Thermal Power Plant"
+    "name_en": "Amata Thermal Power Plant",
+    "address_en": "Bien Hoa City, Dong Nai Province"
   },
   {
     "id": "F025",
@@ -440,14 +464,15 @@
     "product_vi": "Điện năng",
     "product_unit": "kWh",
     "tax_id": "3600897316",
-    "address": "",
+    "address": "Huyện Nhơn Trạch, tỉnh Đồng Nai",
     "representative": "",
     "allocation_2025": 1617372,
     "allocation_2026": 1771879,
     "allocation_total": 3389251,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Nhon Trach 2 Thermal Power Plant"
+    "name_en": "Nhon Trach 2 Thermal Power Plant",
+    "address_en": "Nhon Trach District, Dong Nai Province"
   },
   {
     "id": "F026",
@@ -465,7 +490,8 @@
     "allocation_total": 20250544,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Duyen Hai Thermal Power Company (Duyen Hai 1 Plant)"
+    "name_en": "Duyen Hai Thermal Power Company (Duyen Hai 1 Plant)",
+    "address_en": "Dan Thanh Commune, Duyen Hai Town, Tra Vinh Province"
   },
   {
     "id": "F027",
@@ -483,7 +509,8 @@
     "allocation_total": 7592612,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Duyen Hai Thermal Power Company (Duyen Hai 3 Plant)"
+    "name_en": "Duyen Hai Thermal Power Company (Duyen Hai 3 Plant)",
+    "address_en": "Dan Thanh Commune, Duyen Hai Town, Tra Vinh Province"
   },
   {
     "id": "F028",
@@ -501,7 +528,8 @@
     "allocation_total": 5717424,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Duyen Hai Thermal Power Company (Duyen Hai 3 MR Plant)"
+    "name_en": "Duyen Hai Thermal Power Company (Duyen Hai 3 MR Plant)",
+    "address_en": "Dan Thanh Commune, Duyen Hai Town, Tra Vinh Province"
   },
   {
     "id": "F029",
@@ -512,14 +540,15 @@
     "product_vi": "Điện năng",
     "product_unit": "kWh",
     "tax_id": "3000437821",
-    "address": "",
+    "address": "Khu kinh tế Vũng Áng, phường Vũng Áng, tỉnh Hà Tĩnh",
     "representative": "",
     "allocation_2025": 5199840,
     "allocation_2026": 5696578,
     "allocation_total": 10896418,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Hung Nghiep Formosa Ha Tinh Iron and Steel Limited Liability Company"
+    "name_en": "Hung Nghiep Formosa Ha Tinh Iron and Steel Limited Liability Company",
+    "address_en": "Vung Ang Economic Zone, Vung Ang Ward, Ha Tinh Province"
   },
   {
     "id": "F030",
@@ -537,7 +566,8 @@
     "allocation_total": 2109365,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Ca Mau Oil and Gas Power Company (Ca Mau 1 Power Plant)"
+    "name_en": "Ca Mau Oil and Gas Power Company (Ca Mau 1 Power Plant)",
+    "address_en": "An Khanh Commune, U Minh District, Ca Mau Province"
   },
   {
     "id": "F031",
@@ -555,7 +585,8 @@
     "allocation_total": 3250162,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Ca Mau Oil and Gas Power Company (Ca Mau 2 Power Plant)"
+    "name_en": "Ca Mau Oil and Gas Power Company (Ca Mau 2 Power Plant)",
+    "address_en": "An Khanh Commune, U Minh District, Ca Mau Province"
   },
   {
     "id": "F032",
@@ -566,14 +597,15 @@
     "product_vi": "Điện năng",
     "product_unit": "kWh",
     "tax_id": "4600421021",
-    "address": "",
+    "address": "Tổ 22 phường Quang Trung, thành phố Thái Nguyên, tỉnh Thái Nguyên",
     "representative": "",
     "allocation_2025": 924021,
     "allocation_2026": 1012292,
     "allocation_total": 1936313,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "An Khanh Thermal Power Joint Stock Company"
+    "name_en": "An Khanh Thermal Power Joint Stock Company",
+    "address_en": "Group 22, Quang Trung Ward, Thai Nguyen City, Thai Nguyen Province"
   },
   {
     "id": "F033",
@@ -591,7 +623,8 @@
     "allocation_total": 2599096,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Cao Ngan Thermal Power Company"
+    "name_en": "Cao Ngan Thermal Power Company",
+    "address_en": "Quan Trieu Ward, Thai Nguyen City, Thai Nguyen Province"
   },
   {
     "id": "F034",
@@ -602,14 +635,15 @@
     "product_vi": "Điện năng",
     "product_unit": "kWh",
     "tax_id": "1700403486",
-    "address": "",
+    "address": "Số 287, ấp 2, Hòn Tre, đặc khu Kiên Hải, tỉnh An Giang",
     "representative": "",
     "allocation_2025": 5539,
     "allocation_2026": 6068,
     "allocation_total": 11607,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Kien Hai Power Plant Management Board"
+    "name_en": "Kien Hai Power Plant Management Board",
+    "address_en": "No. 287, Hamlet 2, Hon Tre, Kien Hai Special Zone, An Giang Province"
   },
   {
     "id": "F035",
@@ -620,14 +654,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "5300232681",
-    "address": "",
+    "address": "Khu công nghiệp Tằng Loỏng, huyện Bảo Thắng, tỉnh Lào Cai",
     "representative": "",
     "allocation_2025": 255476,
     "allocation_2026": 297830,
     "allocation_total": 553306,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Vietnam Minerals and Metallurgy Limited Liability Company"
+    "name_en": "Vietnam Minerals and Metallurgy Limited Liability Company",
+    "address_en": "Tang Loong Industrial Park, Bao Thang District, Lao Cai Province"
   },
   {
     "id": "F036",
@@ -638,14 +673,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "4800162247",
-    "address": "",
+    "address": "Số 52, phố Kim Đồng, phường Hợp Giang, thành phố Cao Bằng, tỉnh Cao Bằng",
     "representative": "",
     "allocation_2025": 391158,
     "allocation_2026": 456006,
     "allocation_total": 847164,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Cao Bang Iron and Steel Joint Stock Company"
+    "name_en": "Cao Bang Iron and Steel Joint Stock Company",
+    "address_en": "No. 52, Kim Dong Street, Hop Giang Ward, Cao Bang City, Cao Bang Province"
   },
   {
     "id": "F037",
@@ -663,7 +699,8 @@
     "allocation_total": 71586,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Viet Y Steelmaking Joint Stock Company"
+    "name_en": "Viet Y Steelmaking Joint Stock Company",
+    "address_en": "Cau Kien Industrial Park, Hoang Dong Commune, Thuy Nguyen District, Hai Phong City"
   },
   {
     "id": "F038",
@@ -674,14 +711,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "201572208",
-    "address": "",
+    "address": "Khu công nghiệp Nam Cầu Kiền, xã Kiền Bái, huyện Thủy Nguyên, thành phố Hải Phòng",
     "representative": "",
     "allocation_2025": 902,
     "allocation_2026": 1052,
     "allocation_total": 1954,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Viet Nhat Advanced Steelmaking Joint Stock Company"
+    "name_en": "Viet Nhat Advanced Steelmaking Joint Stock Company",
+    "address_en": "Nam Cau Kien Industrial Park, Kien Bai Commune, Thuy Nguyen District, Hai Phong City"
   },
   {
     "id": "F039",
@@ -692,14 +730,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "900629369",
-    "address": "",
+    "address": "Khu công nghiệp Phố Nối A, xã Giai Phạm, huyện Yên Mỹ, tỉnh Hưng Yên",
     "representative": "",
     "allocation_2025": 2406,
     "allocation_2026": 2804,
     "allocation_total": 5210,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Hoa Phat Steel One Member Limited Liability Company"
+    "name_en": "Hoa Phat Steel One Member Limited Liability Company",
+    "address_en": "Pho Noi A Industrial Park, Giai Pham Commune, Yen My District, Hung Yen Province"
   },
   {
     "id": "F040",
@@ -710,14 +749,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "3000437821",
-    "address": "",
+    "address": "Khu kinh tế Vũng Áng, phường Kỳ Long, thị xã Kỳ Anh, tỉnh Hà Tĩnh",
     "representative": "",
     "allocation_2025": 13666930,
     "allocation_2026": 15932703,
     "allocation_total": 29599633,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Hung Nghiep Formosa Ha Tinh Iron and Steel Limited Liability Company"
+    "name_en": "Hung Nghiep Formosa Ha Tinh Iron and Steel Limited Liability Company",
+    "address_en": "Vung Ang Economic Zone, Ky Long Ward, Ky Anh Town, Ha Tinh Province"
   },
   {
     "id": "F041",
@@ -728,14 +768,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "4300793861",
-    "address": "",
+    "address": "Khu kinh tế Dung Quất, xã Bình Đông, huyện Bình Son, tỉnh Quảng Ngãi",
     "representative": "",
     "allocation_2025": 11218848,
     "allocation_2026": 13078765,
     "allocation_total": 24297613,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Hoa Phat Dung Quat Steel Joint Stock Company"
+    "name_en": "Hoa Phat Dung Quat Steel Joint Stock Company",
+    "address_en": "Dung Quat Economic Zone, Binh Dong Commune, Binh Son District, Quang Ngai Province"
   },
   {
     "id": "F042",
@@ -746,14 +787,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "305409326",
-    "address": "",
+    "address": "Km9 Xa lộ Hà Nội, phường Trường Thọ, thành phố Thủ Đức, thành phố Hồ Chí Minh",
     "representative": "",
     "allocation_2025": 12842,
     "allocation_2026": 14971,
     "allocation_total": 27813,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Thu Duc Steel - Vnsteel Joint Stock Company"
+    "name_en": "Thu Duc Steel - Vnsteel Joint Stock Company",
+    "address_en": "Km9 Hanoi Highway, Truong Tho Ward, Thu Duc City, Ho Chi Minh City"
   },
   {
     "id": "F043",
@@ -764,14 +806,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "3500791394",
-    "address": "",
+    "address": "Khu công nghiệp Phú Mỹ 2, phường Phú Mỹ, thị xã Phú Mỹ, tỉnh Bà Rịa - Vũng Tàu",
     "representative": "",
     "allocation_2025": 52001,
     "allocation_2026": 60622,
     "allocation_total": 112623,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Tung Ho Vietnam Steel Limited Liability Company"
+    "name_en": "Tung Ho Vietnam Steel Limited Liability Company",
+    "address_en": "Phu My 2 Industrial Park, Phu My Ward, Phu My Town, Ba Ria - Vung Tau Province"
   },
   {
     "id": "F044",
@@ -782,14 +825,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "3500793105",
-    "address": "",
+    "address": "Khu công nghiệp Phú Mỹ 1, phường Phú Mỹ, thị xã Phú Mỹ, tỉnh Bà Rịa - Vũng Tàu",
     "representative": "",
     "allocation_2025": 14952,
     "allocation_2026": 17431,
     "allocation_total": 32383,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Pomina 2 Steel Plant"
+    "name_en": "Pomina 2 Steel Plant",
+    "address_en": "Phu My 1 Industrial Park, Phu My Ward, Phu My Town, Ba Ria - Vung Tau Province"
   },
   {
     "id": "F045",
@@ -800,14 +844,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "3502269994",
-    "address": "",
+    "address": "Khu công nghiệp Phú Mỹ 1, phường Phú Mỹ, thị xã Phú Mỹ, tỉnh Bà Rịa - Vũng Tàu",
     "representative": "",
     "allocation_2025": 46390,
     "allocation_2026": 54081,
     "allocation_total": 100471,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Southern Steel One Member Limited Liability Company"
+    "name_en": "Southern Steel One Member Limited Liability Company",
+    "address_en": "Phu My 1 Industrial Park, Phu My Ward, Phu My Town, Ba Ria - Vung Tau Province"
   },
   {
     "id": "F046",
@@ -818,14 +863,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "3501620257",
-    "address": "",
+    "address": "Đường N1, khu công nghiệp Phú Mỹ 2, phường Phú Mỹ, thị xã Phú Mỹ, tỉnh Bà Rịa - Vũng Tàu",
     "representative": "",
     "allocation_2025": 50549,
     "allocation_2026": 58930,
     "allocation_total": 109479,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Posco SS - Vina Limited Liability Company"
+    "name_en": "Posco SS - Vina Limited Liability Company",
+    "address_en": "N1 Road, Phu My 2 Industrial Park, Phu My Ward, Phu My Town, Ba Ria - Vung Tau Province"
   },
   {
     "id": "F047",
@@ -836,14 +882,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "3500106761",
-    "address": "",
+    "address": "Khu công nghiệp Phú Mỹ 1, phường Phú Mỹ, thị xã Phú Mỹ, tỉnh Bà Rịa - Vũng Tàu",
     "representative": "",
     "allocation_2025": 44367,
     "allocation_2026": 51723,
     "allocation_total": 96090,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Vina Kyoei Steel Limited Liability Company"
+    "name_en": "Vina Kyoei Steel Limited Liability Company",
+    "address_en": "Phu My 1 Industrial Park, Phu My Ward, Phu My Town, Ba Ria - Vung Tau Province"
   },
   {
     "id": "F048",
@@ -854,14 +901,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "3700256179",
-    "address": "",
+    "address": "Khu phố 3, phường Tân Định, thị xã Bến Cát, tỉnh Bình Dương",
     "representative": "",
     "allocation_2025": 2050,
     "allocation_2026": 2390,
     "allocation_total": 4440,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "VAS An Hung Tuong Steel Limited Liability Company"
+    "name_en": "VAS An Hung Tuong Steel Limited Liability Company",
+    "address_en": "Residential Quarter 3, Tan Dinh Ward, Ben Cat Town, Binh Duong Province"
   },
   {
     "id": "F049",
@@ -872,14 +920,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "3700598687",
-    "address": "",
+    "address": "Số 137C, khu B, khu phố Tân Thắng, phường Tân Bình, thành phố Dĩ An, tỉnh Bình Dương",
     "representative": "",
     "allocation_2025": 265,
     "allocation_2026": 310,
     "allocation_total": 575,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Sa Mi Na Steel Limited Liability Company"
+    "name_en": "Sa Mi Na Steel Limited Liability Company",
+    "address_en": "No. 137C, Area B, Tan Thang Residential Quarter, Tan Binh Ward, Di An City, Binh Duong Province"
   },
   {
     "id": "F050",
@@ -890,14 +939,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "3701729269",
-    "address": "",
+    "address": "Lô A5, đường D2, khu công nghiệp Đất Cuốc, xã Đất Cuốc, huyện Bắc Tân Uyên, tỉnh Bình Dương",
     "representative": "",
     "allocation_2025": 2559,
     "allocation_2026": 2983,
     "allocation_total": 5542,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Tue Minh Steel Joint Stock Company"
+    "name_en": "Tue Minh Steel Joint Stock Company",
+    "address_en": "Lot A5, D2 Road, Dat Cuoc Industrial Park, Dat Cuoc Commune, Bac Tan Uyen District, Binh Duong Province"
   },
   {
     "id": "F051",
@@ -908,14 +958,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "1100549268",
-    "address": "",
+    "address": "Ấp Voi Lá, xã Long Hiệp, huyện Bến Lức, tỉnh Long An",
     "representative": "",
     "allocation_2025": 246,
     "allocation_2026": 287,
     "allocation_total": 533,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Vina One Steel Manufacturing Joint Stock Company"
+    "name_en": "Vina One Steel Manufacturing Joint Stock Company",
+    "address_en": "Voi La Hamlet, Long Hiep Commune, Ben Luc District, Long An Province"
   },
   {
     "id": "F052",
@@ -926,14 +977,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "2801115888",
-    "address": "",
+    "address": "Khu liên hợp Gang thép Nghi Sơn, khu kinh tế Nghi Sơn, thị xã Nghi Sơn, tỉnh Thanh Hóa",
     "representative": "",
     "allocation_2025": 6602,
     "allocation_2026": 7696,
     "allocation_total": 14298,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "VAS Nghi Son Steel One Member Limited Liability Company"
+    "name_en": "VAS Nghi Son Steel One Member Limited Liability Company",
+    "address_en": "Nghi Son Iron and Steel Complex, Nghi Son Economic Zone, Nghi Son Town, Thanh Hoa Province"
   },
   {
     "id": "F053",
@@ -944,14 +996,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "4600479367",
-    "address": "",
+    "address": "Phường Cam Giá, thành phố Thái Nguyên, tỉnh Thái Nguyên",
     "representative": "",
     "allocation_2025": 715,
     "allocation_2026": 833,
     "allocation_total": 1548,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Iron and Steel Mechanical Joint Stock Company"
+    "name_en": "Iron and Steel Mechanical Joint Stock Company",
+    "address_en": "Cam Gia Ward, Thai Nguyen City, Thai Nguyen Province"
   },
   {
     "id": "F054",
@@ -962,14 +1015,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "800384651",
-    "address": "",
+    "address": "Phường Hiệp Sơn, thị xã Kinh Môn, tỉnh Hải Dương",
     "representative": "",
     "allocation_2025": 4494857,
     "allocation_2026": 5240036,
     "allocation_total": 9734893,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Hoa Phat Steel Joint Stock Company"
+    "name_en": "Hoa Phat Steel Joint Stock Company",
+    "address_en": "Hiep Son Ward, Kinh Mon Town, Hai Duong Province"
   },
   {
     "id": "F055",
@@ -980,14 +1034,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "4600100155",
-    "address": "",
+    "address": "Phường Cam Giá, thành phố Thái Nguyên, tỉnh Thái Nguyên",
     "representative": "",
     "allocation_2025": 487238,
     "allocation_2026": 568015,
     "allocation_total": 1055253,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Thai Nguyen Iron and Steel Joint Stock Company"
+    "name_en": "Thai Nguyen Iron and Steel Joint Stock Company",
+    "address_en": "Cam Gia Ward, Thai Nguyen City, Thai Nguyen Province"
   },
   {
     "id": "F056",
@@ -998,14 +1053,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "400101549",
-    "address": "",
+    "address": "Đường Tạ Quang Bửu, khu công nghiệp Liên Chiểu, thành phố Đà Nẵng",
     "representative": "",
     "allocation_2025": 11961,
     "allocation_2026": 13944,
     "allocation_total": 25905,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Da Nang Steel Joint Stock Company"
+    "name_en": "Da Nang Steel Joint Stock Company",
+    "address_en": "Ta Quang Buu Road, Lien Chieu Industrial Park, Da Nang City"
   },
   {
     "id": "F057",
@@ -1016,14 +1072,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "3600961762",
-    "address": "",
+    "address": "Khu công nghiệp Biên Hòa 1, Đường số 9, thành phố Biên Hòa, tỉnh Đồng Nai",
     "representative": "",
     "allocation_2025": 15530,
     "allocation_2026": 18105,
     "allocation_total": 33635,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Vicasa Steel - Vnsteel Joint Stock Company"
+    "name_en": "Vicasa Steel - Vnsteel Joint Stock Company",
+    "address_en": "Bien Hoa 1 Industrial Park, Road No. 9, Bien Hoa City, Dong Nai Province"
   },
   {
     "id": "F058",
@@ -1034,14 +1091,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "1000440676",
-    "address": "",
+    "address": "Khu công nghiệp Cầu Nghìn, huyện Quỳnh Phụ, tỉnh Thái Bình",
     "representative": "",
     "allocation_2025": 2893,
     "allocation_2026": 3372,
     "allocation_total": 6265,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Shengli Vietnam Special Steel Limited Liability Company"
+    "name_en": "Shengli Vietnam Special Steel Limited Liability Company",
+    "address_en": "Cau Nghin Industrial Park, Quynh Phu District, Thai Binh Province"
   },
   {
     "id": "F059",
@@ -1052,14 +1110,15 @@
     "product_vi": "Thép thô",
     "product_unit": "t crude steel",
     "tax_id": "4600400261",
-    "address": "",
+    "address": "Xã Nam Hòa, huyện Đồng Hỷ, tỉnh Thái Nguyên",
     "representative": "",
     "allocation_2025": 236403,
     "allocation_2026": 275595,
     "allocation_total": 511998,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Thai Nguyen Ferrous Metallurgy Joint Stock Company"
+    "name_en": "Thai Nguyen Ferrous Metallurgy Joint Stock Company",
+    "address_en": "Nam Hoa Commune, Dong Hy District, Thai Nguyen Province"
   },
   {
     "id": "F060",
@@ -1070,14 +1129,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "5400253188",
-    "address": "",
+    "address": "Xã Ngọc Lương, huyên Yên Thủy, tỉnh Hòa Bình",
     "representative": "",
     "allocation_2025": 109943,
     "allocation_2026": 120305,
     "allocation_total": 230248,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "X18 Cement Joint Stock Company"
+    "name_en": "X18 Cement Joint Stock Company",
+    "address_en": "Ngoc Luong Commune, Yen Thuy District, Hoa Binh Province"
   },
   {
     "id": "F061",
@@ -1088,14 +1148,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "5400478632",
-    "address": "",
+    "address": "Xóm Lộc Môn, xã Trung Sơn, huyện Lương Sơn, tỉnh Hòa Bình",
     "representative": "",
     "allocation_2025": 648135,
     "allocation_2026": 709220,
     "allocation_total": 1357355,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Trung Son Cement Plant (Binh Minh Construction and Tourism Joint Stock Company)"
+    "name_en": "Trung Son Cement Plant (Binh Minh Construction and Tourism Joint Stock Company)",
+    "address_en": "Loc Mon Hamlet, Trung Son Commune, Luong Son District, Hoa Binh Province"
   },
   {
     "id": "F062",
@@ -1106,14 +1167,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "5400208756",
-    "address": "",
+    "address": "Xã Trung Sơn, huyện Lương Sơn, tỉnh Hòa Bình",
     "representative": "",
     "allocation_2025": 369109,
     "allocation_2026": 403897,
     "allocation_total": 773006,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Vinh Son Cement Plant (Vinh Son Cement Limited Liability Company)"
+    "name_en": "Vinh Son Cement Plant (Vinh Son Cement Limited Liability Company)",
+    "address_en": "Trung Son Commune, Luong Son District, Hoa Binh Province"
   },
   {
     "id": "F063",
@@ -1124,14 +1186,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "5500230970",
-    "address": "",
+    "address": "Xã Nà Bó, huyện Mai Sơn, tỉnh Sơn La",
     "representative": "",
     "allocation_2025": 359956,
     "allocation_2026": 393882,
     "allocation_total": 753838,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Mai Son Cement Joint Stock Company"
+    "name_en": "Mai Son Cement Joint Stock Company",
+    "address_en": "Na Bo Commune, Mai Son District, Son La Province"
   },
   {
     "id": "F064",
@@ -1142,14 +1205,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "5600177368",
-    "address": "",
+    "address": "Bản Na Hai, xã Pom Lót, huyện Điện Biên, tỉnh Điện Biên",
     "representative": "",
     "allocation_2025": 171860,
     "allocation_2026": 188058,
     "allocation_total": 359918,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Dien Bien Cement Plant"
+    "name_en": "Dien Bien Cement Plant",
+    "address_en": "Na Hai Village, Pom Lot Commune, Dien Bien District, Dien Bien Province"
   },
   {
     "id": "F065",
@@ -1160,14 +1224,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "5200216647",
-    "address": "",
+    "address": "Thị trấn Yên Bình, huyện Yên Bình, tỉnh Yên Bái",
     "representative": "",
     "allocation_2025": 400233,
     "allocation_2026": 437954,
     "allocation_total": 838187,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Yen Bai Cement Plant, Yen Bai Cement and Minerals Joint Stock Company"
+    "name_en": "Yen Bai Cement Plant, Yen Bai Cement and Minerals Joint Stock Company",
+    "address_en": "Yen Binh Township, Yen Binh District, Yen Bai Province"
   },
   {
     "id": "F066",
@@ -1178,14 +1243,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "5200213597",
-    "address": "",
+    "address": "Thị trấn Yên Bình, huyện Yên Bình, tỉnh Yên Bái",
     "representative": "",
     "allocation_2025": 598709,
     "allocation_2026": 655136,
     "allocation_total": 1253845,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Yen Binh Cement Plant, Yen Binh Cement Joint Stock Company"
+    "name_en": "Yen Binh Cement Plant, Yen Binh Cement Joint Stock Company",
+    "address_en": "Yen Binh Township, Yen Binh District, Yen Bai Province"
   },
   {
     "id": "F067",
@@ -1196,14 +1262,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "2600116271",
-    "address": "",
+    "address": "Khu 12, Thị trấn Thanh Ba, huyện Thanh Ba, tỉnh Phú Thọ",
     "representative": "",
     "allocation_2025": 126022,
     "allocation_2026": 137899,
     "allocation_total": 263921,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Phu Tho Cement Joint Stock Company"
+    "name_en": "Phu Tho Cement Joint Stock Company",
+    "address_en": "Area 12, Thanh Ba Township, Thanh Ba District, Phu Tho Province"
   },
   {
     "id": "F068",
@@ -1214,14 +1281,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "2600279082",
-    "address": "",
+    "address": "Xã Ninh Dân, huyện Thanh Ba, tỉnh Phú Thọ",
     "representative": "",
     "allocation_2025": 836948,
     "allocation_2026": 915828,
     "allocation_total": 1752776,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "VIMCEM Song Thao Cement Joint Stock Company"
+    "name_en": "VIMCEM Song Thao Cement Joint Stock Company",
+    "address_en": "Ninh Dan Commune, Thanh Ba District, Phu Tho Province"
   },
   {
     "id": "F069",
@@ -1232,14 +1300,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "5000119170",
-    "address": "",
+    "address": "Xã Tràng Đà, thành phố Tuyên Quang, tỉnh Tuyên Quang",
     "representative": "",
     "allocation_2025": 124008,
     "allocation_2026": 135696,
     "allocation_total": 259704,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Tuyen Quang Cement Plant, Tuyen Quang Cement Joint Stock Company"
+    "name_en": "Tuyen Quang Cement Plant, Tuyen Quang Cement Joint Stock Company",
+    "address_en": "Trang Da Commune, Tuyen Quang City, Tuyen Quang Province"
   },
   {
     "id": "F070",
@@ -1250,14 +1319,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "5000280116",
-    "address": "",
+    "address": "Xã Tràng Đà, thành phố Tuyên Quang, tỉnh Tuyên Quang",
     "representative": "",
     "allocation_2025": 638702,
     "allocation_2026": 698898,
     "allocation_total": 1337600,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Tan Quang Cement Plant, Tan Quang Cement Joint Stock Company - VVMI, Viet Bac Mining Industry Corporation TKV"
+    "name_en": "Tan Quang Cement Plant, Tan Quang Cement Joint Stock Company - VVMI, Viet Bac Mining Industry Corporation TKV",
+    "address_en": "Trang Da Commune, Tuyen Quang City, Tuyen Quang Province"
   },
   {
     "id": "F071",
@@ -1268,14 +1338,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "4600409377",
-    "address": "",
+    "address": "Xã An Khánh, huyện Đại Từ, tỉnh Thái Nguyên",
     "representative": "",
     "allocation_2025": 592455,
     "allocation_2026": 648292,
     "allocation_total": 1240747,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Quan Trieu Cement Manufacturing Plant, Quan Trieu Cement Joint Stock Company"
+    "name_en": "Quan Trieu Cement Manufacturing Plant, Quan Trieu Cement Joint Stock Company",
+    "address_en": "An Khanh Commune, Dai Tu District, Thai Nguyen Province"
   },
   {
     "id": "F072",
@@ -1286,14 +1357,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "4600422240",
-    "address": "",
+    "address": "Xã La Hiên, huyện Võ Nhai, tỉnh Thái Nguyên",
     "representative": "",
     "allocation_2025": 480806,
     "allocation_2026": 526121,
     "allocation_total": 1006927,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "La Hien Cement Manufacturing Plant, La Hien Cement Joint Stock Company"
+    "name_en": "La Hien Cement Manufacturing Plant, La Hien Cement Joint Stock Company",
+    "address_en": "La Hien Commune, Vo Nhai District, Thai Nguyen Province"
   },
   {
     "id": "F073",
@@ -1304,14 +1376,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "4600964966",
-    "address": "",
+    "address": "Xã Quang Sơn, huyện Đồng Hỷ, tỉnh Thái Nguyên",
     "representative": "",
     "allocation_2025": 404692,
     "allocation_2026": 442833,
     "allocation_total": 847525,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Quang Son Cement Manufacturing Plant, Quang Son Cement Joint Stock Company"
+    "name_en": "Quang Son Cement Manufacturing Plant, Quang Son Cement Joint Stock Company",
+    "address_en": "Quang Son Commune, Dong Hy District, Thai Nguyen Province"
   },
   {
     "id": "F074",
@@ -1322,14 +1395,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "4900225282",
-    "address": "",
+    "address": "Thị trấn Chi Lăng, huyện Chi Lăng, tỉnh Lạng Sơn",
     "representative": "",
     "allocation_2025": 679217,
     "allocation_2026": 743232,
     "allocation_total": 1422449,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Dong Banh Cement Joint Stock Company"
+    "name_en": "Dong Banh Cement Joint Stock Company",
+    "address_en": "Chi Lang Township, Chi Lang District, Lang Son Province"
   },
   {
     "id": "F075",
@@ -1340,14 +1414,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "4900102650",
-    "address": "",
+    "address": "Xã Hồng Phong, huyện Cao Lộc, tỉnh Lạng Sơn",
     "representative": "",
     "allocation_2025": 104067,
     "allocation_2026": 113875,
     "allocation_total": 217942,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Hong Phong Cement Joint Stock Company"
+    "name_en": "Hong Phong Cement Joint Stock Company",
+    "address_en": "Hong Phong Commune, Cao Loc District, Lang Son Province"
   },
   {
     "id": "F076",
@@ -1358,14 +1433,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "5700804196",
-    "address": "",
+    "address": "Phường Cẩm Thạch, thành phố Cẩm Phả, tỉnh Quảng Ninh",
     "representative": "",
     "allocation_2025": 1616252,
     "allocation_2026": 1768581,
     "allocation_total": 3384833,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Cam Pha Cement Plant, Cam Pha Cement Joint Stock Company"
+    "name_en": "Cam Pha Cement Plant, Cam Pha Cement Joint Stock Company",
+    "address_en": "Cam Thach Ward, Cam Pha City, Quang Ninh Province"
   },
   {
     "id": "F077",
@@ -1383,7 +1459,8 @@
     "allocation_total": 1954132,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Quang Ninh Cement and Construction Joint Stock Company, Lam Thach Cement Plant"
+    "name_en": "Quang Ninh Cement and Construction Joint Stock Company, Lam Thach Cement Plant",
+    "address_en": "Hop Thanh Area, Phuong Nam Ward, Uong Bi City, Quang Ninh Province"
   },
   {
     "id": "F078",
@@ -1394,14 +1471,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "5700466028",
-    "address": "",
+    "address": "Xã Lê Lợi, thành phố Hạ Long, tỉnh Quảng Ninh",
     "representative": "",
     "allocation_2025": 989857,
     "allocation_2026": 1083149,
     "allocation_total": 2073006,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Ha Long Cement Joint Stock Company"
+    "name_en": "Ha Long Cement Joint Stock Company",
+    "address_en": "Le Loi Commune, Ha Long City, Quang Ninh Province"
   },
   {
     "id": "F079",
@@ -1412,14 +1490,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "5700360871",
-    "address": "",
+    "address": "Xã Lê Lợi, thành phố Hạ Long, tỉnh Quảng Ninh",
     "representative": "",
     "allocation_2025": 1175783,
     "allocation_2026": 1286599,
     "allocation_total": 2462382,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Thang Long Cement Joint Stock Company"
+    "name_en": "Thang Long Cement Joint Stock Company",
+    "address_en": "Le Loi Commune, Ha Long City, Quang Ninh Province"
   },
   {
     "id": "F080",
@@ -1430,14 +1509,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "700117613",
-    "address": "",
+    "address": "Xã Thanh Sơn, huyện Kim Bảng, tỉnh Hà Nam",
     "representative": "",
     "allocation_2025": 2453235,
     "allocation_2026": 2684448,
     "allocation_total": 5137683,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "But Son Cement Plant, Vicem But Son Cement Joint Stock Company"
+    "name_en": "But Son Cement Plant, Vicem But Son Cement Joint Stock Company",
+    "address_en": "Thanh Son Commune, Kim Bang District, Ha Nam Province"
   },
   {
     "id": "F081",
@@ -1448,14 +1528,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "700222569",
-    "address": "",
+    "address": "Thôn Bồng Lạng, xã Thanh Nghị, huyện Thanh Liêm, tỉnh Hà Nam",
     "representative": "",
     "allocation_2025": 133575,
     "allocation_2026": 146165,
     "allocation_total": 279740,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Hoang Long Cement Plant, Hoang Long Cement Joint Stock Company"
+    "name_en": "Hoang Long Cement Plant, Hoang Long Cement Joint Stock Company",
+    "address_en": "Bong Lang Village, Thanh Nghi Commune, Thanh Liem District, Ha Nam Province"
   },
   {
     "id": "F082",
@@ -1466,14 +1547,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "700651198",
-    "address": "",
+    "address": "Xã Thanh Nghị, huyện Thanh Liêm, tỉnh Hà Nam",
     "representative": "",
     "allocation_2025": 6853859,
     "allocation_2026": 7499822,
     "allocation_total": 14353681,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Thanh Thang Cement Plant, Thanh Thang Cement Joint Stock Company"
+    "name_en": "Thanh Thang Cement Plant, Thanh Thang Cement Joint Stock Company",
+    "address_en": "Thanh Nghi Commune, Thanh Liem District, Ha Nam Province"
   },
   {
     "id": "F083",
@@ -1484,14 +1566,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "700507853",
-    "address": "",
+    "address": "Xã Thanh Thủy, huyện Thanh Liêm, tỉnh Hà Nam",
     "representative": "",
     "allocation_2025": 822644,
     "allocation_2026": 900177,
     "allocation_total": 1722821,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Vissai Ha Nam Cement Plant - DC2, The Vissai Group"
+    "name_en": "Vissai Ha Nam Cement Plant - DC2, The Vissai Group",
+    "address_en": "Thanh Thuy Commune, Thanh Liem District, Ha Nam Province"
   },
   {
     "id": "F084",
@@ -1502,14 +1585,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "700576529",
-    "address": "",
+    "address": "Thôn Bồng Lạng, xã Thanh Nghị, huyện Thanh Liêm, tỉnh Hà Nam",
     "representative": "",
     "allocation_2025": 5297794,
     "allocation_2026": 5797101,
     "allocation_total": 11094895,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Xuan Thanh Cement Plant, Xuan Thanh Cement Joint Stock Company"
+    "name_en": "Xuan Thanh Cement Plant, Xuan Thanh Cement Joint Stock Company",
+    "address_en": "Bong Lang Village, Thanh Nghi Commune, Thanh Liem District, Ha Nam Province"
   },
   {
     "id": "F085",
@@ -1520,14 +1604,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "700507853",
-    "address": "",
+    "address": "Xã Thanh Tân, huyện Thanh Liêm, tỉnh Hà Nam",
     "representative": "",
     "allocation_2025": 714977,
     "allocation_2026": 782362,
     "allocation_total": 1497339,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Clinker Plant Line 2, The Vissai Group"
+    "name_en": "Clinker Plant Line 2, The Vissai Group",
+    "address_en": "Thanh Tan Commune, Thanh Liem District, Ha Nam Province"
   },
   {
     "id": "F086",
@@ -1538,14 +1623,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "800004797",
-    "address": "",
+    "address": "Phường Minh Tân, thị xã Kinh Môn, tỉnh Hải Dương",
     "representative": "",
     "allocation_2025": 2701207,
     "allocation_2026": 2955791,
     "allocation_total": 5656998,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Vicem Hoang Thach Cement One Member Limited Liability Company"
+    "name_en": "Vicem Hoang Thach Cement One Member Limited Liability Company",
+    "address_en": "Minh Tan Ward, Kinh Mon Town, Hai Duong Province"
   },
   {
     "id": "F087",
@@ -1556,14 +1642,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "800297991",
-    "address": "",
+    "address": "Phường Hiệp Sơn, thị xã Kinh Môn, tỉnh Hài Dương",
     "representative": "",
     "allocation_2025": 357054,
     "allocation_2026": 390705,
     "allocation_total": 747759,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Thanh Cong III Construction Materials Manufacturing Limited Liability Company"
+    "name_en": "Thanh Cong III Construction Materials Manufacturing Limited Liability Company",
+    "address_en": "Hiep Son Ward, Kinh Mon Town, Hai Duong Province"
   },
   {
     "id": "F088",
@@ -1574,14 +1661,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "200110200",
-    "address": "",
+    "address": "Thị trấn Minh Đức, huyện Thủy Nguyên, thành phố Hải Phòng",
     "representative": "",
     "allocation_2025": 2907941,
     "allocation_2026": 3182009,
     "allocation_total": 6089950,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Chinfon Cement Plant, Chinfon Cement Company"
+    "name_en": "Chinfon Cement Plant, Chinfon Cement Company",
+    "address_en": "Minh Duc Township, Thuy Nguyen District, Hai Phong City"
   },
   {
     "id": "F089",
@@ -1592,14 +1680,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "200155219",
-    "address": "",
+    "address": "Thị trần Minh Đức, huyện Thủy Nguyên, thành phố Hải Phòng",
     "representative": "",
     "allocation_2025": 1217320,
     "allocation_2026": 1332050,
     "allocation_total": 2549370,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Hai Phong Cement Plant, Vicem Hai Phong One Member Limited Liability Company"
+    "name_en": "Hai Phong Cement Plant, Vicem Hai Phong One Member Limited Liability Company",
+    "address_en": "Minh Duc Township, Thuy Nguyen District, Hai Phong City"
   },
   {
     "id": "F090",
@@ -1610,14 +1699,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "2700280638",
-    "address": "",
+    "address": "Lô C7, cụm công nghiệp Gián Khẩu, huyện Gia Viễn, tỉnh Ninh Bình",
     "representative": "",
     "allocation_2025": 2072885,
     "allocation_2026": 2268250,
     "allocation_total": 4341135,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Vissai Ninh Binh Cement Plant, The Vissai Group"
+    "name_en": "Vissai Ninh Binh Cement Plant, The Vissai Group",
+    "address_en": "Lot C7, Gian Khau Industrial Cluster, Gia Vien District, Ninh Binh Province"
   },
   {
     "id": "F091",
@@ -1628,14 +1718,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "2700260173",
-    "address": "",
+    "address": "Khu công nghiệp Tam Điệp I, tỉnh Ninh Bình",
     "representative": "",
     "allocation_2025": 1242230,
     "allocation_2026": 1359308,
     "allocation_total": 2601538,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "VICEM Tam Diep Cement Company"
+    "name_en": "VICEM Tam Diep Cement Company",
+    "address_en": "Tam Diep I Industrial Park, Ninh Binh Province"
   },
   {
     "id": "F092",
@@ -1646,14 +1737,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "2800232620",
-    "address": "",
+    "address": "Phường Ba Đình, thị xã Bỉm Sơn, tỉnh Thanh Hóa",
     "representative": "",
     "allocation_2025": 2510131,
     "allocation_2026": 2746706,
     "allocation_total": 5256837,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Bim Son Cement Plant, Bim Son Cement Joint Stock Company"
+    "name_en": "Bim Son Cement Plant, Bim Son Cement Joint Stock Company",
+    "address_en": "Ba Dinh Ward, Bim Son Town, Thanh Hoa Province"
   },
   {
     "id": "F093",
@@ -1671,7 +1763,8 @@
     "allocation_total": 17824920,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Long Son Cement Plant, Long Son Limited Liability Company"
+    "name_en": "Long Son Cement Plant, Long Son Limited Liability Company",
+    "address_en": "Dong Son Ward, Bim Son Town, Thanh Hoa Province"
   },
   {
     "id": "F094",
@@ -1682,14 +1775,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "304186356",
-    "address": "",
+    "address": "Xã Tân Trường, huyện Tĩnh Gia, tỉnh Thanh Hóa",
     "representative": "",
     "allocation_2025": 499301,
     "allocation_2026": 546359,
     "allocation_total": 1045660,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Cong Thanh Cement Plant, Cong Thanh Group"
+    "name_en": "Cong Thanh Cement Plant, Cong Thanh Group",
+    "address_en": "Tan Truong Commune, Tinh Gia District, Thanh Hoa Province"
   },
   {
     "id": "F095",
@@ -1700,14 +1794,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "2800464741",
-    "address": "",
+    "address": "Xã Hải Thượng, huyện Tĩnh Gia, tỉnh Thanh Hóa",
     "representative": "",
     "allocation_2025": 3875392,
     "allocation_2026": 4240640,
     "allocation_total": 8116032,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Nghi Son 2 Cement Plant, Nghi Son Cement Company"
+    "name_en": "Nghi Son 2 Cement Plant, Nghi Son Cement Company",
+    "address_en": "Hai Thuong Commune, Tinh Gia District, Thanh Hoa Province"
   },
   {
     "id": "F096",
@@ -1718,14 +1813,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "2901132319",
-    "address": "",
+    "address": "Xã Tân Thắng, huyện Quỳnh Lưu, tỉnh Nghệ An",
     "representative": "",
     "allocation_2025": 841042,
     "allocation_2026": 920308,
     "allocation_total": 1761350,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Tan Thang Cement Plant, Tan Thang Cement Company"
+    "name_en": "Tan Thang Cement Plant, Tan Thang Cement Company",
+    "address_en": "Tan Thang Commune, Quynh Luu District, Nghe An Province"
   },
   {
     "id": "F097",
@@ -1736,14 +1832,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "2900601487",
-    "address": "",
+    "address": "Xã Bài Sơn, huyện Đô Lương, tỉnh Nghệ An",
     "representative": "",
     "allocation_2025": 4681235,
     "allocation_2026": 5122432,
     "allocation_total": 9803667,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Song Lam 1 Cement Plant, The Vissai Group"
+    "name_en": "Song Lam 1 Cement Plant, The Vissai Group",
+    "address_en": "Bai Son Commune, Do Luong District, Nghe An Province"
   },
   {
     "id": "F098",
@@ -1754,14 +1851,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "2900325156",
-    "address": "",
+    "address": "Huyện Anh Sơn, tỉnh Nghệ An",
     "representative": "",
     "allocation_2025": 507149,
     "allocation_2026": 554947,
     "allocation_total": 1062096,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Song Lam 2 Cement Plant, The Vissai Group"
+    "name_en": "Song Lam 2 Cement Plant, The Vissai Group",
+    "address_en": "Anh Son District, Nghe An Province"
   },
   {
     "id": "F099",
@@ -1772,14 +1870,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "2900329295",
-    "address": "",
+    "address": "Phường Quỳnh Thiện, huyện Quỳnh Lưu, tỉnh Nghệ An",
     "representative": "",
     "allocation_2025": 1290862,
     "allocation_2026": 1412524,
     "allocation_total": 2703386,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Cement Plant of Vicem Hoang Mai Cement Joint Stock Company"
+    "name_en": "Cement Plant of Vicem Hoang Mai Cement Joint Stock Company",
+    "address_en": "Quynh Thien Ward, Quynh Luu District, Nghe An Province"
   },
   {
     "id": "F100",
@@ -1790,14 +1889,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "3100946237",
-    "address": "",
+    "address": "Thôn Cương Trung C, xã Tiến Hóa, huyên Tuyên Hóa, tỉnh Quảng Bình",
     "representative": "",
     "allocation_2025": 1137938,
     "allocation_2026": 1245186,
     "allocation_total": 2383124,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Song Gianh Cement Joint Stock Company"
+    "name_en": "Song Gianh Cement Joint Stock Company",
+    "address_en": "Cuong Trung C Village, Tien Hoa Commune, Tuyen Hoa District, Quang Binh Province"
   },
   {
     "id": "F101",
@@ -1808,14 +1908,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "3100405421",
-    "address": "",
+    "address": "Thôn Xuân Hạ, xã Văn Hóa, huyện Tuyên Hóa, tỉnh Quảng Bình",
     "representative": "",
     "allocation_2025": 727399,
     "allocation_2026": 795955,
     "allocation_total": 1523354,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Vietnam Construction Materials Joint Stock Company"
+    "name_en": "Vietnam Construction Materials Joint Stock Company",
+    "address_en": "Xuan Ha Village, Van Hoa Commune, Tuyen Hoa District, Quang Binh Province"
   },
   {
     "id": "F102",
@@ -1833,7 +1934,8 @@
     "allocation_total": 568691,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Van Ninh Cement Plant, Vicem Hai Van Cement Joint Stock Company"
+    "name_en": "Van Ninh Cement Plant, Vicem Hai Van Cement Joint Stock Company",
+    "address_en": "Ang Son Village, Van Ninh Commune, Quang Ninh District, Quang Binh Province"
   },
   {
     "id": "F103",
@@ -1844,14 +1946,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "3300100875",
-    "address": "",
+    "address": "Phường Tứ Hạ, thị xã Hương Trà, tỉnh Thừa Thiên Huế",
     "representative": "",
     "allocation_2025": 354936,
     "allocation_2026": 388387,
     "allocation_total": 743323,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Luks Cement Company Limited"
+    "name_en": "Luks Cement Company Limited",
+    "address_en": "Tu Ha Ward, Huong Tra Town, Thua Thien Hue Province"
   },
   {
     "id": "F104",
@@ -1862,14 +1965,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "3300384306",
-    "address": "",
+    "address": "Thôn Cổ Xuân, xã Phong Xuân, huyện Phong Điền, tỉnh Thừa Thiên Huế",
     "representative": "",
     "allocation_2025": 1254493,
     "allocation_2026": 1372727,
     "allocation_total": 2627220,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Dong Lam Cement Joint Stock Company"
+    "name_en": "Dong Lam Cement Joint Stock Company",
+    "address_en": "Co Xuan Village, Phong Xuan Commune, Phong Dien District, Thua Thien Hue Province"
   },
   {
     "id": "F105",
@@ -1880,14 +1984,15 @@
     "product_vi": "Clanhke xi măng",
     "product_unit": "t clinker",
     "tax_id": "4001193087",
-    "address": "",
+    "address": "Thôn Đồng Râm, thị trấn Thạnh Mỹ, huyện Nam Giang, tỉnh Quảng Nam",
     "representative": "",
     "allocation_2025": 835087,
     "allocation_2026": 913792,
     "allocation_total": 1748879,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Xuan Thanh Quang Nam Cement One Member Limited Liability Company"
+    "name_en": "Xuan Thanh Quang Nam Cement One Member Limited Liability Company",
+    "address_en": "Dong Ram Village, Thanh My Township, Nam Giang District, Quang Nam Province"
   },
   {
     "id": "F106",
@@ -1905,7 +2010,8 @@
     "allocation_total": 4152711,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Binh Phuoc Cement Plant, Vicem Ha Tien 1 Cement Joint Stock Company"
+    "name_en": "Binh Phuoc Cement Plant, Vicem Ha Tien 1 Cement Joint Stock Company",
+    "address_en": "Thanh Luong Commune, Binh Long Town, Binh Phuoc Province"
   },
   {
     "id": "F107",
@@ -1923,7 +2029,8 @@
     "allocation_total": 2246488,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Tay Ninh Cement Plant, FICO Tay Ninh Cement Joint Stock Company - Building Materials Corporation No. 1"
+    "name_en": "Tay Ninh Cement Plant, FICO Tay Ninh Cement Joint Stock Company - Building Materials Corporation No. 1",
+    "address_en": "Tan Hoa Commune, Tan Chau District, Tay Ninh Province"
   },
   {
     "id": "F108",
@@ -1941,7 +2048,8 @@
     "allocation_total": 4283545,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Kien Luong Cement Plant, Vicem Ha Tien 1 Cement Joint Stock Company"
+    "name_en": "Kien Luong Cement Plant, Vicem Ha Tien 1 Cement Joint Stock Company",
+    "address_en": "Kien Luong Township, Kien Luong District, Kien Giang Province"
   },
   {
     "id": "F109",
@@ -1959,7 +2067,8 @@
     "allocation_total": 3153163,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "INSEE Cement Plant, Siam City Cement (Vietnam) Limited Liability Company"
+    "name_en": "INSEE Cement Plant, Siam City Cement (Vietnam) Limited Liability Company",
+    "address_en": "Binh An Commune, Kien Luong District, Kien Giang Province"
   },
   {
     "id": "F110",
@@ -1977,6 +2086,7 @@
     "allocation_total": 2773113,
     "legal_source": "Decision 699/QĐ-BNNMT",
     "is_in_qd699": true,
-    "name_en": "Duyen Ha Limited Liability Company, Duyen Ha Cement Plant"
+    "name_en": "Duyen Ha Limited Liability Company, Duyen Ha Cement Plant",
+    "address_en": "He Village, Ninh Van Commune, Hoa Lu District, Ninh Binh Province"
   }
 ]

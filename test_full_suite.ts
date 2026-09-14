@@ -52,9 +52,9 @@ export function runAllTestCases(): { total: number; passed: number; failed: numb
     'TC-01',
     'Data Layer',
     'Xác minh tổng số cơ sở trong QĐ 699/QĐ-BNNMT đủ 110 cơ sở',
-    facilities.length === 110 && facilities.every(f => f.name_en.trim().length > 0),
-    '110 cơ sở có đủ tên Việt–Anh',
-    `${facilities.length} cơ sở; ${facilities.filter(f => f.name_en.trim().length > 0).length} tên tiếng Anh`,
+    facilities.length === 110 && facilities.every(f => f.name_en.trim().length > 0 && f.address.trim().length > 0 && f.address_en.trim().length > 0),
+    '110 cơ sở có đủ tên và địa chỉ Việt–Anh',
+    `${facilities.length} cơ sở; ${facilities.filter(f => f.name_en.trim().length > 0).length} tên tiếng Anh; ${facilities.filter(f => f.address_en.trim().length > 0).length} địa chỉ tiếng Anh`,
     'Quyết định 699/QĐ-BNNMT, Điều 1 & Phụ lục'
   );
 
@@ -431,7 +431,7 @@ export function runAllTestCases(): { total: number; passed: number; failed: numb
   );
 
   // =========================================================================
-  // CATEGORY 6: Screen 5 — Compliance Position & Flexibility Caps
+  // CATEGORY 6: Screen 5 — Compliance Gap & Flexibility Caps
   // =========================================================================
   const phaseAlloc = 2170059;
   const compSurplus = calculateCompliance({

@@ -266,3 +266,9 @@ Trước khi làm P1 #1–#4, nên đọc `Vietnam_ETS_Simulator_CORE.xlsx` (she
 - Giao diện tiếng Việt tiếp tục dùng `name`; giao diện tiếng Anh dùng `name_en` tại tìm kiếm, lựa chọn cơ sở, các màn nghiệp vụ, CSV và bản in.
 - Xóa toàn bộ màn “Chất lượng Dữ liệu”; báo cáo tổng hợp chuyển từ màn 7 thành màn 6. Thanh bước, nhãn bước, nút chuyển màn và khóa localStorage đã được đồng bộ theo 6 màn.
 - Giữ `dataQualityEngine` và `dataQualityReport` làm kiểm tra nội bộ cho CSV/bản in, nên việc bỏ màn hiển thị không làm mất các chỉ số độ đầy đủ, hợp lệ và xác minh dữ liệu trong báo cáo.
+
+### Cập nhật dữ liệu địa chỉ và nhãn giao diện — 15/09/2026
+
+- Đồng bộ 110/110 cặp địa chỉ Việt–Anh từ workbook `Danh_sach_110_co_so_VI_EN_kem_dia_chi_QD699.xlsx`; bổ sung `address_en` và điền 79 địa chỉ tiếng Việt trước đó còn trống.
+- Phiên bản tiếng Anh dùng `address_en` ở danh sách tra cứu, thẻ chi tiết và báo cáo in; tìm kiếm hỗ trợ cả hai ngôn ngữ.
+- Xóa badge xanh `QĐ 699` trên thẻ chi tiết cơ sở và đổi tên màn 5 thành `Chênh lệch Tuân thủ` / `Compliance Gap` trên toàn bộ luồng liên quan.

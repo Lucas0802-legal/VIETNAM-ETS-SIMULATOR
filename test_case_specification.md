@@ -11,7 +11,7 @@
 
 | Mã TC | Phân hệ / Màn hình | Tên Kịch bản Thẩm định | Dữ liệu Đầu vào (Inputs) | Kết quả Kỳ vọng (Expected) | Căn cứ Pháp lý / Excel Logic | Trạng thái |
 | :--- | :--- | :--- | :--- | :--- | :--- | :---: |
-| **TC-01** | Data Layer | Toàn vẹn danh mục QĐ 699 | File dữ liệu cơ sở | Đủ đúng 110 cơ sở và 110 tên tiếng Anh đối chiếu theo tên tiếng Việt | Quyết định 699/QĐ-BNNMT, Điều 1 & Phụ lục | ✅ PASS |
+| **TC-01** | Data Layer | Toàn vẹn danh mục QĐ 699 | File dữ liệu cơ sở | Đủ đúng 110 cơ sở với tên và địa chỉ Việt–Anh | Quyết định 699/QĐ-BNNMT, Điều 1 & Phụ lục | ✅ PASS |
 | **TC-02** | Data Layer | Phân loại 3 ngành kinh tế | Sector tagging | 34 Nhiệt điện, 25 Thép, 51 Xi măng | QĐ 263/QĐ-TTg & QĐ 699 | ✅ PASS |
 | **TC-03A**| Data Layer | Đối soát Tổng hạn ngạch 2025 | $\sum A_{2025}$ của 110 cơ sở | 243,082,392 $\text{tCO}_2\text{e}$ | Quyết định 263/QĐ-TTg, Điều 1 | ✅ PASS |
 | **TC-03B**| Data Layer | Đối soát Tổng hạn ngạch 2026 | $\sum A_{2026}$ của 110 cơ sở | 268,391,454 $\text{tCO}_2\text{e}$ | Quyết định 263/QĐ-TTg, Điều 1 | ✅ PASS |

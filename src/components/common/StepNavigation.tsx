@@ -53,7 +53,7 @@ export const StepNavigation: React.FC = () => {
     {
       number: 5,
       id: 'compliance',
-      titleVi: 'Vị thế Tuân thủ',
+      titleVi: 'Chênh lệch Tuân thủ',
       titleEn: 'Compliance Gap',
       icon: Scale,
       badge: complianceResult.status === 'SURPLUS' ? t('DƯ THỪA', 'SURPLUS') : complianceResult.status === 'DEFICIT' ? t('THIẾU HỤT', 'DEFICIT') : undefined,

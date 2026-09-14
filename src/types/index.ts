@@ -13,6 +13,7 @@ export interface Facility {
   product_unit: string;
   tax_id: string;
   address: string;
+  address_en: string;
   representative: string;
   allocation_2025: number;
   allocation_2026: number;

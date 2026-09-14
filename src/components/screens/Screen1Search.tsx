@@ -2,7 +2,6 @@ import React, { useState, useMemo } from 'react';
 import { 
   Search, 
   Building2, 
-  CheckCircle2, 
   ArrowRight, 
   MapPin, 
   UserCheck, 
@@ -43,7 +42,8 @@ export const Screen1Search: React.FC = () => {
         normalizeSearchText(f.name).includes(q) ||
         normalizeSearchText(f.name_en).includes(q) ||
         f.tax_id.includes(searchQuery.trim()) ||
-        normalizeSearchText(f.address).includes(q);
+        normalizeSearchText(f.address).includes(q) ||
+        normalizeSearchText(f.address_en).includes(q);
 
       const matchSector = selectedSector === 'All' || f.sector === selectedSector;
 
@@ -314,7 +314,7 @@ export const Screen1Search: React.FC = () => {
                           <div className="flex items-center gap-2 text-[11px] text-slate-500 mt-0.5">
                             <span className="font-mono text-slate-600">MST: {facility.tax_id}</span>
                             <span>•</span>
-                            <span className="truncate max-w-xs">{facility.address}</span>
+                            <span className="truncate max-w-xs">{t(facility.address, facility.address_en)}</span>
                           </div>
                         </div>
                       </div>
@@ -340,27 +340,20 @@ export const Screen1Search: React.FC = () => {
               <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs sticky top-24 space-y-5">
                 
                 {/* Header */}
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-700 bg-slate-100 px-2 py-0.5 rounded mb-1.5 border border-slate-200 font-mono">
-                      {selectedFacility.id} • {t(selectedFacility.sector_vi, selectedFacility.sector)}
-                    </span>
-                    <h3 className="text-base font-bold text-slate-950 leading-snug">
-                      {t(selectedFacility.name, selectedFacility.name_en)}
-                    </h3>
-                  </div>
-
-                  <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-md shrink-0">
-                    <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-                    QĐ 699
+                <div>
+                  <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-700 bg-slate-100 px-2 py-0.5 rounded mb-1.5 border border-slate-200 font-mono">
+                    {selectedFacility.id} • {t(selectedFacility.sector_vi, selectedFacility.sector)}
                   </span>
+                  <h3 className="text-base font-bold text-slate-950 leading-snug">
+                    {t(selectedFacility.name, selectedFacility.name_en)}
+                  </h3>
                 </div>
 
                 {/* Meta details */}
                 <div className="space-y-2 text-xs">
                   <div className="flex items-start gap-2 text-slate-600">
                     <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5" />
-                    <span>{selectedFacility.address}</span>
+                    <span>{t(selectedFacility.address, selectedFacility.address_en)}</span>
                   </div>
 
                   <div className="flex items-center gap-2 text-slate-600">

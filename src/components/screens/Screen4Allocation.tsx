@@ -454,7 +454,7 @@ export const Screen4Allocation: React.FC = () => {
           onClick={() => setCurrentScreen(5)}
           className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-brand text-white font-semibold text-xs hover:bg-brand-dark shadow-xs transition-all cursor-pointer"
         >
-          <span>{t('Tiếp theo: Tính toán Vị thế Tuân thủ', 'Next: Simulate Compliance Position')}</span>
+          <span>{t('Tiếp theo: Tính toán Chênh lệch Tuân thủ', 'Next: Calculate Compliance Gap')}</span>
           <ArrowRight className="w-3.5 h-3.5" />
         </button>
       </div>
