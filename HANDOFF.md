@@ -28,7 +28,7 @@ Khách gửi PDF 12 trang với các vùng khoanh đỏ kèm ghi chú. Đã xử
 **a) Dịch 18 quy tắc pháp lý sang tiếng Việt.** Khách báo: ở chế độ tiếng Việt, mô tả luật vẫn hiện tiếng Anh.
 - `src/data/legalRules.json` — thêm 6 trường `_vi` cho mỗi quy tắc: `topic_vi`, `rule_vi`, `article_vi`, `effective_status_vi`, `simulator_use_vi`, `caution_vi`
 - `src/types/index.ts` — cập nhật interface `LegalRule`
-- `Screen6Legal.tsx`, `LegalDrawer.tsx` — hiển thị theo `language === 'vi'`
+- `LegalDrawer.tsx` — hiển thị theo `language === 'vi'`
 
 **b) Xóa nút "Xem văn bản gốc tại Cổng TTĐT Chính phủ"** trong `LegalDrawer.tsx`.
 > ⚠️ Lưu ý: báo cáo kiểm toán Codex (mục 18) lại **đề nghị thêm nút này vào**. Đây là mâu thuẫn giữa yêu cầu khách và khuyến nghị kiểm toán, **chưa được quyết định**.
@@ -36,7 +36,7 @@ Khách gửi PDF 12 trang với các vùng khoanh đỏ kèm ghi chú. Đã xử
 **c) Sửa bug tìm kiếm trên điện thoại.** Khách báo tra tên doanh nghiệp trên laptop ra kết quả, trên điện thoại thì không.
 - Nguyên nhân thật: `ò` (U+00F2) và `à` (U+00E0) là **hai ký tự khác nhau** — tiếng Việt cho phép đặt dấu thanh trên nguyên âm nào của nguyên âm đôi ("Hòa" vs "Hoà"), bàn phím mobile và desktop đặt khác nhau. Unicode normalization (NFC/NFD) **không** giải quyết được.
 - Cách sửa: tạo `src/utils/search.ts` — lược bỏ toàn bộ dấu khi so khớp. Bonus: gõ không dấu ("hoa phat") cũng ra kết quả.
-- Áp dụng ở `Screen1Search.tsx` và `Screen6Legal.tsx`.
+- Áp dụng ở `Screen1Search.tsx`.
 
 **d) Xóa 9 trích dẫn pháp lý bị khoanh đỏ** (đều lặp lại thông tin đã có ở chip pháp lý bên phải):
 
@@ -122,7 +122,7 @@ Cách triển khai:
 
 Việc dịch `topic` sang tiếng Việt khiến bộ lọc chủ đề màn 6 lưu **nhãn hiển thị** làm state. Đổi ngôn ngữ → chuỗi lệch → **5 thẻ thành 0 thẻ**, dropdown lại hiện "All Topics".
 
-Cách sửa trong `Screen6Legal.tsx`: option `value` dùng `r.topic` (tiếng Anh, cố định), chỉ dịch `label`; filter so `r.topic === selectedTopic`. Thêm thông báo rỗng + nút "Xóa bộ lọc".
+Cách sửa trước đây nằm trong `Screen6Legal.tsx`; màn hình này đã được loại khỏi luồng theo yêu cầu cập nhật ngày 15/09/2026.
 
 Đã kiểm chứng: VI 5 thẻ → EN 5 thẻ → VI 5 thẻ.
 
@@ -135,8 +135,8 @@ Cách sửa trong `Screen6Legal.tsx`: option `value` dùng `r.topic` (tiếng An
 | `npm run build` | Pass (tsc + vite) |
 | `npm test` | **35/35** |
 | `npm run lint` | 0 lỗi, 5 cảnh báo (từ 43) |
-| Console runtime | **0 lỗi** trên tab sạch, sau khi duyệt 8 màn + drawer + modal + đổi ngôn ngữ |
-| Tràn ngang | **0** trên 8 màn × 2 ngôn ngữ × các khổ 320 / 375 / 768 / 1280px |
+| Console runtime | **0 lỗi** trên tab sạch, sau khi duyệt luồng màn hình + drawer + modal + đổi ngôn ngữ |
+| Tràn ngang | **0** trên các màn × 2 ngôn ngữ × các khổ 320 / 375 / 768 / 1280px |
 | Vùng chạm | **0** nút dưới 40px |
 | Ngôn ngữ | 0 rò rỉ cả hai chiều (quét tự động toàn bộ text hiển thị) |
 
@@ -202,9 +202,8 @@ Toàn bộ nằm ở `SimulatorContext.tsx` và các engine — **phiên này ch
 | `src/components/screens/Screen3Quota.tsx` | Xóa 2 khối theo PDF |
 | `src/components/screens/Screen4Allocation.tsx` | Xóa `(QĐ 699)`, đơn vị |
 | `src/components/screens/Screen5Compliance.tsx` | Xóa điều khoản, dịch công thức |
-| `src/components/screens/Screen6Legal.tsx` | Dịch 18 quy tắc, **sửa mục 14**, tràn badge |
-| `src/components/screens/Screen7Quality.tsx` | Badge `ĐẠT`, tham chiếu song ngữ |
-| `src/components/screens/Screen8Summary.tsx` | Bỏ chú thích tiếng Anh thừa |
+| `src/components/screens/Screen6Quality.tsx` | Ma trận chất lượng dữ liệu, badge `ĐẠT`, tham chiếu song ngữ |
+| `src/components/screens/Screen7Summary.tsx` | Báo cáo tổng hợp và xuất tệp |
 
 Tổng: **554 dòng thêm, 382 dòng xóa**.
 
@@ -220,7 +219,7 @@ cd /Users/maiduc/Downloads/vault/VIETNAM-ETS-SIMULATOR && git diff
 
 1. **P1 #2** (kiểm tra đầu vào) — rẻ nhất, chặn được nhiều kết quả vô nghĩa nhất
 2. **P1 #1** (dữ liệu mang sang cơ sở/năm khác) — nặng nhất, đụng `SimulatorContext`
-3. **P1 #5, #6** (CSV) — độc lập, gói gọn trong `Screen8Summary.tsx`
+3. **P1 #5, #6** (CSV) — độc lập, gói gọn trong `Screen7Summary.tsx`
 4. **P1 #7** + P2 #8 (trình bày trạng thái) — liên quan nhau
 5. **P2 #11** (`process.exit` cho test) — 2 dòng, nhưng chặn được hồi quy về sau
 6. **P1 #3, #4** (ranh giới kiểm kê vs quota) — cần đối chiếu văn bản pháp lý

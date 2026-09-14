@@ -5,7 +5,6 @@ import {
   Layers, 
   Calculator, 
   Scale, 
-  BookOpen, 
   CheckSquare, 
   FileSpreadsheet,
   ChevronLeft,
@@ -63,20 +62,13 @@ export const StepNavigation: React.FC = () => {
     },
     {
       number: 6,
-      id: 'legal',
-      titleVi: 'Minh bạch Pháp lý',
-      titleEn: 'Legal Basis',
-      icon: BookOpen,
-    },
-    {
-      number: 7,
       id: 'quality',
       titleVi: 'Chất lượng Dữ liệu',
       titleEn: 'Data Quality',
       icon: CheckSquare,
     },
     {
-      number: 8,
+      number: 7,
       id: 'summary',
       titleVi: 'Báo cáo Tổng hợp',
       titleEn: 'Result Summary',
@@ -137,7 +129,7 @@ export const StepNavigation: React.FC = () => {
         <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-100 text-xs text-slate-500">
           <div className="flex items-center gap-2">
             <span className="font-semibold text-slate-800">
-              {t(`Màn hình ${currentScreen}/8:`, `Screen ${currentScreen}/8:`)}
+              {t(`Màn hình ${currentScreen}/7:`, `Screen ${currentScreen}/7:`)}
             </span>
             <span className="text-slate-600">
               {t(steps[currentScreen - 1].titleVi, steps[currentScreen - 1].titleEn)}
@@ -157,7 +149,7 @@ export const StepNavigation: React.FC = () => {
 
             <button
               type="button"
-              disabled={currentScreen >= 8}
+              disabled={currentScreen >= 7}
               onClick={() => setCurrentScreen(currentScreen + 1)}
               className="flex items-center justify-center gap-1 min-h-11 px-3.5 py-1.5 rounded-lg bg-brand text-white hover:bg-brand-dark disabled:opacity-30 disabled:pointer-events-none transition-colors cursor-pointer font-semibold shadow-2xs"
             >

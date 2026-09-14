@@ -542,7 +542,7 @@ export function runAllTestCases(): { total: number; passed: number; failed: numb
   );
 
   // =========================================================================
-  // CATEGORY 7: Screen 7 & 8 — Data Quality Matrix & Scenario Presets
+  // CATEGORY 7: Screens 6 & 7 — Data Quality Matrix & Scenario Presets
   // =========================================================================
   const dummyState: SimulatorState = {
     assessment_date: '2026-09-13',
@@ -576,17 +576,17 @@ export function runAllTestCases(): { total: number; passed: number; failed: numb
   const qualityFull = evaluateDataQuality(dummyState, true);
   record(
     'TC-31',
-    'Screen 7: Data Quality',
+    'Screen 6: Data Quality',
     'Ma trận chất lượng đánh giá đủ 6 chiều (Identity, Inventory, 3-Yr, Benchmark, Policy, Direct Emis)',
     qualityFull.totalDimensions === 6,
     '6 dimensions',
     `${qualityFull.totalDimensions} dimensions`,
-    'Spec trang 8: Screen 7 - Data Quality'
+    'Screen 6 - Data Quality'
   );
 
   record(
     'TC-32',
-    'Screen 7: Data Quality',
+    'Screen 6: Data Quality',
     'Mức độ điền đủ dữ liệu đạt 100% khi cả 6 chiều đã có dữ liệu',
     qualityFull.overallScorePercent === 100,
     '100%',
@@ -602,7 +602,7 @@ export function runAllTestCases(): { total: number; passed: number; failed: numb
   const qualityPartial = evaluateDataQuality(dummyPartialState, true);
   record(
     'TC-33',
-    'Screen 7: Data Quality',
+    'Screen 6: Data Quality',
     'Minh bạch dữ liệu thiếu: Nêu rõ thiếu số liệu sản xuất lịch sử & chưa có benchmark',
     qualityPartial.dimensions.some(d => d.id === 'historical' && d.status === 'PARTIAL') &&
     qualityPartial.dimensions.some(d => d.id === 'benchmark' && d.status === 'MISSING'),
@@ -716,7 +716,7 @@ export function runAllTestCases(): { total: number; passed: number; failed: numb
   ]);
   record(
     'TC-35',
-    'Screen 8: CSV Export',
+    'Screen 7: CSV Export',
     'CSV giữ số 0, escape dấu nháy/# và trung hòa chuỗi công thức',
     csv.includes('"Audit ""ABC"" #1"') && csv.includes('"Zero","0"') && csv.includes('"Missing",""') && csv.includes('"Formula-like text","\'=1+1"'),
     'CSV RFC-style escaping and formula guard',

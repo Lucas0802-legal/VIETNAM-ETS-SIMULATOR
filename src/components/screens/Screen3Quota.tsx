@@ -30,7 +30,7 @@ export const Screen3Quota: React.FC = () => {
         <div>
           <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-semibold mb-2 border border-slate-200">
             <Layers className="w-3.5 h-3.5 text-slate-600" />
-            {t('Bước 3 trong 8: Thẩm định Nghĩa vụ Hạn ngạch ETS Thí điểm', 'Step 3 of 8: ETS Pilot Quota Allocation Scope')}
+            {t('Bước 3 trong 7: Thẩm định Nghĩa vụ Hạn ngạch ETS Thí điểm', 'Step 3 of 7: ETS Pilot Quota Allocation Scope')}
           </div>
           <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
             {t('Cơ sở có thuộc diện được phân bổ hạn ngạch phát thải 2025–2026?', 'Is this facility included in the 2025–2026 quota allocation scheme?')}

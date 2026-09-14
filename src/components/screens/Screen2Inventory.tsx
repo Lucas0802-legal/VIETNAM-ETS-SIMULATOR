@@ -34,7 +34,7 @@ export const Screen2Inventory: React.FC = () => {
         <div>
           <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-semibold mb-2 border border-slate-200">
             <ClipboardCheck className="w-3.5 h-3.5 text-slate-600" />
-            {t('Bước 2 trong 8: Thẩm định Nghĩa vụ Kiểm kê Khí nhà kính', 'Step 2 of 8: GHG Inventory Obligation Assessment')}
+            {t('Bước 2 trong 7: Thẩm định Nghĩa vụ Kiểm kê Khí nhà kính', 'Step 2 of 7: GHG Inventory Obligation Assessment')}
           </div>
           <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
             {t('Cơ sở có thuộc diện phải thực hiện Kiểm kê Khí nhà kính?', 'Does this facility have a GHG inventory obligation?')}

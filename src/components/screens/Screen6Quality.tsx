@@ -12,7 +12,7 @@ import { useSimulator } from '../../context/SimulatorContext';
 import { useLanguage } from '../../context/LanguageContext';
 import { DATA_READINESS_VI } from '../../utils/labels';
 
-export const Screen7Quality: React.FC = () => {
+export const Screen6Quality: React.FC = () => {
   const { dataQualityReport, setCurrentScreen } = useSimulator();
   const { language, t } = useLanguage();
 
@@ -24,7 +24,7 @@ export const Screen7Quality: React.FC = () => {
         <div>
           <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-semibold mb-2 border border-slate-200">
             <CheckSquare className="w-3.5 h-3.5 text-slate-600" />
-            {t('Bước 7 trong 8: Ma trận Chất lượng Dữ liệu & Tính không chắc chắn', 'Step 7 of 8: Data Quality & Uncertainty Matrix')}
+            {t('Bước 6 trong 7: Ma trận Chất lượng Dữ liệu & Tính không chắc chắn', 'Step 6 of 7: Data Quality & Uncertainty Matrix')}
           </div>
           <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
             {t('Kiểm toán Độ sẵn sàng & Minh bạch Thiếu sót Dữ liệu', 'Data Readiness & Gap Audit')}
@@ -169,15 +169,15 @@ export const Screen7Quality: React.FC = () => {
       <div className="flex items-center justify-between pt-4 border-t border-slate-200">
         <button
           type="button"
-          onClick={() => setCurrentScreen(6)}
+          onClick={() => setCurrentScreen(5)}
           className="text-xs font-semibold text-slate-600 hover:text-slate-900 px-3 py-2 cursor-pointer"
         >
-          ← {t('Quay lại: Thư viện Pháp lý', 'Back: Legal Library')}
+          ← {t('Quay lại: Vị thế Tuân thủ', 'Back: Compliance Position')}
         </button>
 
         <button
           type="button"
-          onClick={() => setCurrentScreen(8)}
+          onClick={() => setCurrentScreen(7)}
           className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-brand text-white font-semibold text-xs hover:bg-brand-dark shadow-xs transition-all cursor-pointer"
         >
           <span>{t('Tiếp theo: Báo cáo Tổng kết & Xuất tệp', 'Next: Executive Summary & Export')}</span>

@@ -11,7 +11,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import { COMPLIANCE_STATUS_VI } from '../../utils/labels';
 import { downloadCsv } from '../../utils/csv';
 
-export const Screen8Summary: React.FC = () => {
+export const Screen7Summary: React.FC = () => {
   const { 
     state, 
     selectedFacility, 
@@ -94,7 +94,7 @@ export const Screen8Summary: React.FC = () => {
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold mb-2 border border-slate-200">
             <FileCheck2 className="w-3.5 h-3.5 text-emerald-600" />
-            {t('Phân hệ 08: Hồ sơ Tổng kết & Báo cáo Thẩm định Doanh nghiệp', 'Module 08: Executive Summary & Audit Report')}
+            {t('Phân hệ 07: Hồ sơ Tổng kết & Báo cáo Thẩm định Doanh nghiệp', 'Module 07: Executive Summary & Audit Report')}
           </div>
           <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
             {t('Báo cáo Tổng kết Vị thế ETS & Đánh giá Tuân thủ', 'ETS Executive Summary & Compliance Dossier')}

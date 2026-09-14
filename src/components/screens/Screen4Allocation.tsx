@@ -31,7 +31,7 @@ export const Screen4Allocation: React.FC = () => {
         <div>
           <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-semibold mb-2 border border-slate-200">
             <Calculator className="w-3.5 h-3.5 text-slate-600" />
-            {t('Bước 4 trong 8: Mô phỏng Công thức Phân bổ Hạn ngạch (Method 01)', 'Step 4 of 8: Allocation Formula Simulation')}
+            {t('Bước 4 trong 7: Mô phỏng Công thức Phân bổ Hạn ngạch (Method 01)', 'Step 4 of 7: Allocation Formula Simulation')}
           </div>
           <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
             {t('Hạn ngạch phát thải A được hình thành như thế nào?', 'How is allowance allocation A derived?')}

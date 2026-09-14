@@ -81,7 +81,7 @@ const defaultState: SimulatorState = {
 
 const SimulatorContext = createContext<SimulatorContextType | undefined>(undefined);
 const STORAGE_KEY = 'vietnam-ets-simulator:draft:v1';
-const SCREEN_STORAGE_KEY = 'vietnam-ets-simulator:screen:v1';
+const SCREEN_STORAGE_KEY = 'vietnam-ets-simulator:screen:v2';
 
 const clearFacilityInputs = (state: SimulatorState): SimulatorState => ({
   ...state,
@@ -118,7 +118,7 @@ export const SimulatorProvider: React.FC<{ children: ReactNode }> = ({ children 
   const [state, setState] = useState<SimulatorState>(loadStoredState);
   const [currentScreen, setCurrentScreen] = useState<number>(() => {
     const saved = Number(window.localStorage.getItem(SCREEN_STORAGE_KEY));
-    return Number.isInteger(saved) && saved >= 1 && saved <= 8 ? saved : 1;
+    return Number.isInteger(saved) && saved >= 1 && saved <= 7 ? saved : 1;
   });
   const [activeLegalRule, setActiveLegalRule] = useState<LegalRule | null>(null);
   const [isLegalDrawerOpen, setIsLegalDrawerOpen] = useState<boolean>(false);
