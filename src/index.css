@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-100 text-slate-900 antialiased min-h-screen font-sans;
+  }
+}
+
+@media print {
+  body {
+    background: white !important;
+  }
+  header, nav, .print\:hidden {
+    display: none !important;
+  }
+  .print\:p-0 {
+    padding: 0 !important;
+  }
+}

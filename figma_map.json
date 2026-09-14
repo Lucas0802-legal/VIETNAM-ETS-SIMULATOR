@@ -1,0 +1,98 @@
+[
+  {
+    "Screen": "01 — Start / Facility Search",
+    "Goal": "Identify facility and assessment date",
+    "Primary Inputs": "Assessment date; Facility ID / name / tax ID",
+    "Primary Outputs": "Resolved identity; applicable inventory list",
+    "Excel Logic Source": "USER_SIMULATOR A",
+    "Legal Evidence": "LEGAL_RULES L007-L008",
+    "Empty / Edge State": "Facility not found -> manual mode",
+    "Suggested UI": "Search bar + date + recent facilities",
+    "Competition Story": "Turns legal rules into an accessible facility checker",
+    "Must Not Do": "Do not imply every facility is in the ETS."
+  },
+  {
+    "Screen": "02 — Inventory Obligation",
+    "Goal": "Separate inventory duty from quota duty",
+    "Primary Inputs": "Facility type; official-list match; GHG / TOE / waste capacity",
+    "Primary Outputs": "YES / MEETS CRITERIA / UNDETERMINED / NO EVIDENCE",
+    "Excel Logic Source": "USER_SIMULATOR B17; REGULATORY_SCOPE INV-*",
+    "Legal Evidence": "48/VBHN-BNNMT Article 6 + QD13/QD42",
+    "Empty / Edge State": "Missing threshold/list data -> UNDETERMINED",
+    "Suggested UI": "Decision card + threshold chips + legal drawer",
+    "Competition Story": "Shows the key legal distinction users commonly confuse",
+    "Must Not Do": "Do not convert a threshold match into an unqualified list-membership claim."
+  },
+  {
+    "Screen": "03 — Quota Obligation",
+    "Goal": "Check 2025-2026 ETS allocation obligation",
+    "Primary Inputs": "Facility ID; allocation year",
+    "Primary Outputs": "QD699 match; official allocation",
+    "Excel Logic Source": "USER_SIMULATOR B18/E9",
+    "Legal Evidence": "Article 12 + Decision 699",
+    "Empty / Edge State": "Not in QD699 -> no current pilot allocation found",
+    "Suggested UI": "Green/gray obligation card",
+    "Competition Story": "Makes pilot scope concrete at facility level",
+    "Must Not Do": "Do not say inventory obligation automatically means quota obligation."
+  },
+  {
+    "Screen": "04 — Allocation Simulator",
+    "Goal": "Explain how allowance A is derived",
+    "Primary Inputs": "3 years production; 3 years emissions; g; r; optional B override",
+    "Primary Outputs": "P_avg; E_avg; B; T; A; difference vs official",
+    "Excel Logic Source": "USER_SIMULATOR C; CALCULATION",
+    "Legal Evidence": "Appendix I Method 01",
+    "Empty / Edge State": "Missing sector data / g/r -> formula paused with reason",
+    "Suggested UI": "Stepper / formula cards / tooltips",
+    "Competition Story": "Demonstrates transparent legal-tech calculation",
+    "Must Not Do": "Do not default missing g/r to zero or compute B from a partial sector sample without warning."
+  },
+  {
+    "Screen": "05 — Compliance Position",
+    "Goal": "Show surplus / deficit for 2025-2026 phase",
+    "Primary Inputs": "Direct emissions 2025-2026; credits; trades; borrowing",
+    "Primary Outputs": "Required surrender; available allowances; gap; status; deadline",
+    "Excel Logic Source": "USER_SIMULATOR D; COMPLIANCE",
+    "Legal Evidence": "Article 19",
+    "Empty / Edge State": "Missing direct emissions -> no gap result; excess credits/borrowing -> invalid",
+    "Suggested UI": "Gauge + surplus/deficit card + cap meters",
+    "Competition Story": "Converts complex surrender rules into a usable compliance view",
+    "Must Not Do": "Do not use historical E_avg as compliance emissions."
+  },
+  {
+    "Screen": "06 — Legal Explanation",
+    "Goal": "Explain every conclusion",
+    "Primary Inputs": "None / tap from result",
+    "Primary Outputs": "Article, decision, source URL, effective date",
+    "Excel Logic Source": "LEGAL_RULES; METHODOLOGY_EVIDENCE",
+    "Legal Evidence": "All core rules cited",
+    "Empty / Edge State": "If source not verified -> show Unverified / Needs source",
+    "Suggested UI": "Legal drawer / accordion",
+    "Competition Story": "Auditability is a differentiator for the competition",
+    "Must Not Do": "Do not hide uncertainty or upcoming effective-date changes."
+  },
+  {
+    "Screen": "07 — Data Quality",
+    "Goal": "Make missing inputs visible",
+    "Primary Inputs": "Source status from historical/policy data",
+    "Primary Outputs": "Ready / Partial / Missing / Unverified",
+    "Excel Logic Source": "HISTORICAL_DATA; POLICY_PARAMETERS; CALCULATION R",
+    "Legal Evidence": "Sector MRV circulars + source register",
+    "Empty / Edge State": "No data -> explain exactly what is missing",
+    "Suggested UI": "Progress checklist / badges",
+    "Competition Story": "Shows the prototype can be used responsibly before all datasets are available",
+    "Must Not Do": "Do not fabricate facility-level emissions."
+  },
+  {
+    "Screen": "08 — Result Summary",
+    "Goal": "Give exportable decision summary",
+    "Primary Inputs": "All preceding modules",
+    "Primary Outputs": "Inventory status; quota status; A; official allowance; compliance gap; sources",
+    "Excel Logic Source": "USER_SIMULATOR",
+    "Legal Evidence": "All linked legal sources",
+    "Empty / Edge State": "Partial results allowed with uncertainty badges",
+    "Suggested UI": "One-page result + PDF/export CTA",
+    "Competition Story": "A polished end state for judging/demo",
+    "Must Not Do": "Do not show a definitive legal conclusion when core evidence is missing."
+  }
+]
