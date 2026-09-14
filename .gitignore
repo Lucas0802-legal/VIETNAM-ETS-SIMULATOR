@@ -68,3 +68,5 @@ pids/
 .node_repl_history
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+.vercel
